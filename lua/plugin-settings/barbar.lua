@@ -49,3 +49,11 @@ if bufferline == nil then bufferline = {} end
 bufferline.no_name_title = '[no-name]'
 
 vim.g.bufferline = bufferline
+
+local cmd = vim.cmd
+
+cmd[[highlight BufferCurrent guibg=#2C323C]]
+cmd[[highlight BufferCurrentMod guibg=#2C323C]]
+cmd[[highlight BufferCurrentSign guibg=#2C323C]]
+cmd[[highlight BufferCurrentTarget guibg=#2C323C]]
+cmd[[highlight BufferCurrentIndex guibg=#2C323C]]
