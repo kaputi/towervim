@@ -6,12 +6,34 @@ return {
   -- ====================
   -- Syntax, LSP, Autocomplete
   -- ====================
-
+  {'neovim/nvim-lspconfig'},
+  {
+    'kabouzeid/nvim-lspinstall',
+    config = function() require'lspinstall'.setup() end
+  },
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = [[require('plugin-settings.treesitter')]]
   },
+  {
+    "hrsh7th/nvim-compe",
+    event = "InsertEnter",
+    config = [[require('plugin-settings.compe')]]
+    -- wants = "vim-vsnip",
+    -- requires = {
+    -- {
+    --   "hrsh7th/vim-vsnip",
+    --   wants = "friendly-snippets",
+    --   event = "InsertCharPre",
+    -- },
+    -- {
+    --   "rafamadriz/friendly-snippets",
+    --   event = "InsertCharPre",
+    -- },
+    -- },
+  },
+  -- TODO: vsnip
 
   -- ====================
   -- CODE
@@ -67,10 +89,19 @@ return {
     'kyazdani42/nvim-tree.lua',
     config = [[require('plugin-settings.nvimtree')]]
   },
-   
+
   -- fuzzy  find
   {'nvim-lua/popup.nvim'},
   {'nvim-lua/plenary.nvim'},
   {'nvim-telescope/telescope.nvim'},
+
+  -- git signs
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("plugin-settings.gitsigns")
+    end,
+    event = "BufRead",
+  }
 
 }

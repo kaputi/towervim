@@ -30,6 +30,7 @@ require 'core.plugins'
 -- AUTOCOMMANDS
 local autocmd = require 'core.autocmd'
 autocmd:setup()
+
 -- LSP
 
 -- KEYMAPPINGS
