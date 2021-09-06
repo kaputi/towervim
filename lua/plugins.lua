@@ -33,8 +33,10 @@ return {
     -- },
     -- },
   },
-  -- TODO: vsnip
-
+  {
+    "hrsh7th/vim-vsnip",
+    event = "InsertEnter",
+  },
   -- ====================
   -- CODE
   -- ====================
@@ -81,7 +83,8 @@ return {
   -- whichkey
   {
     'folke/which-key.nvim',
-    config = [[require('plugin-settings.whichkey')]]
+    config = [[require('plugin-settings.whichkey')]],
+    event = "BufWinEnter",
   },
 
   -- File tree
@@ -102,6 +105,26 @@ return {
       require("plugin-settings.gitsigns")
     end,
     event = "BufRead",
+  },
+  -- project.nvim
+  {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("plugin-settings.project")
+    end,
+  },
+  {
+    'mhinz/vim-startify',
+    config = function()
+      require("plugin-settings.dashboard")
+    end
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    event = "BufwinEnter" ,
+    config = function ()
+      require('plugin-settings.toggleterm')
+    end
   }
 
 }

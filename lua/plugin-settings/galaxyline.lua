@@ -52,7 +52,6 @@ gls.left[1] = {
                           t = colors.red}
       vim.api.nvim_command('hi GalaxyViMode guibg='..mode_color[vim.fn.mode()])
       return "  " ..  vim.fn.mode() .. " "
-  --    return '  NVCode '
     end,
     separator = ' ',
     separator_highlight = {colors.yellow,function()
