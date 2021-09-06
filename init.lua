@@ -15,6 +15,9 @@ vim.cmd [[let &packpath = &runtimepath]]
 -- GLOBALS
 require 'core.globals'
 
+-- FUNCTIONS
+require 'functions'
+
 -- CONFIG
 local config = require 'core.config'
 config:load()
@@ -25,6 +28,8 @@ require 'core.plugins'
 -- TODO: maybe colorscheme needs to be loaded after plugins
 
 -- AUTOCOMMANDS
+local autocmd = require 'core.autocmd'
+autocmd:setup()
 -- LSP
 
 -- KEYMAPPINGS
