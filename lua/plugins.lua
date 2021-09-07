@@ -9,17 +9,29 @@ return {
   {'neovim/nvim-lspconfig'},
   {
     'kabouzeid/nvim-lspinstall',
-    config = function() require'lspinstall'.setup() end
+    config = function()
+      require'lspinstall'.setup()
+    end
+  },
+  {
+    "folke/trouble.nvim",
+    config =  function()
+      require('plugin-settings.trouble')
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = [[require('plugin-settings.treesitter')]]
+    config = function()
+      require('plugin-settings.treesitter')
+    end,
   },
   {
     "hrsh7th/nvim-compe",
     event = "InsertEnter",
-    config = [[require('plugin-settings.compe')]]
+    config = function()
+      require('plugin-settings.compe')
+    end,
     -- wants = "vim-vsnip",
     -- requires = {
     -- {
@@ -45,16 +57,25 @@ return {
   {
     'terrortylor/nvim-comment',
     event = "BufRead",
-    config = [[require('plugin-settings.comment')]]
+    config = function()
+      require('plugin-settings.comment')
+    end,
   },
 
   -- Auto pairs
   {
     'windwp/nvim-autopairs',
-    --TODO: after = "nvim-compe",
-    config = [[require('plugin-settings.autopairs')]]
+    after = "nvim-compe",
+    config = function()
+      require('plugin-settings.autopairs')
+    end,
+  },
+  --  surround
+  {
+    'tpope/vim-surround'
   },
 
+  -- TODO: 'windwp/nvim-ts-autotag' -- uses treesitter
 
   -- ====================
   -- UI
@@ -67,12 +88,16 @@ return {
   -- Tabbar, statusbar
   {
     'romgrk/barbar.nvim',
-    config = [[require('plugin-settings.barbar')]],
+    config = function()
+      require('plugin-settings.barbar')
+    end,
     event = 'BufWinEnter'
   },
   {
     'glepnir/galaxyline.nvim',
-    config = [[require('plugin-settings.galaxyline')]],
+    config = function()
+      require('plugin-settings.galaxyline')
+    end,
     event = 'BufWinEnter'
   },
 
@@ -83,14 +108,18 @@ return {
   -- whichkey
   {
     'folke/which-key.nvim',
-    config = [[require('plugin-settings.whichkey')]],
+    config = function()
+      require('plugin-settings.whichkey')
+    end,
     event = "BufWinEnter",
   },
 
   -- File tree
   {
     'kyazdani42/nvim-tree.lua',
-    config = [[require('plugin-settings.nvimtree')]]
+    config = function()
+      require('plugin-settings.nvimtree')
+    end,
   },
 
   -- fuzzy  find
@@ -117,14 +146,32 @@ return {
     'mhinz/vim-startify',
     config = function()
       require("plugin-settings.dashboard")
-    end
+    end,
   },
+  -- Terminal
   {
     "akinsho/toggleterm.nvim",
     event = "BufwinEnter" ,
     config = function ()
       require('plugin-settings.toggleterm')
-    end
-  }
-
+    end,
+  },
+  -- text navigation
+  {
+    "justinmk/vim-sneak",
+    config =  function()
+      require('plugin-settings.sneak')
+    end,
+  },
+  {
+    'lambdalisue/suda.vim',
+    config =  function()
+      require('plugin-settings.suda')
+    end,
+  },
+  -- TODO: 'liuchengxu/vista.vim'
+  -- TODO: Indent guides maybe {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+  -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
+  -- TODO: undotree 'mbbill/undotree'
+  -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
 }

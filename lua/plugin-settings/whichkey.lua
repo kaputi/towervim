@@ -7,10 +7,10 @@ require("which-key").setup {
 -- or leave it empty to use the default settings
 -- refer to the configuration section below
  plugins = {
-    marks = true, -- shows a list of your marks on ' and `
-    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    marks = false, -- shows a list of your marks on ' and `
+    registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     spelling = {
-      enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
       suggestions = 20, -- how many suggestions should be shown in the list?
     },
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
@@ -34,6 +34,7 @@ require("which-key").setup {
     ["<space>"] = "SPC",
     -- ["<cr>"] = "RET",
     ["<tab>"] = "TAB",
+    ["<Tab>"] = "TAB",
   },
   icons = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
@@ -41,16 +42,16 @@ require("which-key").setup {
     group = "+", -- symbol prepended to a group
   },
   window = {
-    border = "none", -- none, single, double, shadow
+    border = "single", -- none, single, double, shadow
     position = "bottom", -- bottom, top
-    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
+    padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
   },
   layout = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
     width = { min = 20, max = 50 }, -- min and max width of the columns
     spacing = 3, -- spacing between columns
-    align = "left", -- align columns left, center or right
+    align = "center", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
@@ -88,22 +89,17 @@ local vmappings = {
 }
 
 local nmappings = {
-  ['/'] = {'<cmd>CommentToggle<CR>', 'Comment Line'}, 
+  ['/'] = {'<cmd>CommentToggle<CR>', 'Comment Line'},
   ['='] = {'<C-w>=', 'Balance Windows'},
   [','] = {'<cmd>Telescope buffers<CR>', 'Buffer List'},
-  --[' '] = {'<cmd>Telescope find_files find_command=rg,--ignore-case,--hidden,--files,--ignore<CR>','Find File'},
   [' '] = {'<cmd>Telescope find_files<CR>', 'Files'},
   ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
   ['e'] = {'<cmd>NvimTreeToggle<CR>', 'File Explorer'},
   ['h'] = {'<cmd>split | Telescope buffers<CR>', 'Horizontal Split'},
-  -- ['j'] = {},
-  -- ['J'] = {},
-  -- ['k'] = {},
-  -- ['K'] = {},
-  -- ['m'] = {},
   ['o'] = {'<cmd>call append(line("."),   repeat([""], v:count1))<CR>', 'Line Below'},
   ['O'] = {'<cmd>call append(line(".")-1,   repeat([""], v:count1))<CR>', 'Line Above'},
   ['p'] = {'<cmd>Telescope find_files<CR>', 'Files'},
+  -- TODO: make this search include hidden ['p'] = {'<cmd>Telescope find_files find_command=rg,--ignore-case,--hidden,--files,--ignore<CR>','Find File'},
   ['P'] = {'<cmd>Telescope commands<CR>', 'Commands'},
   ['q'] = {'<cmd>q<CR>', 'Quit'},
   ['Q'] = {'<cmd>qa!<CR>','Quit All!!'},
@@ -115,17 +111,23 @@ local nmappings = {
 
   -- Dashboard Layer
   ['<tab>'] = {
-    name = '>>Dashboard<<'
+    name = '>>Dashboard<<',
+    ['<tab>'] = {'<cmd>Startify<CR>', 'Dashboard'},
+    ['c'] = {'<cmd>:SClose<CR>', 'Close Session'},
+    ['d'] = {'<cmd>:SDelete<CR>', 'Delete Session'},
+    ['l'] = {'<cmd>:SLoad<CR>', 'Load Session'},
+    ['s'] = {'<cmd>:SSave<CR>', 'Save Session'},
   },
 
   -- Actions layer
   ['a'] = {
     name = ">>Actions<<",
-    ['c'] = {'<cmd>PackerClean<CR>', 'Clean Plugins'},
-    ['i'] = {'<cmd>PackerInstall<CR>', 'Install Plugins'},
+    ['c'] = {'<cmd>PackerClean<CR>', 'Packer Clean'},
+    ['C'] = {'<cmd>PackerCompile<CR>', 'Packer Compile'},
+    ['i'] = {'<cmd>PackerInstall<CR>', 'Pacekr Install'},
     ['s']  = {'<cmd>set hls!<CR>', 'Remove Search Highlights'},
-    ['u'] = {'<cmd>PackerUpdate<CR>', 'Update Plugins'},
-    ['U'] = {'<cmd>PackerSync<CR>', 'Sync Plugins'}
+    ['u'] = {'<cmd>PackerUpdate<CR>', 'Packer Update'},
+    ['U'] = {'<cmd>PackerSync<CR>', 'Packer Sync'}
   },
 
   -- Buffer Layer
@@ -144,21 +146,27 @@ local nmappings = {
   -- Code Layer
   ['c'] = {
     name = '>>Code(lsp)<<'
+    -- TODO: maybe change to just lsp and move to l
   },
 
   -- Debug Layer
   ['D'] = {
     name = '>>Debug<<'
+    -- TODO:
   },
 
   -- File Layer
   ['f'] = {
     name = '>>File<<'
+    -- TODO: rename file
+    -- TODO: copy file path
+    -- TODO: yank file path
   },
 
   -- Git Layer
   ['g'] = {
     name = '>>Git<<'
+    -- TODO:
   },
 
   -- Replace Layer
@@ -166,7 +174,7 @@ local nmappings = {
     name = '>>Replace<<',
     ['R'] = {':%s/<C-r><C-w>/','Replace All'},
     ['r'] = {':s/<C-r><C-w>/','Replace Under Cursor'},
-    -- ['s'] = {'"_d"*p','Replace Selection with register'},
+    -- TODO: move to visual  and check if works ['s'] = {'"_d"*p','Replace Selection with register'},
     ['y'] = {':s/<C-r><C-w>/<C-r>0<CR>','Replace Under Cursor With Register'},
     ['Y'] = {':%s/<C-r><C-w>/<C-r>0/g<CR>','Replace All With Register'}
   },
@@ -228,6 +236,7 @@ local nmappings = {
   -- Scratch Layer
   ['x'] = {
     name = '>>Scratchpad<<'
+    -- TODO:
   },
 
 }

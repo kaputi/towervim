@@ -52,10 +52,6 @@ function M.load(keymaps)
 end
 
 function M.setup()
-  -- TODO: remove lvim stuff
-  --vim.g.mapleader = (lvim.leader == "space" and " ") or lvim.leader
-  --M.load(lvim.keys)
-
   local keys = require 'mappings'
 
   --TODO: set leader

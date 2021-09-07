@@ -23,6 +23,7 @@ local config = require 'core.config'
 config:load()
 
 -- PLUGINS
+-- TODO: fine tune plgin settings
 require 'core.plugins'
 
 -- TODO: maybe colorscheme needs to be loaded after plugins
@@ -36,3 +37,11 @@ autocmd:setup()
 -- KEYMAPPINGS
 local mappings = require 'core.mappings'
 mappings:setup()
+
+
+-- TODO:
+--  change color  for matcing ([{}])
+--  checkout kristijanhusak/orgmode.nvim
+--  install vimwiki
+--  maybe upgrade from compe to cmp
+--  configure telescope properly(esc 1 time etc)
