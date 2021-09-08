@@ -7,6 +7,7 @@ return {
   -- Syntax, LSP, Autocomplete
   -- ====================
   {'neovim/nvim-lspconfig'},
+  {'jose-elias-alvarez/null-ls.nvim'},
   {
     'kabouzeid/nvim-lspinstall',
     config = function()
@@ -18,6 +19,9 @@ return {
     config =  function()
       require('plugin-settings.trouble')
     end,
+  },
+  {
+    'kaputi/e-kaput.nvim'
   },
   {
     'nvim-treesitter/nvim-treesitter',

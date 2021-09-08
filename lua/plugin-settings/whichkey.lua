@@ -105,6 +105,8 @@ local nmappings = {
   ['Q'] = {'<cmd>qa!<CR>','Quit All!!'},
   -- ['r'] = {},
   -- ['u'] = {},
+  ['t'] = {'<cmd>ToggleTerm<CR>','Terminal'},
+  -- ['r'] = {},
   ['v'] = {'<cmd>vsplit | Telescope buffers<CR>', 'Vertical Split'},
   ['y'] = {'<cmd>Telescope registers<CR>', 'Yank List'},
 
@@ -158,6 +160,8 @@ local nmappings = {
   -- File Layer
   ['f'] = {
     name = '>>File<<'
+    -- TODO: new file at same path as current
+    -- TODO: delete file
     -- TODO: rename file
     -- TODO: copy file path
     -- TODO: yank file path
@@ -206,7 +210,7 @@ local nmappings = {
   },
 
   -- Toglge layer
-  ['t'] = {
+  ['T'] = {
     name = '>>Toggle<<',
     ['c'] = {'<cmd>setlocal cursorcolumn!<CR>', 'Cursor Column'},
     ['d'] = {'<cmd>set background=dark<CR>', 'Dark  Background'},
