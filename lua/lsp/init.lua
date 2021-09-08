@@ -71,7 +71,7 @@ function M.common_on_attach(client, bufnr)
   lsp_highlight_document(client)
   lsp_buffer_keybindings(bufnr)
   -- TODO: not sure what this is
-  -- require("lsp.null-ls").setup(vim.bo.filetype)
+  require("lsp.null-ls").setup(vim.bo.filetype)
 end
 
 -- TODO: this can be more dinamic, with a function that gets settings and gets called in common_on_attach

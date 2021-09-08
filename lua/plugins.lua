@@ -14,6 +14,9 @@ return {
       require'lspinstall'.setup()
     end
   },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  -- },
   {
     "folke/trouble.nvim",
     config =  function()
