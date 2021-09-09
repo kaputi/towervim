@@ -59,7 +59,7 @@ M.diagnostics = {
 
 -- Highlights
 M.highlights = true
-
+M.format_on_save = true
 
 
 

@@ -8,6 +8,7 @@ return {
   -- ====================
   {'neovim/nvim-lspconfig'},
   {'jose-elias-alvarez/null-ls.nvim'},
+  {"tamago324/nlsp-settings.nvim"},
   {
     'kabouzeid/nvim-lspinstall',
     config = function()

@@ -29,10 +29,10 @@ function M.setup(filetype, options)
   options = options or {}
 
   local formatters = require "lsp.null-ls.formatters"
-  -- local linters = require "lsp.null-ls.linters"
+  local linters = require "lsp.null-ls.linters"
 
   formatters.setup(filetype, options)
-  -- linters.setup(filetype, options)
+  linters.setup(filetype, options)
 end
 
 return M

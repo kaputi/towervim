@@ -1,3 +1,9 @@
+local schemas = nil
+local status_ok, jsonls_settings = pcall(require, "nlspsettings.jsonls")
+if status_ok then
+  schemas = jsonls_settings.get_default_schemas()
+end
+
 local M = {
   css = {
     formatters = {
@@ -6,7 +12,7 @@ local M = {
       --   args = {},
       -- },
       -- {
-      --   exe = "prettierd",
+  --   exe = "prettierd",
       --   args = {},
       -- },
     },
@@ -64,16 +70,21 @@ local M = {
       --   exe = "json_tool",
       --   args = {},
       -- },
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
       -- },
     },
-    linters = {},
+    linters = {
+      {
+        exe = 'eslint',
+        args = { }
+      }
+    },
     lsp = {
       provider = "jsonls",
       setup = {
@@ -178,10 +189,10 @@ local M = {
   },
   javascript = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettier_d_slim",
       --   args = {},
@@ -192,7 +203,12 @@ local M = {
       -- },
     },
     -- @usage can be {"eslint"} or {"eslint_d"}
-    linters = {},
+    linters ={
+      {
+        exe = 'eslint',
+        args = { }
+      }
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -206,10 +222,10 @@ local M = {
   },
   javascriptreact = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettier_d_slim",
       --   args = {},
@@ -219,7 +235,12 @@ local M = {
       --   args = {},
       -- },
     },
-    linters = {},
+    linters ={
+      {
+        exe = 'eslint',
+        args = { }
+      }
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -273,10 +294,10 @@ local M = {
   },
   typescript = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
@@ -286,7 +307,12 @@ local M = {
       --   args = {},
       -- },
     },
-    linters = {},
+    linters = {
+      {
+        exe = 'eslint',
+        args = { }
+      }
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -300,10 +326,10 @@ local M = {
   },
   typescriptreact = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
@@ -314,7 +340,12 @@ local M = {
       -- },
     },
     -- @usage can be {"eslint"} or {"eslint_d"}
-    linters = {},
+    linters ={
+      {
+        exe = 'eslint',
+        args = { }
+      }
+    },
     lsp = {
       provider = "tsserver",
       setup = {

@@ -55,8 +55,8 @@ M.mappings = {
     ['bp'] = ':BufferPrevious<CR>',
     ['bd'] = ':BufferClose<CR>',
     -- H and L to switch tabs
-    ['H'] = ':BufferNext<CR>',
-    ['L'] = ':BufferPrevious<CR>',
+    ['L'] = ':BufferNext<CR>',
+    ['H'] = ':BufferPrevious<CR>',
 
   },
   term_mode = {},

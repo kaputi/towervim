@@ -35,8 +35,8 @@ autocmd:setup()
 -- LSP
 require 'lsp'.config()
 
--- require("null-ls").config({})
--- require("lspconfig")["null-ls"].setup({})
+require("null-ls").config({})
+require("lspconfig")["null-ls"].setup({})
 
 -- TODO: for setting up ls with json files
 -- local lsp_settings_status_ok,

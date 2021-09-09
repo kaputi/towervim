@@ -3,7 +3,6 @@ local linters_by_ft = {}
 
 local null_ls = require "null-ls"
 local services = require "lsp.null-ls.services"
-local Log = require "core.log"
 
 local function list_names(linters, options)
   options = options or {}
@@ -45,16 +44,14 @@ function M.list_configured(linter_configs)
     local linter = null_ls.builtins.diagnostics[lnt_config.exe]
 
     if not linter then
-      Log:error("Not a valid linter:", lnt_config.exe)
       errors[lnt_config.exe] = {} -- Add data here when necessary
     else
       local linter_cmd = services.find_command(linter._opts.command)
       if not linter_cmd then
-        Log:warn("Not found:", linter._opts.command)
         errors[lnt_config.exe] = {} -- Add data here when necessary
       else
-        Log:debug("Using linter:", linter_cmd)
-        linters[lnt_config.exe] = linter.with { command = linter_cmd, extra_args = lnt_config.args }
+        linters[lnt_config.exe] = linter.with { command = linter_cmd, extra_args = lnt_config.args, diagnostics_format = "#{m} [#{c}]" }
+
       end
     end
   end
@@ -63,12 +60,15 @@ function M.list_configured(linter_configs)
 end
 
 function M.setup(filetype, options)
-  if not lvim.lang[filetype] or (linters_by_ft[filetype] and not options.force_reload) then
+  local ls_settings = require('lsp.ls-settings')[filetype]
+
+  if not ls_settings or (linters_by_ft[filetype] and not options.force_reload) then
     return
   end
 
-  linters_by_ft[filetype] = M.list_configured(lvim.lang[filetype].linters)
-  null_ls.register { sources = linters_by_ft[filetype].supported }
+  linters_by_ft[filetype] = M.list_configured(ls_settings.linters)
+  vim.g.lintc = linters_by_ft
+  null_ls.register { sources = linters_by_ft[filetype].supported, name= ls_settings.linters.exe }
 end
 
 return M

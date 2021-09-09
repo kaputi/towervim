@@ -2,6 +2,30 @@ local M = {}
 
 local settings = require('lsp.settings')
 
+
+-- autoformat
+local toggle_autoformat =  function()
+  if settings.format_on_save then
+    require("core.autocmd").create_augroups {
+      autoformat = {
+        {
+          "BufWritePre",
+          "*",
+          ":silent lua vim.lsp.buf.formatting_sync()",
+        },
+      },
+    }
+  end
+
+  if not settings.format_on_save then
+    vim.cmd [[
+      if exists('#autoformat#BufWritePre')
+        :autocmd! autoformat
+      endif
+    ]]
+  end
+end
+
 function M.config()
   -- Item Kind
   vim.lsp.protocol.CompletionItemKind = settings.kind
@@ -13,6 +37,9 @@ function M.config()
 
   -- setup handlers
   require('lsp.handlers').setup()
+
+  toggle_autoformat()
+
 end
 
 local function lsp_highlight_document(client)

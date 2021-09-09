@@ -1,6 +1,6 @@
 local M = {}
 local api = vim.api
-local function create_augroups(definitions)
+M.create_augroups = function(definitions)
 	for group_name, definition in pairs(definitions) do
 		api.nvim_command('augroup '..group_name)
 		api.nvim_command('autocmd!')
@@ -17,8 +17,8 @@ end
 
 function M.setup ()
   local autocmds = require 'autocmds'
-  
-  create_augroups(autocmds.groups)
+
+  M.create_augroups(autocmds.groups)
 
   autocmds:run()
 end

@@ -65,8 +65,8 @@ function M.setup(filetype, options)
     return
   end
 
-  -- formatters_by_ft[filetype] = M.list_configured(ls_settings[filetype].formatters)
-  -- null_ls.register { sources = formatters_by_ft[filetype].supported }
+  formatters_by_ft[filetype] = M.list_configured(ls_settings.formatters)
+  null_ls.register { sources = formatters_by_ft[filetype].supported }
 end
 
 return M
