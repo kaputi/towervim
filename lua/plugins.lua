@@ -82,9 +82,10 @@ return {
   {
     'tpope/vim-surround'
   },
-
-  -- TODO: 'windwp/nvim-ts-autotag' -- uses treesitter
-
+  -- auto close html jsx tags
+  { 'windwp/nvim-ts-autotag' }, -- uses treesitter
+  -- rainbow parentheses
+  { 'p00f/nvim-ts-rainbow' },
   -- ====================
   -- UI
   -- ====================
@@ -177,9 +178,17 @@ return {
       require('plugin-settings.suda')
     end,
   },
+  -- highlight color codes with its color
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('plugin-settings.colorizer')
+    end
+  },
   -- TODO: 'liuchengxu/vista.vim'
   -- TODO: Indent guides maybe {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: undotree 'mbbill/undotree'
   -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
+  -- TODO: vimwiki
 }
