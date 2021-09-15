@@ -66,7 +66,7 @@ cmp.setup{
     -- vsnip
     ["<tab>"] = cmp.mapping(function()
       if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t "<down>", "n")
+        vim.fn.feedkeys(t "<C-n>", "n")
       elseif vim.fn.call("vsnip#available", {1}) == 1 then
         vim.fn.feedkeys(t "<plug>(vsnip-expand-or-jump)", "")
       elseif check_backspace() then
@@ -78,7 +78,7 @@ cmp.setup{
 
     ["<s-tab>"] = cmp.mapping(function()
       if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t "<up>", "n")
+        vim.fn.feedkeys(t "<C-p>", "n")
      elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
         vim.fn.feedkeys(t "<plug>(vsnip-jump-prev)", "")
       else
