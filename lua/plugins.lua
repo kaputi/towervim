@@ -35,28 +35,32 @@ return {
     end,
   },
   {
-    "hrsh7th/nvim-compe",
-    event = "InsertEnter",
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/vim-vsnip",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lua",
+    },
     config = function()
-      require('plugin-settings.compe')
+      require('plugin-settings.cmp')
     end,
-    -- wants = "vim-vsnip",
-    -- requires = {
-    -- {
-    --   "hrsh7th/vim-vsnip",
-    --   wants = "friendly-snippets",
-    --   event = "InsertCharPre",
-    -- },
-    -- {
-    --   "rafamadriz/friendly-snippets",
-    --   event = "InsertCharPre",
-    -- },
-    -- },
+
   },
+  -- ====================
+  -- Snippets
+  -- ====================
+  -- sniped engine
   {
     "hrsh7th/vim-vsnip",
-    event = "InsertEnter",
+    config = function()
+      require('plugin-settings.vsnip')
+    end
   },
+  {'dsznajder/vscode-es7-javascript-react-snippets'},
+
   -- ====================
   -- CODE
   -- ====================
@@ -73,7 +77,7 @@ return {
   -- Auto pairs
   {
     'windwp/nvim-autopairs',
-    after = "nvim-compe",
+    after = "nvim-cmp",
     config = function()
       require('plugin-settings.autopairs')
     end,
