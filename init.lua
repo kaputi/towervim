@@ -25,7 +25,6 @@ local config = require 'core.config'
 config:load()
 
 -- PLUGINS
--- TODO: fine tune plgin settings
 require 'core.plugins'
 
 -- TODO: maybe colorscheme needs to be loaded after plugins
@@ -54,9 +53,7 @@ mappings:setup()
 
 -- TODO:
 --  find a way to get nvimtree to use the path of the session oppend with startify
---  change color  for matcing ([{}])
 --  checkout kristijanhusak/orgmode.nvim
 --  install vimwiki
---  maybe upgrade from compe to cmp
 --  configure telescope properly(esc 1 time etc)
 --  Ranger as file explorer

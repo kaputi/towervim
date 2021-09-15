@@ -1,4 +1,3 @@
--- TODO: check lunarvim conf
 require'compe'.setup {
   enabled = true;
   autocomplete = true;

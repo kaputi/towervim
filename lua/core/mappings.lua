@@ -54,7 +54,6 @@ end
 function M.setup()
   local keys = require 'mappings'
 
-  --TODO: set leader
   M.load(keys.mappings)
 
   keys:run()

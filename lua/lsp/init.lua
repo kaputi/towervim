@@ -145,18 +145,8 @@ end
 function M.common_on_attach(client, bufnr)
   lsp_highlight_document(client)
   lsp_buffer_keybindings(bufnr)
-  -- TODO: not sure what this is
   require("lsp.null-ls").setup(vim.bo.filetype)
 end
-
--- TODO: this can be more dinamic, with a function that gets settings and gets called in common_on_attach
--- TODO: the above can be done in ls-settings maybe :)
-function M.tsserver_on_attach(client, bufnr)
-  M.common_on_attach(client, bufnr)
-  client.resolved_capabilities.document_formatting = false
-  -- TODO: need to instal the ts utils require("nvim-lsp-ts-utils").setup {}
-end
-
 
 local function is_client_active(name)
   local clients = vim.lsp.get_active_clients()
