@@ -58,6 +58,9 @@ M.mappings = {
     ['L'] = ':BufferNext<CR>',
     ['H'] = ':BufferPrevious<CR>',
 
+    -- Yank to end of line
+    ['Y'] = 'y$'
+
   },
   term_mode = {},
   visual_mode = {
