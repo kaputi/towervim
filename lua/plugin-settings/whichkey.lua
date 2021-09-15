@@ -39,7 +39,7 @@ require("which-key").setup {
   icons = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
     separator = "➜", -- symbol used between a key and it's label
-    group = "+", -- symbol prepended to a group
+    group = "", -- symbol prepended to a group
   },
   window = {
     border = "single", -- none, single, double, shadow
@@ -113,7 +113,7 @@ local nmappings = {
 
   -- Dashboard Layer
   ['<tab>'] = {
-    name = '>>Dashboard<<',
+    name = '>> Dashboard <<',
     ['<tab>'] = {'<cmd>Startify<CR>', 'Dashboard'},
     ['c'] = {'<cmd>:SClose<CR>', 'Close Session'},
     ['d'] = {'<cmd>:SDelete<CR>', 'Delete Session'},
@@ -123,7 +123,7 @@ local nmappings = {
 
   -- Actions layer
   ['a'] = {
-    name = ">>Actions<<",
+    name = ">> Actions <<",
     ['c'] = {'<cmd>PackerClean<CR>', 'Packer Clean'},
     ['C'] = {'<cmd>PackerCompile<CR>', 'Packer Compile'},
     ['i'] = {'<cmd>PackerInstall<CR>', 'Pacekr Install'},
@@ -134,7 +134,7 @@ local nmappings = {
 
   -- Buffer Layer
   ['b'] = {
-    name = ">>Buffers<<",
+    name = ">> Buffers <<",
     ['b'] = {'<cmd>Telescope buffers<CR>','Find Buffer'},
     ['d'] = {'<cmd>bp | bd! #<CR>','Delete Buffer Without Saving'},
     ['D'] = {'<cmd>%bd<CR>','Delete All Buffers'},
@@ -145,21 +145,15 @@ local nmappings = {
     ['p'] = {'<cmd>BufferPrevious<CR>', 'Previous Buffer'}
   },
 
-  -- Code Layer
-  ['c'] = {
-    name = '>>Code(lsp)<<'
-    -- TODO: maybe change to just lsp and move to l
-  },
-
   -- Debug Layer
   ['D'] = {
-    name = '>>Debug<<'
+    name = '>> Debug <<'
     -- TODO:
   },
 
   -- File Layer
   ['f'] = {
-    name = '>>File<<'
+    name = '>> File <<'
     -- TODO: new file at same path as current
     -- TODO: delete file
     -- TODO: rename file
@@ -169,13 +163,13 @@ local nmappings = {
 
   -- Git Layer
   ['g'] = {
-    name = '>>Git<<'
+    name = '>> Git <<'
     -- TODO:
   },
 
   -- Replace Layer
   ['R'] = {
-    name = '>>Replace<<',
+    name = '>> Replace <<',
     ['R'] = {':%s/<C-r><C-w>/','Replace All'},
     ['r'] = {':s/<C-r><C-w>/','Replace Under Cursor'},
     -- TODO: move to visual  and check if works ['s'] = {'"_d"*p','Replace Selection with register'},
@@ -185,7 +179,7 @@ local nmappings = {
 
   -- Search Layer
   ['s'] = {
-    name = '>>Search<<',
+    name = '>> Search <<',
     [';'] = {'<cmd>Telescope commands<CR>', 'Commands'},
     -- ['a'] = {':Ag'                , 'Text Ag'},
     ['b'] = {'<cmd>Telescope current_buffer_fuzzy_find<CR>', 'Current Buffer'},
@@ -211,7 +205,7 @@ local nmappings = {
 
   -- Toglge layer
   ['T'] = {
-    name = '>>Toggle<<',
+    name = '>> Toggle <<',
     ['c'] = {'<cmd>setlocal cursorcolumn!<CR>', 'Cursor Column'},
     ['d'] = {'<cmd>set background=dark<CR>', 'Dark  Background'},
     -- ['i'] = {'<cmd>IndentLinesToggle<CR>', 'Indent Lines'},
@@ -230,7 +224,7 @@ local nmappings = {
 
   -- Window Layer
   ['w'] = {
-    name = '>>Window<<',
+    name = '>> Window <<',
     ['h'] = {'<C-W>H', 'Move Left'},
     ['j'] = {'<C-W>J', 'Move Down'},
     ['k'] = {'<C-W>K', 'Move Up'},
@@ -239,7 +233,7 @@ local nmappings = {
 
   -- Scratch Layer
   ['x'] = {
-    name = '>>Scratchpad<<'
+    name = '>> Scratchpad <<'
     -- TODO:
   },
 
@@ -248,6 +242,7 @@ local nmappings = {
 local wk = require("which-key")
 
 wk.register(nmappings, nopts)
+wk.register(vmappings, vopts)
 
 -- Highlights
 vim.cmd[[au VimEnter * highlight WhichKeyGroup guifg=#ff0000]]
