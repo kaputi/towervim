@@ -27,8 +27,6 @@ config:load()
 -- PLUGINS
 require 'core.plugins'
 
--- TODO: maybe colorscheme needs to be loaded after plugins
-
 -- AUTOCOMMANDS
 local autocmd = require 'core.autocmd'
 autocmd:setup()

@@ -11,7 +11,7 @@ return {
   {"tamago324/nlsp-settings.nvim"},
   {
     'kabouzeid/nvim-lspinstall',
-    event = "VimEnter",
+    -- event = "VimEnter",
     config = function()
       require'lspinstall'.setup()
     end
@@ -189,6 +189,18 @@ return {
     config = function()
       require('plugin-settings.colorizer')
     end
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    -- TODO: if i require a file, options won't get loaded, plugin doest show on :PackerStatus
+    config =
+      require('indent_blankline').setup{
+        char_list = { '|', '¦', '┆', '┊' },
+        buftype_exclude = {"terminal"},
+        use_treesitter = true,
+        space_char_blankline = " ",
+        show_current_context = true,
+      }
   },
   -- TODO: 'liuchengxu/vista.vim'
   -- TODO: Indent guides maybe {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
