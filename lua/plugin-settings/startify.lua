@@ -66,6 +66,11 @@ vim.g.startify_lists = {
 --   \ 'echo "Cleaning up"',
 --   \ 'silent! Vista!',
 --   \ ]
+vim.g.startify_session_before_save = {
+  'silent! tabdo NvimTreeClose',
+  'silent! bd! NvimTree',
+  'silent! bwipe! NvimTree'
+}
 
 vim.g.startify_custom_header = vim.fn['startify#center'](header)
 vim.g.startify_custom_footer = vim.fn['startify#center'](footer)

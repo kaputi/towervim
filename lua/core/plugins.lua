@@ -14,7 +14,7 @@ local util = require 'packer.util'
 packer.init({
   package_root = home_dir .. '/.local/share/towervim/site/pack',
   -- compile_path = home_dir .. '/.towervim/plugin/packer_compiled.lua',
-  compile_path = CONFIG_PATH .. 'plugin/packer_compil.lua',
+  compile_path = CONFIG_PATH .. '/plugin/packer_compile.lua',
   display = {
     open_fn = function ()
       return util.float { border = 'rounded' }

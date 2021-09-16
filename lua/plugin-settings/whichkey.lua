@@ -115,7 +115,6 @@ local nmappings = {
   ['<tab>'] = {
     name = '>> Dashboard <<',
     ['<tab>'] = {'<cmd>Startify<CR>', 'Dashboard'},
-    ['c'] = {'<cmd>:SClose<CR>', 'Close Session'},
     ['d'] = {'<cmd>:SDelete<CR>', 'Delete Session'},
     ['l'] = {'<cmd>:SLoad<CR>', 'Load Session'},
     ['s'] = {'<cmd>:SSave<CR>', 'Save Session'},

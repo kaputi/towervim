@@ -49,7 +49,12 @@ M.groups = {
 		-- {"User", "StartifyReady", "set showtabline=0"},
     -- {"User", "StartifyBufferOpened", "set showtabline=2"},
     -- {"User", "StartifyBufferOpened", "set laststatus=2"}
-	}
+	},
+  NvimTree = {
+    {
+      "FileType", "NvimTree", "setlocal bufhidden=delete"
+    }
+  }
 
 }
 

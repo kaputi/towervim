@@ -50,8 +50,8 @@ mappings:setup()
 
 
 -- TODO:
---  find a way to get nvimtree to use the path of the session oppend with startify
 --  checkout kristijanhusak/orgmode.nvim
 --  install vimwiki
 --  configure telescope properly(esc 1 time etc)
 --  Ranger as file explorer
+--  make diferent windows diferent(maybe slight background change)

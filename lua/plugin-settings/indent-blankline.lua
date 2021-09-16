@@ -20,6 +20,3 @@
 -- --   -- use_treesitter = true,
 -- --   -- show_current_context = true,
 -- }
-
-vim.g.lala='talfi'
-

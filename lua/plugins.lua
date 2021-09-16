@@ -159,7 +159,7 @@ return {
   {
     'mhinz/vim-startify',
     config = function()
-      require("plugin-settings.dashboard")
+      require("plugin-settings.startify")
     end,
   },
   -- Terminal
@@ -197,13 +197,17 @@ return {
       require('indent_blankline').setup{
         char_list = { '|', '¦', '┆', '┊' },
         buftype_exclude = {"terminal"},
+        filetype_exclude = {"startify", "help"},
         use_treesitter = true,
         space_char_blankline = " ",
         show_current_context = true,
+        show_first_indent_level = false,
+        --python context_patterns = { '^def', '^if', '^elif', '^else', '^for', '^with', '^while', '^until', '^try', '^except', '^finally' }
+        context_patterns = {'class', 'method' ,'function','^if',  '^else', '^for',  '^while',  '^try', '^catch', }
       }
   },
+
   -- TODO: 'liuchengxu/vista.vim'
-  -- TODO: Indent guides maybe {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: undotree 'mbbill/undotree'
   -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
