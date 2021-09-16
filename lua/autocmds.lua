@@ -1,6 +1,14 @@
 local M = {}
 
 M.groups = {
+  -- Whithout this lsp wont start on first open buffer
+  FileTypeLsp ={
+    {
+      "Filetype",
+      "*",
+      "lua require('utils.ft').do_filetype(vim.fn.expand(\"<amatch>\"))",
+    },
+  },
   YankHighlight = {
     {'TextYankPost', '*', 'silent! lua require"vim.highlight".on_yank()'}
   },

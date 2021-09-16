@@ -11,6 +11,7 @@ return {
   {"tamago324/nlsp-settings.nvim"},
   {
     'kabouzeid/nvim-lspinstall',
+    event = "VimEnter",
     config = function()
       require'lspinstall'.setup()
     end
