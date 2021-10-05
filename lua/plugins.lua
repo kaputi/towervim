@@ -38,17 +38,29 @@ return {
   {
     "hrsh7th/nvim-cmp",
     requires = {
+      "hrsh7th/vim-vsnip-integ",
       "hrsh7th/vim-vsnip",
       "hrsh7th/cmp-vsnip",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-calc",
+      "ray-x/cmp-treesitter",
     },
     config = function()
       require('plugin-settings.cmp')
     end,
 
+  },
+  {
+    'tzachar/cmp-tabnine',
+    run='./install.sh',
+    requires = 'hrsh7th/nvim-cmp',
+    config = function()
+      require('plugin-settings.cmp-tabnine')
+    end
   },
   -- ====================
   -- Snippets

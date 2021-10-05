@@ -96,6 +96,7 @@ local nmappings = {
   ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
   ['e'] = {'<cmd>NvimTreeToggle<CR>', 'File Explorer'},
   ['h'] = {'<cmd>split | Telescope buffers<CR>', 'Horizontal Split'},
+  ['n'] = {'<cmd>BufferNext<CR>', 'Horizontal Split'},
   ['o'] = {'<cmd>call append(line("."),   repeat([""], v:count1))<CR>', 'Line Below'},
   ['O'] = {'<cmd>call append(line(".")-1,   repeat([""], v:count1))<CR>', 'Line Above'},
   ['p'] = {'<cmd>Telescope find_files<CR>', 'Files'},

@@ -46,6 +46,9 @@ vim.g.startify_padding_left = 3
 vim.g.startify_enable_special = 0 -- show <empty-buffer> and <quit>
 vim.g.startify_session_sort = 1 -- sort sessions by modification time
 vim.g.startify_session_number = 10
+vim.g.startify_session_savecmds = {
+  'silent BarbarEnable'
+}
 
 -- show file icons
 vim.cmd([[

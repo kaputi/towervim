@@ -37,7 +37,6 @@ cmp.setup{
         calc = "[calc]",
         cmp_tabnine = "[tabnine]",
         vsnip = "[snippet]",
-        luasnip = "[snippet]",
         buffer = "[buffer]",
       })[entry.source.name]
       vim_item.dup = ({

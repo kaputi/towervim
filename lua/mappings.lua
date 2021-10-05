@@ -51,9 +51,10 @@ M.mappings = {
     ['k'] = 'gk',
 
     -- Buffer navigation
-    ['bn'] = ':BufferNext<CR>',
-    ['bp'] = ':BufferPrevious<CR>',
-    ['bd'] = ':BufferClose<CR>',
+    -- NOTE: this makes b slow for going bacckwards added to whichkey (SPC+n)
+    -- ['bn'] = ':BufferNext<CR>',
+    -- ['bp'] = ':BufferPrevious<CR>',
+    -- ['bd'] = ':BufferClose<CR>',
     -- H and L to switch tabs
     ['L'] = ':BufferNext<CR>',
     ['H'] = ':BufferPrevious<CR>',
