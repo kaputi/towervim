@@ -9,6 +9,7 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+
 cmp.setup{
   -- utilsnips
   -- snippet = {
@@ -63,30 +64,55 @@ cmp.setup{
     ["<c-d>"] = cmp.mapping.scroll_docs(-4),
     ["<c-f>"] = cmp.mapping.scroll_docs(4),
     -- vsnip
-    ["<tab>"] = cmp.mapping(function()
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t "<C-n>", "n")
-      elseif vim.fn.call("vsnip#available", {1}) == 1 then
-        vim.fn.feedkeys(t "<plug>(vsnip-expand-or-jump)", "")
-      elseif check_backspace() then
-        vim.fn.feedkeys(t "<tab>", "n")
-      else
-        vim.fn.feedkeys(t "<tab>", "n")
-      end
-     end,{"i","s"}),
+    ['<Tab>'] = cmp.mapping(
+      function(fallback)
+        if vim.fn.call("vsnip#jumpable", {1}) == 1 then
+          vim.fn.feedkeys(t "<plug>(vsnip-expand-or-jump)", "")
+        elseif cmp.visible() == true then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        elseif check_backspace() then
+          vim.fn.feedkeys(t "<tab>", "n")
+        else
+          fallback() -- The fallback function is treated as original mapped key. In this case, it might be `<Tab>`.
+        end
+      end, {"i","s"}
+      ),
+    ['<s-Tab>'] = cmp.mapping(
+      function(fallback)
+        if vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+          vim.fn.feedkeys(t "<plug>(vsnip-jump-prev)", "")
+        elseif cmp.visible() == true then
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+        else
+          fallback() -- The fallback function is treated as original mapped key. In this case, it might be `<Tab>`.
+        end
+      end, {"i","s"}
+      ),
 
-    ["<s-tab>"] = cmp.mapping(function()
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t "<C-p>", "n")
-     elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-        vim.fn.feedkeys(t "<plug>(vsnip-jump-prev)", "")
-      else
-        vim.fn.feedkeys(t "<s-tab>", "n")
-      end
-    end, {
-      "i",
-      "s",
-    }),
+    -- ["<tab>"] = cmp.mapping(function()
+    --   if vim.fn.pumvisible() == 1 then
+    --     vim.fn.feedkeys(t "<C-n>", "n")
+    --   elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    --     vim.fn.feedkeys(t "<plug>(vsnip-expand-or-jump)", "")
+    --   elseif check_backspace() then
+    --     vim.fn.feedkeys(t "<tab>", "n")
+    --   else
+    --     vim.fn.feedkeys(t "<tab>", "n")
+    --   end
+    --  end,{"i","s"}),
+
+    -- ["<s-tab>"] = cmp.mapping(function()
+    --   if vim.fn.pumvisible() == 1 then
+    --     vim.fn.feedkeys(t "<C-p>", "n")
+    --  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+    --     vim.fn.feedkeys(t "<plug>(vsnip-jump-prev)", "")
+    --   else
+    --     vim.fn.feedkeys(t "<s-tab>", "n")
+    --   end
+    -- end, {
+    --   "i",
+    --   "s",
+    -- }),
      -- utilsnips
     -- ["<tab>"] = cmp.mapping(function(fallback)
     --   if vim.fn.pumvisible() == 1 then
@@ -110,9 +136,18 @@ cmp.setup{
 
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
+    -- ["<Esc>"] = cmp.mapping(
+    --   function(fallback)
+    --     if cmp.visible() == true then
+    --       cmp.close()
+    --     else
+    --       fallback()
+    --     end
+    --   end, {"i", "s"}
+    -- ),
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     },
   },
 }

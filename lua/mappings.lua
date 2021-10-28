@@ -13,8 +13,12 @@ M.mappings = {
 
     -- navigate tab completion with <c-j> and <c-k>
     -- runs conditionally
-    ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-    ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+    ["<C-j>"] = {
+      'pumvisible() ? "\\<C-n>" : "\\<C-j>"', {expr = true, noremap = true}
+    },
+    ["<C-k>"] = {
+      'pumvisible() ? "\\<C-p>" : "\\<C-k>"', {expr = true, noremap = true}
+    }
   },
 
   normal_mode = {
@@ -30,10 +34,10 @@ M.mappings = {
     ['<c-l>'] = '<c-w>l',
 
     -- Use Alt + hjkl for resize
-    ['<A-j>'] = ':resize -2<CR>',
-    ['<A-k>'] = ':resize +2<CR>',
+    ['<A-j>'] = ':resize +2<CR>',
+    ['<A-k>'] = ':resize -2<CR>',
     ['<A-h>'] = ':vertical resize -2<CR>',
-    ['<A-l>'] = ':vertical resize -2<CR>',
+    ['<A-l>'] = ':vertical resize +2<CR>',
 
     -- Copy and paste
     ['<C-c>'] = '"+y',
@@ -78,8 +82,7 @@ M.mappings = {
 
     -- Better indenting
     ['>'] = '>gv',
-    ['<'] = '<gv',
-
+    ['<'] = '<gv'
 
   },
   visual_block_mode = {},

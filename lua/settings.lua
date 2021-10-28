@@ -26,7 +26,8 @@ M.general = {
     hidden = true,
     hlsearch = true,
     ignorecase = true,
-    laststatus = 2,
+    -- laststatus = 2,
+    laststatus = 0,
     linebreak = true,
     mouse = "a",
     pumheight = 10,
@@ -61,7 +62,8 @@ M.general = {
     spell = false,
     spelllang = "en",
     scrolloff = 8,
-    sidescrolloff = 15
+    sidescrolloff = 15,
+    winhighlight='Normal:Normal,NormalNC:ColorColumn'
   },
 
   -- this will be set with vim.opt.OPTION:append(...) = :set+=

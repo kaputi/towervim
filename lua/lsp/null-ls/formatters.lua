@@ -12,17 +12,13 @@ local function list_names(formatters, options)
 end
 
 function M.list_supported_names(filetype)
-  if not formatters_by_ft[filetype] then
-    return {}
-  end
-  return list_names(formatters_by_ft[filetype], { filter = "supported" })
+  if not formatters_by_ft[filetype] then return {} end
+  return list_names(formatters_by_ft[filetype], {filter = "supported"})
 end
 
 function M.list_unsupported_names(filetype)
-  if not formatters_by_ft[filetype] then
-    return {}
-  end
-  return list_names(formatters_by_ft[filetype], { filter = "unsupported" })
+  if not formatters_by_ft[filetype] then return {} end
+  return list_names(formatters_by_ft[filetype], {filter = "unsupported"})
 end
 
 function M.list_available(filetype)
@@ -38,6 +34,7 @@ function M.list_available(filetype)
 end
 
 function M.list_configured(formatter_configs)
+  local available = {}
   local formatters, errors = {}, {}
 
   for _, fmt_config in ipairs(formatter_configs) do
@@ -50,23 +47,50 @@ function M.list_configured(formatter_configs)
       if not formatter_cmd then
         errors[fmt_config.exe] = {} -- Add data here when necessary
       else
-        formatters[fmt_config.exe] = formatter.with { command = formatter_cmd, extra_args = fmt_config.args }
+        available[fmt_config.exe] = {
+          formatter = formatter.with {
+            command = formatter_cmd,
+            extra_args = fmt_config.args
+          },
+          default = fmt_config.default
+        }
+        -- formatters[fmt_config.exe] = formatter.with {
+        --   command = formatter_cmd,
+        --   extra_args = fmt_config.args
       end
     end
   end
+  -- print(vim.inspect(available))
 
-  return { supported = formatters, unsupported = errors }
+  for name, formatter in pairs(available) do
+    -- print(vim.inspect(formatter))
+    if formatter.default then
+      formatters = {}
+      formatters[name] = formatter.formatter
+      break
+    end
+    formatters[name] = formatter.formatter
+  end
+
+  return {supported = formatters, unsupported = errors}
 end
 
 function M.setup(filetype, options)
   local ls_settings = require('lsp.ls-settings')[filetype]
 
-  if not ls_settings or (formatters_by_ft[filetype] and not options.force_reload) then
-    return
-  end
+  if not ls_settings or
+      (formatters_by_ft[filetype] and not options.force_reload) then return end
 
   formatters_by_ft[filetype] = M.list_configured(ls_settings.formatters)
-  null_ls.register { sources = formatters_by_ft[filetype].supported }
+
+  -- if prettier and prettierd available selecte only prettierd
+  -- if formatters_by_ft[filetype].supported.prettier and
+  --     formatters_by_ft[filetype].supported.prettierd then
+  --   formatters_by_ft[filetype].supported.prettier = nil
+  -- -- end
+  -- print(vim.inspect(formatters_by_ft[filetype].supported))
+
+  null_ls.register {sources = formatters_by_ft[filetype].supported}
 end
 
 return M

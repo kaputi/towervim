@@ -43,7 +43,7 @@ local bufferline = vim.g.bufferline
 
 if bufferline == nil then bufferline = {} end
 
--- bufferline.icon_separator_active = '▎'
+bufferline.icon_separator_active = '▎'
 -- bufferline.icon_separator_active = '❚'
 
 bufferline.no_name_title = '[no-name]'
@@ -54,7 +54,7 @@ local cmd = vim.cmd
 
 -- cmd[[highlight BufferCurrent guibg=#282c34]]
 -- cmd[[highlight BufferCurrentMod guibg=#282c34]]
--- cmd[[highlight BufferCurrentSign guibg=#282c34]]
+cmd[[highlight BufferCurrentSign guibg=#3282c34 guifg=#ffff00]]
 -- cmd[[highlight BufferCurrentTarget guibg=#282c34]]
 -- cmd[[highlight BufferCurrentIndex guibg=#282c34]]
 cmd[[highlight BufferInactive guibg=#323438]]

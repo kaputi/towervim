@@ -1,6 +1,6 @@
 {
   "Try Catch": {
-    "prefix": ["try"],
+    "prefix": ["trycatch"],
     "body": ["try {", "  $1", "} catch(error) {", "  console.log(error)", "}"],
     "description": "Try catch"
   },

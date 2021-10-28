@@ -12,17 +12,13 @@ local function list_names(linters, options)
 end
 
 function M.list_supported_names(filetype)
-  if not linters_by_ft[filetype] then
-    return {}
-  end
-  return list_names(linters_by_ft[filetype], { filter = "supported" })
+  if not linters_by_ft[filetype] then return {} end
+  return list_names(linters_by_ft[filetype], {filter = "supported"})
 end
 
 function M.list_unsupported_names(filetype)
-  if not linters_by_ft[filetype] then
-    return {}
-  end
-  return list_names(linters_by_ft[filetype], { filter = "unsupported" })
+  if not linters_by_ft[filetype] then return {} end
+  return list_names(linters_by_ft[filetype], {filter = "unsupported"})
 end
 
 function M.list_available(filetype)
@@ -38,6 +34,7 @@ function M.list_available(filetype)
 end
 
 function M.list_configured(linter_configs)
+  local available = {}
   local linters, errors = {}, {}
 
   for _, lnt_config in pairs(linter_configs) do
@@ -50,13 +47,36 @@ function M.list_configured(linter_configs)
       if not linter_cmd then
         errors[lnt_config.exe] = {} -- Add data here when necessary
       else
-        linters[lnt_config.exe] = linter.with { command = linter_cmd, extra_args = lnt_config.args, diagnostics_format = "#{m} [#{c}]" }
+        available[lnt_config.exe] = {
+          linter = linter.with {
+            command = linter_cmd,
+            extra_args = lnt_config.args,
+            diagnostics_format = "#{m} [#{c}]"
+          },
+          default = lnt_config.default
+        }
+        -- linters[lnt_config.exe] = linter.with {
+        --   command = linter_cmd,
+        --   extra_args = lnt_config.args,
+        --   diagnostics_format = "#{m} [#{c}]"
+        -- }
 
       end
     end
   end
 
-  return { supported = linters, unsupported = errors }
+  for name, linter in pairs(available) do
+    if linter.default then
+      linters = {}
+      linters[name] = linter.linter
+      break
+    end
+    print(name)
+    print(vim.inspect(linter))
+    linters[name] = linter.linter
+  end
+
+  return {supported = linters, unsupported = errors}
 end
 
 function M.setup(filetype, options)
@@ -68,7 +88,10 @@ function M.setup(filetype, options)
 
   linters_by_ft[filetype] = M.list_configured(ls_settings.linters)
   vim.g.lintc = linters_by_ft
-  null_ls.register { sources = linters_by_ft[filetype].supported, name= ls_settings.linters.exe }
+  null_ls.register {
+    sources = linters_by_ft[filetype].supported,
+    name = ls_settings.linters.exe
+  }
 end
 
 return M

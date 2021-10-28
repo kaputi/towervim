@@ -37,6 +37,14 @@ require 'lsp'.config()
 require("null-ls").config({})
 require("lspconfig")["null-ls"].setup({})
 
+-- json configs for lsp
+local lsp_settings_status_ok, lsp_settings = pcall(require, "nlspsettings")
+if lsp_settings_status_ok then
+  lsp_settings.setup({
+    config_home = CONFIG_PATH .. '/nlspsettings'
+  })
+end
+
 -- TODO: for setting up ls with json files
 -- local lsp_settings_status_ok,
 -- if lsp_settings_status_ok then
