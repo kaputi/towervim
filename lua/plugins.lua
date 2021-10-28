@@ -18,7 +18,7 @@ return {
     config = function()
       require('plugin-settings.trouble')
     end
-  }, {'kaputi/e-kaput.nvim',{
+  }, {'kaputi/e-kaput.nvim'}, {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
