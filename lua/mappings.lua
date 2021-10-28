@@ -60,8 +60,13 @@ M.mappings = {
     -- ['bp'] = ':BufferPrevious<CR>',
     -- ['bd'] = ':BufferClose<CR>',
     -- H and L to switch tabs
-    ['L'] = ':BufferNext<CR>',
-    ['H'] = ':BufferPrevious<CR>',
+    -- ['L'] = ':BufferNext<CR>',
+    -- ['H'] = ':BufferPrevious<CR>',
+    -- Tab and s-tab to switch tabs
+    -- ['<Tab>'] = ':BufferNext<CR>',
+    -- ['<S-Tab>'] = ':BufferPrevious<CR>',
+    ['<Tab>'] = ':BufferLineCycleNext<CR>',
+    ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
 
     -- Yank to end of line
     ['Y'] = 'y$'

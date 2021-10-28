@@ -88,7 +88,15 @@ return {
     config = function()
       require('plugin-settings.barbar')
     end,
-    event = 'BufWinEnter'
+    event = 'BufWinEnter',
+    disable = true
+  }, {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('plugin-settings.bufferline')
+    end
+
   }, {
     'windwp/windline.nvim',
     config = function()
@@ -206,7 +214,6 @@ return {
     }
   }
 
-  -- TODO: 'liuchengxu/vista.vim'
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: undotree 'mbbill/undotree'
   -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'

@@ -195,6 +195,19 @@ local explorer = {
   always_active = true,
   show_last_status = true
 }
+
+local tag_view = {
+  filetypes = {'vista_kind'},
+  active = {
+    {'  ', {'white', 'black'}},
+    {helper.separators.slant_right, {'black', 'black_light'}},
+    {b_components.divider, ''}
+    -- {b_components.file_name(''), {'white', 'black_light'}}
+  },
+  always_active = true,
+  show_last_status = true
+}
+
 windline.setup({
 
   -- local colors = {
@@ -227,6 +240,6 @@ windline.setup({
     -- colors.SearchBg = searchBg or colors.yellow
     return colors
   end,
-  statuslines = {default, quickfix, explorer}
+  statuslines = {default, quickfix, explorer, tag_view}
 })
 

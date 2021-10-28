@@ -92,10 +92,11 @@ local nmappings = {
   ['='] = {'<C-w>=', 'Balance Windows'},
   [','] = {'<cmd>Telescope buffers<CR>', 'Buffer List'},
   [' '] = {'<cmd>Telescope find_files<CR>', 'Files'},
-  ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
+  -- ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
+  ['d'] = {'<cmd>bdelete<CR>', 'Delete Buffer'},
   ['e'] = {'<cmd>NvimTreeToggle<CR>', 'File Explorer'},
   ['h'] = {'<cmd>split | Telescope buffers<CR>', 'Horizontal Split'},
-  ['n'] = {'<cmd>BufferNext<CR>', 'Horizontal Split'},
+  ['n'] = {'<cmd>BufferLineCycleNext<CR>', 'next buffer'},
   ['o'] = {
     '<cmd>call append(line("."),   repeat([""], v:count1))<CR>', 'Line Below'
   },
@@ -107,7 +108,7 @@ local nmappings = {
   ['Q'] = {'<cmd>qa!<CR>', 'Quit All!!'},
   -- ['r'] = {},
   -- ['u'] = {},
-  ['t'] = {'<cmd>ToggleTerm<CR>', 'Terminal'},
+  -- ['t'] = {'<cmd>ToggleTerm<CR>', 'Terminal'},
   -- ['r'] = {},
   ['v'] = {'<cmd>vsplit | Telescope buffers<CR>', 'Vertical Split'},
   ['y'] = {'<cmd>Telescope registers<CR>', 'Yank List'},
@@ -155,11 +156,11 @@ local nmappings = {
     ['b'] = {'<cmd>Telescope buffers<CR>', 'Find Buffer'},
     ['d'] = {'<cmd>bp | bd! #<CR>', 'Delete Buffer Without Saving'},
     ['D'] = {'<cmd>%bd<CR>', 'Delete All Buffers'},
-    -- ['k'] = {'<cmd>%bd!|edit #|bd #|normal `"<CR>'   ,'Delete Other Buffers'}, -- %bd kills all, edit # opens last ,bd # kills last(after killing all there is a new empty buffer) '" goes to last place before close
-    ['k'] = {'<cmd>BufferCloseAllButCurrent<CR>', 'Delete Other Buffers'},
-    ['n'] = {'<cmd>BufferNext<CR>', 'Previous Buffer'},
+    ['k'] = {'<cmd>%bd!|edit #|bd #|normal `"<CR>', 'Delete Other Buffers'}, -- %bd kills all, edit # opens last ,bd # kills last(after killing all there is a new empty buffer) '" goes to last place before close
+    -- ['k'] = {'<cmd>BufferCloseAllButCurrent<CR>', 'Delete Other Buffers'},
+    ['n'] = {'<cmd>BufferLineCycleNext<CR>', 'Previous Buffer'},
     ['N'] = {'<cmd>enew<CR>', 'New Empty Buffer'},
-    ['p'] = {'<cmd>BufferPrevious<CR>', 'Previous Buffer'}
+    ['p'] = {'<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer'}
   },
 
   -- Debug Layer
