@@ -32,8 +32,7 @@ autocmd:setup()
 -- LSP
 local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
 local null_ls_ok, null_ls = pcall(require, 'null-ls')
-if (lspconfig_ok and null_ls_ok) then
-
+if lspconfig_ok and null_ls_ok then
   require('lsp').config()
 
   null_ls.config({})
@@ -43,9 +42,8 @@ end
 -- json configs for lsp
 local nlsp_settings_status_ok, lsp_settings = pcall(require, 'nlspsettings')
 if nlsp_settings_status_ok then
-  lsp_settings.setup({config_home = CONFIG_PATH .. '/nlspsettings'})
+  lsp_settings.setup({ config_home = CONFIG_PATH .. '/nlspsettings' })
 end
-
 
 -- KEYMAPPINGS
 local mappings = require('core.mappings')

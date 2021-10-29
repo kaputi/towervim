@@ -253,33 +253,9 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     -- TODO: if i require a file, options won't get loaded, plugin doest show on :PackerStatus
-    config = function ()
-      local blankline_ok, blankline = pcall(require, 'indent_blankline')
-      if(blankline_ok) then
-        blankline.setup({
-      char_list = { '|', '¦', '┆', '┊' },
-      buftype_exclude = { 'terminal' },
-      filetype_exclude = { 'startify', 'help', 'alpha' },
-      use_treesitter = true,
-      space_char_blankline = ' ',
-      show_current_context = true,
-      show_first_indent_level = true,
-      -- python context_patterns = { '^def', '^if', '^elif', '^else', '^for', '^with', '^while', '^until', '^try', '^except', '^finally' }
-      context_patterns = {
-        'class',
-        'method',
-        'function',
-        '^if',
-        '^else',
-        '^for',
-        '^while',
-        '^try',
-        '^catch',
-      },
-        })
-      end
-    end
-
+    config = function()
+      require('plugin-settings.indent-blankline')
+    end,
   },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
