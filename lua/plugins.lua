@@ -253,7 +253,10 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     -- TODO: if i require a file, options won't get loaded, plugin doest show on :PackerStatus
-    config = require('indent_blankline').setup({
+    config = function ()
+      local blankline_ok, blankline = pcall(require, 'indent_blankline')
+      if(blankline_ok) then
+        blankline.setup({
       char_list = { '|', '¦', '┆', '┊' },
       buftype_exclude = { 'terminal' },
       filetype_exclude = { 'startify', 'help', 'alpha' },
@@ -273,11 +276,13 @@ return {
         '^try',
         '^catch',
       },
-    }),
+        })
+      end
+    end
+
   },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: undotree 'mbbill/undotree'
   -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
-  -- TODO: vimwiksessioni
 }

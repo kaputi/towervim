@@ -2,8 +2,6 @@ local home_dir = vim.loop.os_homedir()
 
 vim.opt.rtp:remove(home_dir .. '/.config/nvim')
 vim.opt.rtp:remove(home_dir .. '/.config/nvim/after')
--- vim.opt.rtp:append(home_dir .. "/.towervim")
--- vim.opt.rtp:append(home_dir .. "/.towervim/after")
 vim.opt.rtp:append(home_dir .. '/.config/towervim')
 vim.opt.rtp:append(home_dir .. '/.config/towervim/after')
 
@@ -32,26 +30,23 @@ local autocmd = require('core.autocmd')
 autocmd:setup()
 
 -- LSP
-require('lsp').config()
+local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
+local null_ls_ok, null_ls = pcall(require, 'null-ls')
+if (lspconfig_ok and null_ls_ok) then
 
-require('null-ls').config({})
-require('lspconfig')['null-ls'].setup({})
+  require('lsp').config()
 
--- json configs for lsp
-local lsp_settings_status_ok, lsp_settings = pcall(require, 'nlspsettings')
-if lsp_settings_status_ok then
-  lsp_settings.setup({
-    config_home = CONFIG_PATH .. '/nlspsettings',
-  })
+  null_ls.config({})
+  lspconfig['null-ls'].setup({})
 end
 
--- TODO: for setting up ls with json files
--- local lsp_settings_status_ok,
--- if lsp_settings_status_ok then
--- lsp_settings.setup {
--- config_home = CONFIG_PATH .. "/towervim/lsp-settings",
---}
--- end
+-- json configs for lsp
+local nlsp_settings_status_ok, lsp_settings = pcall(require, 'nlspsettings')
+if nlsp_settings_status_ok then
+  lsp_settings.setup({config_home = CONFIG_PATH .. '/nlspsettings'})
+end
+
+
 -- KEYMAPPINGS
 local mappings = require('core.mappings')
 mappings:setup()
@@ -59,6 +54,4 @@ mappings:setup()
 -- TODO:
 --  checkout kristijanhusak/orgmode.nvim
 --  install vimwiki
---  configure telescope properly(esc 1 time etc)
 --  Ranger as file explorer
---  make diferent windows diferent(maybe slight background change)
