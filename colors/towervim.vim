@@ -1,6 +1,6 @@
 " Maintainer: Eduardo Lonighi eduloni3@gmail.com
 
-set background=
+set background=dark
 hi clear
 if exists('syntax_on')
   syntax reset
@@ -83,7 +83,7 @@ hi VisualNOS guifg=#3e4452 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NO
 hi WarningMsg guifg=#ffc44c ctermfg=221 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WildMenu guifg=#1e1e1e ctermfg=234 guibg=#5ccfe6 ctermbg=80 gui=NONE cterm=NONE
 hi EndOfBuffer guifg=#1e1e1e ctermfg=234 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi TSComment guifg=#bbe67e ctermfg=150 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi TSComment guifg=#5c6773 ctermfg=242 guibg=NONE ctermbg=NONE gui=italic cterm=italic
 hi TSError guifg=#f44747 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi TSPunctDelimiter guifg=#abb2bf ctermfg=249 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi TSPunctBracket guifg=#abb2bf ctermfg=249 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
