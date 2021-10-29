@@ -41,6 +41,8 @@ if (ok) then
         '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>', opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<F2>',
         '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>', opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<F3>',
+        '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>', opts)
   end
 
   -- if you only want these mappings for toggle term use term://*toggleterm#* instead
@@ -52,6 +54,9 @@ if (ok) then
 
   vim.api.nvim_set_keymap('n', '<F2>',
       ':2ToggleTerm direction=horizontal<CR> |<C-\\><C-n> | :3ToggleTerm direction=horizontal<CR>',
+      {noremap = true, silent = true})
+
+  vim.api.nvim_set_keymap('n', '<F3>', ':4ToggleTerm direction=float<CR>',
       {noremap = true, silent = true})
 
 end
