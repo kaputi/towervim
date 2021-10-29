@@ -1,5 +1,14 @@
 local ok, alpha = pcall(require, 'alpha')
 if (ok) then
+  local name = nil
+  local session_ok, session_utils = pcall(require, 'session_manager.utils')
+  if (session_ok) then
+    local filename = session_utils.get_last_session_filename()
+    if (filename) then name = filename:match("^.+_(.+)$") end
+  end
+
+  if (name) then name = ": " .. name end
+
   local dashboard = require 'alpha.themes.dashboard'
   dashboard.section.header.val = {
     '                                   ____',
@@ -26,7 +35,7 @@ if (ok) then
   }
 
   dashboard.section.buttons.val = {
-    dashboard.button("a", "  Last session", ":LoadSession<CR>"),
+    dashboard.button("a", "  Last session" .. name, ":LoadSession<CR>"),
     dashboard.button("s", "  Open session",
         ":Telescope sessions initial_mode=normal<CR>"),
     dashboard.button("r", "  Recent",

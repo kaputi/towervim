@@ -170,12 +170,17 @@ return {
     end
   }, -- sessions
   {
-    'Shatur/neovim-session-manager',
+    'kaputi/neovim-session-manager',
     config = function()
       require('plugin-settings.session-manager')
-    end
-
-  }, -- Terminal
+    end,
+    branch = 'only-on-session'
+  }, --   {
+  --     'Shatur/neovim-session-manager',
+  --     config = function()
+  --       require('plugin-settings.session-manager')
+  --     end
+  --   }, -- Terminal
   {
     "akinsho/toggleterm.nvim",
     event = "BufwinEnter",
@@ -211,7 +216,7 @@ return {
       use_treesitter = true,
       space_char_blankline = " ",
       show_current_context = true,
-      show_first_indent_level = false,
+      show_first_indent_level = true,
       -- python context_patterns = { '^def', '^if', '^elif', '^else', '^for', '^with', '^while', '^until', '^try', '^except', '^finally' }
       context_patterns = {
         'class', 'method', 'function', '^if', '^else', '^for', '^while', '^try',
@@ -223,5 +228,5 @@ return {
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: undotree 'mbbill/undotree'
   -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
-  -- TODO: vimwiki
+  -- TODO: vimwiksessioni
 }
