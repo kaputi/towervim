@@ -6,9 +6,9 @@ return {
   {'neovim/nvim-lspconfig'}, {'jose-elias-alvarez/null-ls.nvim'},
   {"tamago324/nlsp-settings.nvim"}, {
     'kabouzeid/nvim-lspinstall',
-    -- event = "VimEnter",
     config = function()
-      require'lspinstall'.setup()
+      local ok, lspinstall = pcall(require 'lspinstall')
+      if (ok) then lspinstall.setup() end
     end
   }, -- {
   --   "ray-x/lsp_signature.nvim",
@@ -18,7 +18,13 @@ return {
     config = function()
       require('plugin-settings.trouble')
     end
-  }, {'kaputi/e-kaput.nvim'}, {
+  }, {
+    'kaputi/e-kaput.nvim',
+    config = function()
+      local ok, ekaput = pcall(require, 'e-kaput')
+      if (ok) then ekaput.setup {} end
+    end
+  }, {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
