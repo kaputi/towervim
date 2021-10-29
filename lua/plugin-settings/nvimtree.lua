@@ -6,11 +6,11 @@ vim.cmd([[hi NvimTreeNormal guibg=#212333]])
 
 -- vim.g.nvim_tree_side = 'left'
 -- vim.g.nvim_tree_width = 30
-vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
+vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
 -- vim.g.nvim_tree_auto_open = 0 -- 0 by default, opens the tree when typing `vim $DIR` or `vim`
 -- vim.g.nvim_tree_auto_close = 1 -- 0 by default, closes the tree when it's the last window
 -- vim.g.nvim_tree_gitignore = 1 "0 by default
-vim.g.nvim_tree_auto_ignore_ft = {'startify', 'dashboard'} -- empty by default, don't auto open tree on specific filetypes.
+vim.g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' } -- empty by default, don't auto open tree on specific filetypes.
 vim.g.nvim_tree_quit_on_open = 1 -- 0 by default, closes the tree when you open a file
 -- vim.g.nvim_tree_follow = 1 -- 0 by default, this option allows the cursor to be updated when entering a buffer
 -- vim.g.nvim_tree_follow_update_path = 1 -- 0 by default, will update the path of the current dir if the file is not inside the tree.
@@ -48,32 +48,32 @@ vim.g.nvim_tree_icons = {
   default = '',
   symlink = '',
   git = {
-    unstaged = "✗",
-    staged = "✓",
-    unmerged = "",
-    renamed = "➜",
-    untracked = "★",
-    deleted = "",
-    ignored = "◌"
+    unstaged = '✗',
+    staged = '✓',
+    unmerged = '',
+    renamed = '➜',
+    untracked = '★',
+    deleted = '',
+    ignored = '◌',
   },
   folder = {
-    arrow_open = "",
-    arrow_closed = "",
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-    symlink_open = ""
+    arrow_open = '',
+    arrow_closed = '',
+    default = '',
+    open = '',
+    empty = '',
+    empty_open = '',
+    symlink = '',
+    symlink_open = '',
   },
-  lsp = {hint = "", info = "", warning = "", error = ""}
+  lsp = { hint = '', info = '', warning = '', error = '' },
 }
 
 vim.g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
   files = 1,
-  folder_arrows = 1
+  folder_arrows = 1,
 }
 --[[
 "If 0, do not show the icons for one of 'git' 'folder' and 'files'
@@ -85,41 +85,46 @@ vim.g.nvim_tree_show_icons = {
 --]]
 
 local ok, nvim_tree = pcall(require, 'nvim-tree')
-if (ok) then
-  local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+if ok then
+  local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
   local key_list = {
     -- default mappings
-    {key = "<CR>", cb = tree_cb("edit")}, {key = "o", cb = tree_cb("edit")},
-    {key = "<2-LeftMouse>", cb = tree_cb("edit")},
-    {key = "<2-RightMouse>", cb = tree_cb("cd")},
-    {key = "<C-]>", cb = tree_cb("cd")},
-    {key = "<C-v>", cb = tree_cb("vsplit")},
-    {key = "<C-x>", cb = tree_cb("split")},
-    {key = "<C-t>", cb = tree_cb("tabnew")},
-    {key = "<BS>", cb = tree_cb("close_node")},
-    {key = "<S-CR>", cb = tree_cb("close_node")},
-    {key = "<Tab>", cb = tree_cb("preview")},
-    {key = "I", cb = tree_cb("toggle_ignored")},
-    {key = "H", cb = tree_cb("toggle_dotfiles")},
-    {key = "R", cb = tree_cb("refresh")}, {key = "a", cb = tree_cb("create")},
+    { key = '<CR>', cb = tree_cb('edit') },
+    { key = 'o', cb = tree_cb('edit') },
+    { key = '<2-LeftMouse>', cb = tree_cb('edit') },
+    { key = '<2-RightMouse>', cb = tree_cb('cd') },
+    { key = '<C-]>', cb = tree_cb('cd') },
+    { key = '<C-v>', cb = tree_cb('vsplit') },
+    { key = '<C-x>', cb = tree_cb('split') },
+    { key = '<C-t>', cb = tree_cb('tabnew') },
+    { key = '<BS>', cb = tree_cb('close_node') },
+    { key = '<S-CR>', cb = tree_cb('close_node') },
+    { key = '<Tab>', cb = tree_cb('preview') },
+    { key = 'I', cb = tree_cb('toggle_ignored') },
+    { key = 'H', cb = tree_cb('toggle_dotfiles') },
+    { key = 'R', cb = tree_cb('refresh') },
+    { key = 'a', cb = tree_cb('create') },
     -- {key = "d",           cb = },
-    {key = "r", cb = tree_cb("rename")},
-    {key = "<C-r>", cb = tree_cb("full_rename")},
+    { key = 'r', cb = tree_cb('rename') },
+    { key = '<C-r>', cb = tree_cb('full_rename') },
     -- {key = "x",           cb = tree_cb("cut")},
     -- {key = "c",           cb = tree_cb("copy")},
-    {key = "p", cb = tree_cb("paste")},
-    {key = "[c", cb = tree_cb("prev_git_item")},
-    {key = "]c", cb = tree_cb("next_git_item")},
-    {key = "-", cb = tree_cb("dir_up")}, {key = "q", cb = tree_cb("close")},
+    { key = 'p', cb = tree_cb('paste') },
+    { key = '[c', cb = tree_cb('prev_git_item') },
+    { key = ']c', cb = tree_cb('next_git_item') },
+    { key = '-', cb = tree_cb('dir_up') },
+    { key = 'q', cb = tree_cb('close') },
 
     -- My mappings
-    {key = "l", cb = tree_cb("edit")}, {key = "h", cb = tree_cb("close_node")},
-    {key = "dd", cb = tree_cb("cut")}, {key = "cc", cb = tree_cb("copy")},
-    {key = "df", cb = tree_cb("remove")}
+    { key = 'l', cb = tree_cb('edit') },
+    { key = 'h', cb = tree_cb('close_node') },
+    { key = 'dd', cb = tree_cb('cut') },
+    { key = 'cc', cb = tree_cb('copy') },
+    { key = 'df', cb = tree_cb('remove') },
   }
 
-  nvim_tree.setup {
+  nvim_tree.setup({
     -- following options are the default
     disable_netrw = false,
     -- hijack netrw window on startup
@@ -137,7 +142,7 @@ if (ok) then
       -- enable the feature
       enable = true,
       -- allow to open the tree if it was previously closed
-      auto_open = false
+      auto_open = false,
     },
     -- hijack the cursor in the tree to put it at the start of the filename
     hijack_cursor = true,
@@ -154,14 +159,14 @@ if (ok) then
       update_cwd = true,
       -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
       -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
-      ignore_list = {}
+      ignore_list = {},
     },
     -- configuration options for the system open command (`s` in the tree by default)
     system_open = {
       -- the command to run this, leaving nil should work in most cases
       cmd = nil,
       -- the command arguments as a list
-      args = {}
+      args = {},
     },
 
     view = {
@@ -178,9 +183,8 @@ if (ok) then
         -- if true, it will only use your list to set the mappings
         custom_only = true,
         -- list of mappings to set on the tree manually
-        list = key_list
-      }
-    }
-  }
-
+        list = key_list,
+      },
+    },
+  })
 end

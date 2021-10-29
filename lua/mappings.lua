@@ -1,24 +1,26 @@
 local M = {}
 
-M.leader = "space"
+M.leader = 'space'
 
 M.mappings = {
   insert_mode = {
     --  jk for exit insert
-    ["jk"] = "<ESC>",
+    ['jk'] = '<ESC>',
 
     -- move current line / block with alt=j/k
-    ["<A-j>"] = "<ESC>:m .+1<CR>==gi",
-    ["<A-k>"] = "<ESC>:m .-2<CR>==gi",
+    ['<A-j>'] = '<ESC>:m .+1<CR>==gi',
+    ['<A-k>'] = '<ESC>:m .-2<CR>==gi',
 
     -- navigate tab completion with <c-j> and <c-k>
     -- runs conditionally
-    ["<C-j>"] = {
-      'pumvisible() ? "\\<C-n>" : "\\<C-j>"', {expr = true, noremap = true}
+    ['<C-j>'] = {
+      'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
+      { expr = true, noremap = true },
     },
-    ["<C-k>"] = {
-      'pumvisible() ? "\\<C-p>" : "\\<C-k>"', {expr = true, noremap = true}
-    }
+    ['<C-k>'] = {
+      'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
+      { expr = true, noremap = true },
+    },
   },
 
   normal_mode = {
@@ -69,8 +71,9 @@ M.mappings = {
     ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
 
     -- Yank to end of line
-    ['Y'] = 'y$'
+    ['Y'] = 'y$',
 
+    ['<F4>'] = ':TroubleToggle<CR>',
   },
   term_mode = {},
   visual_mode = {
@@ -82,16 +85,15 @@ M.mappings = {
     ['K'] = '5k',
 
     -- Move selction with Alt + j/k
-    ['<A-k>'] = ':move \'<-2<CR>gv-gv',
-    ['<A-j>'] = ':move \'>+1<CR>gv-gv',
+    ['<A-k>'] = ":move '<-2<CR>gv-gv",
+    ['<A-j>'] = ":move '>+1<CR>gv-gv",
 
     -- Better indenting
     ['>'] = '>gv',
-    ['<'] = '<gv'
-
+    ['<'] = '<gv',
   },
   visual_block_mode = {},
-  command_mode = {}
+  command_mode = {},
 }
 
 -- any code inside run function will be run after

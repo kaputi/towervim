@@ -1,2 +1,2 @@
-require("lsp").setup "typescript"
+require('lsp').setup('typescript')
 --TODO: require("lsp").setup "tailwindcss"

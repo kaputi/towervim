@@ -1,44 +1,44 @@
 local ok, gitsigns = pcall(require, 'gitsigns')
-if (ok) then
-  gitsigns.setup {
+if ok then
+  gitsigns.setup({
     signs = {
       add = {
         hl = 'GitSignsAdd',
         text = '▎',
         numhl = 'GitSignsAddNr',
-        linehl = 'GitSignsAddLn'
+        linehl = 'GitSignsAddLn',
       },
       change = {
         hl = 'GitSignsChange',
         text = '▎',
         numhl = 'GitSignsChangeNr',
-        linehl = 'GitSignsChangeLn'
+        linehl = 'GitSignsChangeLn',
       },
       delete = {
         hl = 'GitSignsDelete',
         text = '契',
         numhl = 'GitSignsDeleteNr',
-        linehl = 'GitSignsDeleteLn'
+        linehl = 'GitSignsDeleteLn',
       },
       topdelete = {
         hl = 'GitSignsDelete',
         text = '契',
         numhl = 'GitSignsDeleteNr',
-        linehl = 'GitSignsDeleteLn'
+        linehl = 'GitSignsDeleteLn',
       },
       changedelete = {
         hl = 'GitSignsChange',
         text = '▎',
         numhl = 'GitSignsChangeNr',
-        linehl = 'GitSignsChangeLn'
-      }
+        linehl = 'GitSignsChangeLn',
+      },
     },
     numhl = false,
     linehl = false,
     keymaps = {
       -- Default keymap options
       noremap = true,
-      buffer = true
+      buffer = true,
       --[[
     ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
     ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
@@ -55,11 +55,11 @@ if (ok) then
 --]]
       --
     },
-    watch_index = {interval = 1000},
+    watch_index = { interval = 1000 },
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil, -- Use default
     -- use_decoration_api = true,
-    use_internal_diff = true -- If luajit is present
-  }
+    use_internal_diff = true, -- If luajit is present
+  })
 end

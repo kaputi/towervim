@@ -1,1 +1,1 @@
-require("lsp").setup "scss"
+require('lsp').setup('scss')

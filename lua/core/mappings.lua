@@ -8,16 +8,16 @@ local generic_opts = {
   visual_mode = generic_opts_any,
   visual_block_mode = generic_opts_any,
   command_mode = generic_opts_any,
-  term_mode = {silent = true}
+  term_mode = { silent = true },
 }
 
 local mode_adapters = {
-  insert_mode = "i",
-  normal_mode = "n",
-  term_mode = "t",
-  visual_mode = "v",
-  visual_block_mode = "x",
-  command_mode = "c",
+  insert_mode = 'i',
+  normal_mode = 'n',
+  term_mode = 't',
+  visual_mode = 'v',
+  visual_block_mode = 'x',
+  command_mode = 'c',
 }
 
 -- Set key mappings individually
@@ -25,8 +25,8 @@ local mode_adapters = {
 -- @param key The key of keymap
 -- @param val Can be form as a mapping or tuple of mapping and user defined opt
 function M.set_keymaps(mode, key, val)
-local opt = generic_opts[mode] and generic_opts[mode] or generic_opts_any
-  if type(val) == "table" then
+  local opt = generic_opts[mode] and generic_opts[mode] or generic_opts_any
+  if type(val) == 'table' then
     opt = val[2]
     val = val[1]
   end
@@ -52,7 +52,7 @@ function M.load(keymaps)
 end
 
 function M.setup()
-  local keys = require 'mappings'
+  local keys = require('mappings')
 
   M.load(keys.mappings)
 

@@ -1,15 +1,19 @@
 local ok, alpha = pcall(require, 'alpha')
-if (ok) then
+if ok then
   local name = nil
   local session_ok, session_utils = pcall(require, 'session_manager.utils')
-  if (session_ok) then
+  if session_ok then
     local filename = session_utils.get_last_session_filename()
-    if (filename) then name = filename:match("^.+_(.+)$") end
+    if filename then
+      name = filename:match('^.+_(.+)$')
+    end
   end
 
-  if (name) then name = ": " .. name end
+  if name then
+    name = ': ' .. name
+  end
 
-  local dashboard = require 'alpha.themes.dashboard'
+  local dashboard = require('alpha.themes.dashboard')
   dashboard.section.header.val = {
     '                                   ____',
     '                                 /   () \\',
@@ -31,18 +35,24 @@ if (ok) then
     '|_|_| |_|_|          He holds us all within his mind           |_|_| |_|_|',
     '                                                                          ',
     '==========================================================================',
-    '                             Stand and be true'
+    '                             Stand and be true',
   }
 
   dashboard.section.buttons.val = {
-    dashboard.button("a", "  Last session" .. name, ":LoadSession<CR>"),
-    dashboard.button("s", "  Open session",
-        ":Telescope sessions initial_mode=normal<CR>"),
-    dashboard.button("r", "  Recent",
-        ":Telescope oldfiles initial_mode=normal<CR>"),
-    dashboard.button("e", "  New file", ":ene<CR>"),
-    dashboard.button("f", " Find file", ":Telescope find_files<CR>"),
-    dashboard.button("q", "  Quit", ":qa<CR>")
+    dashboard.button('a', '  Last session' .. name, ':LoadSession<CR>'),
+    dashboard.button(
+      's',
+      '  Open session',
+      ':Telescope sessions initial_mode=normal<CR>'
+    ),
+    dashboard.button(
+      'r',
+      '  Recent',
+      ':Telescope oldfiles initial_mode=normal<CR>'
+    ),
+    dashboard.button('e', '  New file', ':ene<CR>'),
+    dashboard.button('f', ' Find file', ':Telescope find_files<CR>'),
+    dashboard.button('q', '  Quit', ':qa<CR>'),
   }
   -- local handle = io.popen('fortune')
   -- local fortune = handle:read("*a")

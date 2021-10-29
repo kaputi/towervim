@@ -41,7 +41,9 @@
 -- let bufferline.no_name_title = v:null
 local bufferline = vim.g.bufferline
 
-if bufferline == nil then bufferline = {} end
+if bufferline == nil then
+  bufferline = {}
+end
 
 bufferline.icon_separator_active = '▎'
 -- bufferline.icon_separator_active = '❚'
@@ -54,16 +56,16 @@ local cmd = vim.cmd
 
 -- cmd[[highlight BufferCurrent guibg=#282c34]]
 -- cmd[[highlight BufferCurrentMod guibg=#282c34]]
-cmd[[highlight BufferCurrentSign guibg=#3282c34 guifg=#ffff00]]
+cmd([[highlight BufferCurrentSign guibg=#3282c34 guifg=#ffff00]])
 -- cmd[[highlight BufferCurrentTarget guibg=#282c34]]
 -- cmd[[highlight BufferCurrentIndex guibg=#282c34]]
-cmd[[highlight BufferInactive guibg=#323438]]
-cmd[[highlight BufferInactiveIndex guibg=#323438]]
-cmd[[highlight BufferInactiveMod guibg=#323438]]
-cmd[[highlight BufferInactiveSign guibg=#323438]]
-cmd[[highlight BufferInactiveTarget guibg=#323438]]
-cmd[[highlight BufferTabpages guibg=#323438]]
-cmd[[highlight BufferTabpageFill guibg=#323438]]
+cmd([[highlight BufferInactive guibg=#323438]])
+cmd([[highlight BufferInactiveIndex guibg=#323438]])
+cmd([[highlight BufferInactiveMod guibg=#323438]])
+cmd([[highlight BufferInactiveSign guibg=#323438]])
+cmd([[highlight BufferInactiveTarget guibg=#323438]])
+cmd([[highlight BufferTabpages guibg=#323438]])
+cmd([[highlight BufferTabpageFill guibg=#323438]])
 -- cmd[[highlight BufferVisible guibg=#282c34]]
 -- cmd[[highlight BufferVisibleIndex guibg=#282c34]]
 -- cmd[[highlight BufferVisibleMod guibg=#282c34]]

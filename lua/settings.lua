@@ -1,6 +1,6 @@
 local M = {}
 
-M.colorscheme = "towervim"
+M.colorscheme = 'towervim'
 
 -- this will be set with vim.opt.OPTION
 M.general = {
@@ -11,25 +11,25 @@ M.general = {
     clipboard = 'unnamed',
     cmdheight = 2,
     colorcolumn = '81',
-    completeopt = {"menuone", "noselect"},
+    completeopt = { 'menuone', 'noselect' },
     -- conceallevel = 0, -- so that `` is visible in markdown files
     encoding = 'utf-8',
-    fileencoding = "utf-8",
+    fileencoding = 'utf-8',
     fillchars = 'vert:│',
     -- foldmethod = 'manual',
     -- foldexpr = "", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-    foldmethod='expr',
-    foldexpr="nvim_treesitter#foldexpr()",
-    foldnestmax=2,
-    foldminlines=0,
-    foldlevel=20,
+    foldmethod = 'expr',
+    foldexpr = 'nvim_treesitter#foldexpr()',
+    foldnestmax = 2,
+    foldminlines = 0,
+    foldlevel = 20,
     hidden = true,
     hlsearch = true,
     ignorecase = true,
     -- laststatus = 2,
     laststatus = 0,
     linebreak = true,
-    mouse = "a",
+    mouse = 'a',
     pumheight = 10,
     pumblend = 25,
     showmode = false,
@@ -43,39 +43,39 @@ M.general = {
     termguicolors = true,
     textwidth = 0,
     timeoutlen = 500,
-    undodir = DATA_PATH .. "/undo",
+    undodir = DATA_PATH .. '/undo',
     undofile = true,
     updatetime = 300,
     wrapmargin = 0,
     writebackup = false,
     expandtab = true,
     shiftwidth = 2,
-    showbreak = "->->->",
+    showbreak = '->->->',
     tabstop = 2,
     cursorline = true,
     cursorcolumn = true,
     number = true,
     relativenumber = true,
     numberwidth = 4,
-    signcolumn = "yes",
+    signcolumn = 'yes',
     wrap = false,
     spell = false,
-    spelllang = "en",
+    spelllang = 'en',
     scrolloff = 8,
     sidescrolloff = 15,
-    winhighlight='Normal:Normal,NormalNC:ColorColumn'
+    winhighlight = 'Normal:Normal,NormalNC:ColorColumn',
   },
 
   -- this will be set with vim.opt.OPTION:append(...) = :set+=
   append = {
-    shortmess = "c"
+    shortmess = 'c',
   },
 
   -- this will be set with vim.opt.OPTIONL:prepend(...) = :set^=
   prepend = {},
 
   -- this will be set with vim.opt.OPTIONL:remove(...) = :set-=
-  remove = {}
+  remove = {},
 }
 
 -- this will be set with vim.o.OPTION = :set OPTION
@@ -88,7 +88,6 @@ M.buffer = {}
 M.global = {}
 
 -- any code inside run function will be run after
-function M:run()
-end
+function M:run() end
 
 return M

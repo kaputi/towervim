@@ -29,31 +29,31 @@ M.kind = {
   -- "   (Event)",
   -- "   (Operator)",
   -- "   (TypeParameter)",
-  Class = " ",
-  Color = " ",
-  Constant = "ﲀ ",
-  Constructor = " ",
-  Enum = "練",
-  EnumMember = " ",
-  Event = " ",
-  Field = " ",
-  File = "",
-  Folder = " ",
-  Function = " ",
-  Interface = "ﰮ ",
-  Keyword = " ",
-  Method = " ",
-  Module = " ",
-  Operator = "",
-  Property = " ",
-  Reference = " ",
-  Snippet = " ",
-  Struct = " ",
-  Text = " ",
-  TypeParameter = " ",
-  Unit = "塞",
-  Value = " ",
-  Variable = " ",
+  Class = ' ',
+  Color = ' ',
+  Constant = 'ﲀ ',
+  Constructor = ' ',
+  Enum = '練',
+  EnumMember = ' ',
+  Event = ' ',
+  Field = ' ',
+  File = '',
+  Folder = ' ',
+  Function = ' ',
+  Interface = 'ﰮ ',
+  Keyword = ' ',
+  Method = ' ',
+  Module = ' ',
+  Operator = '',
+  Property = ' ',
+  Reference = ' ',
+  Snippet = ' ',
+  Struct = ' ',
+  Text = ' ',
+  TypeParameter = ' ',
+  Unit = '塞',
+  Value = ' ',
+  Variable = ' ',
 }
 
 -- ===============================================
@@ -63,15 +63,15 @@ M.diagnostics = {
   signs = {
     active = true,
     values = {
-      { name = "LspDiagnosticsSignError", text = "" },
-      { name = "LspDiagnosticsSignWarning", text = "" },
-      { name = "LspDiagnosticsSignHint", text = "" },
-      { name = "LspDiagnosticsSignInformation", text = "" },
-    }
+      { name = 'LspDiagnosticsSignError', text = '' },
+      { name = 'LspDiagnosticsSignWarning', text = '' },
+      { name = 'LspDiagnosticsSignHint', text = '' },
+      { name = 'LspDiagnosticsSignInformation', text = '' },
+    },
   },
   virtual_text = {
     active = false,
-    prefix = "",
+    prefix = '',
     spacing = 0,
   },
   underline = true,
@@ -85,7 +85,5 @@ M.diagnostics = {
 -- Highlights
 M.highlights = true
 M.format_on_save = true
-
-
 
 return M

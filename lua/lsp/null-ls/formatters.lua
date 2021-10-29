@@ -1,24 +1,28 @@
 local M = {}
 local formatters_by_ft = {}
 
-local null_ls = require "null-ls"
-local services = require "lsp.null-ls.services"
+local null_ls = require('null-ls')
+local services = require('lsp.null-ls.services')
 
 local function list_names(formatters, options)
   options = options or {}
-  local filter = options.filter or "supported"
+  local filter = options.filter or 'supported'
 
   return vim.tbl_keys(formatters[filter])
 end
 
 function M.list_supported_names(filetype)
-  if not formatters_by_ft[filetype] then return {} end
-  return list_names(formatters_by_ft[filetype], {filter = "supported"})
+  if not formatters_by_ft[filetype] then
+    return {}
+  end
+  return list_names(formatters_by_ft[filetype], { filter = 'supported' })
 end
 
 function M.list_unsupported_names(filetype)
-  if not formatters_by_ft[filetype] then return {} end
-  return list_names(formatters_by_ft[filetype], {filter = "unsupported"})
+  if not formatters_by_ft[filetype] then
+    return {}
+  end
+  return list_names(formatters_by_ft[filetype], { filter = 'unsupported' })
 end
 
 function M.list_available(filetype)
@@ -48,11 +52,11 @@ function M.list_configured(formatter_configs)
         errors[fmt_config.exe] = {} -- Add data here when necessary
       else
         available[fmt_config.exe] = {
-          formatter = formatter.with {
+          formatter = formatter.with({
             command = formatter_cmd,
-            extra_args = fmt_config.args
-          },
-          default = fmt_config.default
+            extra_args = fmt_config.args,
+          }),
+          default = fmt_config.default,
         }
         -- formatters[fmt_config.exe] = formatter.with {
         --   command = formatter_cmd,
@@ -72,14 +76,18 @@ function M.list_configured(formatter_configs)
     formatters[name] = formatter.formatter
   end
 
-  return {supported = formatters, unsupported = errors}
+  return { supported = formatters, unsupported = errors }
 end
 
 function M.setup(filetype, options)
   local ls_settings = require('lsp.ls-settings')[filetype]
 
-  if not ls_settings or
-      (formatters_by_ft[filetype] and not options.force_reload) then return end
+  if
+    not ls_settings
+    or (formatters_by_ft[filetype] and not options.force_reload)
+  then
+    return
+  end
 
   formatters_by_ft[filetype] = M.list_configured(ls_settings.formatters)
 
@@ -90,7 +98,7 @@ function M.setup(filetype, options)
   -- -- end
   -- print(vim.inspect(formatters_by_ft[filetype].supported))
 
-  null_ls.register {sources = formatters_by_ft[filetype].supported}
+  null_ls.register({ sources = formatters_by_ft[filetype].supported })
 end
 
 return M

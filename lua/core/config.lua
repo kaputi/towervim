@@ -1,8 +1,7 @@
 local M = {}
 
 function M:load()
-
-  local settings = require 'settings'
+  local settings = require('settings')
 
   -- General
   for k, v in pairs(settings.general.opt) do
@@ -40,10 +39,9 @@ function M:load()
     vim.go[k] = v
   end
 
-  vim.cmd("colorscheme " .. settings.colorscheme)
+  vim.cmd('colorscheme ' .. settings.colorscheme)
 
   settings:run()
-
 end
 
 return M

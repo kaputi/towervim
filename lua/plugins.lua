@@ -1,64 +1,80 @@
 return {
   -- Packwe can manage itself as a plugin
-  {'wbthomason/packer.nvim'}, -- ====================
+  { 'wbthomason/packer.nvim' }, -- ====================
   -- Syntax, LSP, Autocomplete
   -- ====================
-  {'neovim/nvim-lspconfig'}, {'jose-elias-alvarez/null-ls.nvim'},
-  {"tamago324/nlsp-settings.nvim"}, {
+  { 'neovim/nvim-lspconfig' },
+  { 'jose-elias-alvarez/null-ls.nvim' },
+  { 'tamago324/nlsp-settings.nvim' },
+  {
     'kabouzeid/nvim-lspinstall',
     config = function()
-      local ok, lspinstall = pcall(require 'lspinstall')
-      if (ok) then lspinstall.setup() end
-    end
+      local ok, lspinstall = pcall(require('lspinstall'))
+      if ok then
+        lspinstall.setup()
+      end
+    end,
   }, -- {
   --   "ray-x/lsp_signature.nvim",
   -- },
   {
-    "folke/trouble.nvim",
+    'folke/trouble.nvim',
     config = function()
       require('plugin-settings.trouble')
-    end
-  }, {
+    end,
+  },
+  {
     'kaputi/e-kaput.nvim',
     config = function()
       local ok, ekaput = pcall(require, 'e-kaput')
-      if (ok) then ekaput.setup {} end
-    end
-  }, {
+      if ok then
+        ekaput.setup({})
+      end
+    end,
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
       require('plugin-settings.treesitter')
-    end
-  }, {
-    "hrsh7th/nvim-cmp",
+    end,
+  },
+  {
+    'hrsh7th/nvim-cmp',
     requires = {
-      "hrsh7th/vim-vsnip-integ", "hrsh7th/vim-vsnip", "hrsh7th/cmp-vsnip",
-      "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lua", "hrsh7th/cmp-emoji", "hrsh7th/cmp-calc",
-      "ray-x/cmp-treesitter"
+      'hrsh7th/vim-vsnip-integ',
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-emoji',
+      'hrsh7th/cmp-calc',
+      'ray-x/cmp-treesitter',
     },
     config = function()
       require('plugin-settings.cmp')
-    end
-
-  }, {
+    end,
+  },
+  {
     'tzachar/cmp-tabnine',
     run = './install.sh',
     requires = 'hrsh7th/nvim-cmp',
     config = function()
       require('plugin-settings.cmp-tabnine')
-    end
+    end,
   }, -- ====================
   -- Snippets
   -- ====================
   -- sniped engine
   {
-    "hrsh7th/vim-vsnip",
+    'hrsh7th/vim-vsnip',
     config = function()
       require('plugin-settings.vsnip')
-    end
-  }, {'dsznajder/vscode-es7-javascript-react-snippets'},
+    end,
+  },
+  { 'dsznajder/vscode-es7-javascript-react-snippets' },
 
   -- ====================
   -- CODE
@@ -67,26 +83,27 @@ return {
   -- comments
   {
     'terrortylor/nvim-comment',
-    event = "BufRead",
+    event = 'BufRead',
     config = function()
       require('plugin-settings.comment')
-    end
+    end,
   }, -- Auto pairs
   {
     'windwp/nvim-autopairs',
-    after = "nvim-cmp",
+    after = 'nvim-cmp',
     config = function()
       require('plugin-settings.autopairs')
-    end
+    end,
   }, --  surround
-  {'tpope/vim-surround'}, -- auto close html jsx tags
-  {'windwp/nvim-ts-autotag'}, -- uses treesitter
+  { 'tpope/vim-surround' }, -- auto close html jsx tags
+  { 'windwp/nvim-ts-autotag' }, -- uses treesitter
   -- rainbow parentheses
-  {'p00f/nvim-ts-rainbow'}, -- ====================
+  { 'p00f/nvim-ts-rainbow' }, -- ====================
   -- UI
   -- ====================
   -- Icons
-  {'kyazdani42/nvim-web-devicons'}, {'ryanoasis/vim-devicons'},
+  { 'kyazdani42/nvim-web-devicons' },
+  { 'ryanoasis/vim-devicons' },
 
   -- Tabbar, statusbar
   {
@@ -95,19 +112,20 @@ return {
       require('plugin-settings.barbar')
     end,
     event = 'BufWinEnter',
-    disable = true
-  }, {
+    disable = true,
+  },
+  {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
       require('plugin-settings.bufferline')
-    end
-
-  }, {
+    end,
+  },
+  {
     'windwp/windline.nvim',
     config = function()
       require('plugin-settings.windline')
-    end
+    end,
   }, -- {
   --   'glepnir/galaxyline.nvim',
   --   config = function()
@@ -120,36 +138,39 @@ return {
   -- ====================
   -- Vista
   {
-    "liuchengxu/vista.vim",
+    'liuchengxu/vista.vim',
     config = function()
       require('plugin-settings.vista')
-    end
+    end,
   }, -- whichkey
   {
     'folke/which-key.nvim',
     config = function()
       require('plugin-settings.whichkey')
     end,
-    event = "BufWinEnter"
+    event = 'BufWinEnter',
   }, -- File tree
   {
     'kyazdani42/nvim-tree.lua',
     config = function()
       require('plugin-settings.nvimtree')
-    end
+    end,
   }, -- fuzzy  find
-  {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {
+  { 'nvim-lua/popup.nvim' },
+  { 'nvim-lua/plenary.nvim' },
+  {
     'nvim-telescope/telescope.nvim',
     config = function()
-      require("plugin-settings.telescope")
-    end
-  }, {'nvim-telescope/telescope-media-files.nvim'}, -- git signs
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("plugin-settings.gitsigns")
+      require('plugin-settings.telescope')
     end,
-    event = "BufRead"
+  },
+  { 'nvim-telescope/telescope-media-files.nvim' }, -- git signs
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('plugin-settings.gitsigns')
+    end,
+    event = 'BufRead',
   }, -- project.nvim
   -- {
   --   "ahmedkhalf/project.nvim",
@@ -166,15 +187,15 @@ return {
   {
     'goolord/alpha-nvim',
     config = function()
-      require("plugin-settings.alpha")
-    end
+      require('plugin-settings.alpha')
+    end,
   }, -- sessions
   {
     'kaputi/neovim-session-manager',
     config = function()
       require('plugin-settings.session-manager')
     end,
-    branch = 'only-on-session'
+    branch = 'only-on-session',
   }, --   {
   --     'Shatur/neovim-session-manager',
   --     config = function()
@@ -182,48 +203,56 @@ return {
   --     end
   --   }, -- Terminal
   {
-    "akinsho/toggleterm.nvim",
-    event = "BufwinEnter",
+    'akinsho/toggleterm.nvim',
+    event = 'BufwinEnter',
     config = function()
       require('plugin-settings.toggleterm')
-    end
+    end,
   }, -- text navigation
   {
-    "justinmk/vim-sneak",
+    'justinmk/vim-sneak',
     config = function()
       require('plugin-settings.sneak')
-    end
-  }, {
+    end,
+  },
+  {
     'lambdalisue/suda.vim',
     config = function()
       require('plugin-settings.suda')
-    end
+    end,
   }, -- highlight color codes with its color
   {
     'norcalli/nvim-colorizer.lua',
     config = function()
       require('plugin-settings.colorizer')
-    end
+    end,
   }, -- pretty quickfix
-  {'kevinhwang91/nvim-bqf'}, -- indentations
+  { 'kevinhwang91/nvim-bqf' }, -- indentations
   {
     'lukas-reineke/indent-blankline.nvim',
     -- TODO: if i require a file, options won't get loaded, plugin doest show on :PackerStatus
-    config = require('indent_blankline').setup {
-      char_list = {'|', '¦', '┆', '┊'},
-      buftype_exclude = {"terminal"},
-      filetype_exclude = {"startify", "help", "alpha"},
+    config = require('indent_blankline').setup({
+      char_list = { '|', '¦', '┆', '┊' },
+      buftype_exclude = { 'terminal' },
+      filetype_exclude = { 'startify', 'help', 'alpha' },
       use_treesitter = true,
-      space_char_blankline = " ",
+      space_char_blankline = ' ',
       show_current_context = true,
       show_first_indent_level = true,
       -- python context_patterns = { '^def', '^if', '^elif', '^else', '^for', '^with', '^while', '^until', '^try', '^except', '^finally' }
       context_patterns = {
-        'class', 'method', 'function', '^if', '^else', '^for', '^while', '^try',
-        '^catch'
-      }
-    }
-  }
+        'class',
+        'method',
+        'function',
+        '^if',
+        '^else',
+        '^for',
+        '^while',
+        '^try',
+        '^catch',
+      },
+    }),
+  },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: undotree 'mbbill/undotree'

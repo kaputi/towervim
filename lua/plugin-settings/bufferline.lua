@@ -1,13 +1,13 @@
 local ok, bufferline = pcall(require, 'bufferline')
-if (ok) then
-  bufferline.setup {
+if ok then
+  bufferline.setup({
     options = {
       -- numbers = "none", --| "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
       --- @deprecated, please specify numbers as a function to customize the styling
       -- number_style = "superscript", --| "subscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
-      close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-      right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-      left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+      close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
+      right_mouse_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
+      left_mouse_command = 'buffer %d', -- can be a string | function, see "Mouse actions"
       middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
       -- NOTE: this plugin is designed with this icon in mind,
       -- and so changing this is NOT recommended, this is intended
@@ -34,7 +34,7 @@ if (ok) then
       diagnostics = false, -- | "nvim_lsp" | "coc",
       diagnostics_update_in_insert = false,
       diagnostics_indicator = function(count, level, diagnostics_dict, context)
-        return "(" .. count .. ")"
+        return '(' .. count .. ')'
       end,
       -- NOTE: this will be called a lot so don't do any heavy processing here
       -- custom_filter = function(buf_number)
@@ -53,8 +53,8 @@ if (ok) then
       --   end
       -- end,
       offsets = {
-        {filetype = "NvimTree", text = "File Explorer"},
-        {filetype = "vista_kind", text = "Tag Viewer"}
+        { filetype = 'NvimTree', text = 'File Explorer' },
+        { filetype = 'vista_kind', text = 'Tag Viewer' },
       }, -- | function , text_align = "left" | "center" | "right"}},
       show_buffer_icons = true, --  | false, -- disable filetype icons for buffers
       show_buffer_close_icons = true, -- | false,
@@ -63,13 +63,13 @@ if (ok) then
       persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
       -- can also be a table containing 2 custom separators
       -- [focused and unfocused]. eg: { '|', '|' }
-      separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
+      separator_style = 'slant', -- | "thick" | "thin" | { 'any', 'any' },
       enforce_regular_tabs = false, -- | true,
       -- always_show_bufferline = true, -- | false,
-      sort_by = 'id' -- 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+      sort_by = 'id', -- 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
       -- add custom logic
       -- return buffer_a.modified > buffer_b.modified
       -- end
-    }
-  }
+    },
+  })
 end

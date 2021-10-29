@@ -1,15 +1,15 @@
 local M = {}
 
 local function find_root_dir()
-  local util = require "lspconfig/util"
-  local lsp_utils = require "lsp.utils"
+  local util = require('lspconfig/util')
+  local lsp_utils = require('lsp.utils')
 
-  local status_ok, ts_client = lsp_utils.is_client_active "typescript"
+  local status_ok, ts_client = lsp_utils.is_client_active('typescript')
   if status_ok then
     return ts_client.config.root_dir
   end
-  local dirname = vim.fn.expand "%:p:h"
-  return util.root_pattern "package.json"(dirname)
+  local dirname = vim.fn.expand('%:p:h')
+  return util.root_pattern('package.json')(dirname)
 end
 
 local function from_node_modules(command)
@@ -19,7 +19,7 @@ local function from_node_modules(command)
     return nil
   end
 
-  return root_dir .. "/node_modules/.bin/" .. command
+  return root_dir .. '/node_modules/.bin/' .. command
 end
 
 local local_providers = {

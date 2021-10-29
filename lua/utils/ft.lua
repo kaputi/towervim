@@ -4,7 +4,7 @@ local ft = {}
 
 ft.find_lua_ftplugins = function(filetype)
   local patterns = {
-    string.format("ftplugin/%s.lua", filetype),
+    string.format('ftplugin/%s.lua', filetype),
 
     -- Looks like we don't need this, because the first one works
     -- string.format("after/ftplugin/%s.lua", filetype),
@@ -33,12 +33,14 @@ ft.do_filetype = function(filetype)
   for _, file in ipairs(ftplugins) do
     local f = loadfile(file)
     if not f then
-      vim.api.nvim_err_writeln("Unable to load file: " .. file)
+      vim.api.nvim_err_writeln('Unable to load file: ' .. file)
     else
       local ok, msg = pcall(setfenv(f, f_env))
 
       if not ok then
-        vim.api.nvim_err_writeln("Error while processing file: " .. file .. "\n" .. msg)
+        vim.api.nvim_err_writeln(
+          'Error while processing file: ' .. file .. '\n' .. msg
+        )
       end
     end
   end

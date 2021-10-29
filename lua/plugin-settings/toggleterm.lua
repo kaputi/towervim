@@ -1,6 +1,6 @@
 local ok, toggleterm = pcall(require, 'toggleterm')
-if (ok) then
-  toggleterm.setup {
+if ok then
+  toggleterm.setup({
     -- size can be a number or function which is passed the current terminal
     size = 20,
     -- open_mapping = [[<c-\>]],
@@ -27,36 +27,61 @@ if (ok) then
       -- width = <value>,
       -- height = <value>,
       winblend = 3,
-      highlights = {border = "Normal", background = "Normal"}
-    }
-  }
+      highlights = { border = 'Normal', background = 'Normal' },
+    },
+  })
 
   function _G.set_terminal_keymaps()
-    local opts = {noremap = true}
+    local opts = { noremap = true }
     vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<F1>',
-        '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>', opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<F2>',
-        '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>', opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<F3>',
-        '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>', opts)
+    vim.api.nvim_buf_set_keymap(
+      0,
+      't',
+      '<F1>',
+      '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>',
+      opts
+    )
+    vim.api.nvim_buf_set_keymap(
+      0,
+      't',
+      '<F2>',
+      '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>',
+      opts
+    )
+    vim.api.nvim_buf_set_keymap(
+      0,
+      't',
+      '<F3>',
+      '<C-\\><C-n>|<cmd>ToggleTermCloseAll<CR>',
+      opts
+    )
   end
 
   -- if you only want these mappings for toggle term use term://*toggleterm#* instead
   -- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
   vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
-  vim.api.nvim_set_keymap('n', '<F1>', ':1ToggleTerm direction=float<CR>',
-      {noremap = true, silent = true})
+  vim.api.nvim_set_keymap(
+    'n',
+    '<F1>',
+    ':1ToggleTerm direction=float<CR>',
+    { noremap = true, silent = true }
+  )
 
-  vim.api.nvim_set_keymap('n', '<F2>',
-      ':2ToggleTerm direction=horizontal<CR> |<C-\\><C-n> | :3ToggleTerm direction=horizontal<CR>',
-      {noremap = true, silent = true})
+  vim.api.nvim_set_keymap(
+    'n',
+    '<F2>',
+    ':2ToggleTerm direction=horizontal<CR> |<C-\\><C-n> | :3ToggleTerm direction=horizontal<CR>',
+    { noremap = true, silent = true }
+  )
 
-  vim.api.nvim_set_keymap('n', '<F3>', ':4ToggleTerm direction=float<CR>',
-      {noremap = true, silent = true})
-
+  vim.api.nvim_set_keymap(
+    'n',
+    '<F3>',
+    ':4ToggleTerm direction=float<CR>',
+    { noremap = true, silent = true }
+  )
 end
