@@ -1,6 +1,8 @@
 return {
   -- Packwe can manage itself as a plugin
-  { 'wbthomason/packer.nvim' }, -- ====================
+  { 'wbthomason/packer.nvim' },
+
+  -- ====================
   -- Syntax, LSP, Autocomplete
   -- ====================
   { 'neovim/nvim-lspconfig' },
@@ -14,7 +16,8 @@ return {
         lspinstall.setup()
       end
     end,
-  }, -- {
+  },
+  -- {
   --   "ray-x/lsp_signature.nvim",
   -- },
   {
@@ -64,7 +67,9 @@ return {
     config = function()
       require('plugin-settings.cmp-tabnine')
     end,
-  }, -- ====================
+  },
+
+  -- ====================
   -- Snippets
   -- ====================
   -- sniped engine
@@ -79,7 +84,6 @@ return {
   -- ====================
   -- CODE
   -- ====================
-
   -- comments
   {
     'terrortylor/nvim-comment',
@@ -87,18 +91,24 @@ return {
     config = function()
       require('plugin-settings.comment')
     end,
-  }, -- Auto pairs
+  },
+  -- Auto pairs
   {
     'windwp/nvim-autopairs',
     after = 'nvim-cmp',
     config = function()
       require('plugin-settings.autopairs')
     end,
-  }, --  surround
-  { 'tpope/vim-surround' }, -- auto close html jsx tags
-  { 'windwp/nvim-ts-autotag' }, -- uses treesitter
+  },
+  --  surround
+  { 'tpope/vim-surround' },
+  -- auto close html jsx tags
+  { 'windwp/nvim-ts-autotag' },
+  -- uses treesitter
   -- rainbow parentheses
-  { 'p00f/nvim-ts-rainbow' }, -- ====================
+  { 'p00f/nvim-ts-rainbow' },
+
+  -- ====================
   -- UI
   -- ====================
   -- Icons
@@ -126,13 +136,15 @@ return {
     config = function()
       require('plugin-settings.windline')
     end,
-  }, -- {
+  },
+  -- {
   --   'glepnir/galaxyline.nvim',
   --   config = function()
   --     require('plugin-settings.galaxyline')
   --   end,
   --   event = 'BufWinEnter'
   -- },
+
   -- ====================
   -- Tools
   -- ====================
@@ -142,20 +154,23 @@ return {
     config = function()
       require('plugin-settings.vista')
     end,
-  }, -- whichkey
+  },
+  -- whichkey
   {
     'folke/which-key.nvim',
     config = function()
       require('plugin-settings.whichkey')
     end,
     event = 'BufWinEnter',
-  }, -- File tree
+  },
+  -- File tree
   {
     'kyazdani42/nvim-tree.lua',
     config = function()
       require('plugin-settings.nvimtree')
     end,
-  }, -- fuzzy  find
+  },
+  -- fuzzy  find
   { 'nvim-lua/popup.nvim' },
   { 'nvim-lua/plenary.nvim' },
   {
@@ -171,7 +186,8 @@ return {
       require('plugin-settings.gitsigns')
     end,
     event = 'BufRead',
-  }, -- project.nvim
+  },
+  -- project.nvim
   -- {
   --   "ahmedkhalf/project.nvim",
   --   config = function()
@@ -189,14 +205,16 @@ return {
     config = function()
       require('plugin-settings.alpha')
     end,
-  }, -- sessions
+  },
+  -- sessions
   {
     'kaputi/neovim-session-manager',
     config = function()
       require('plugin-settings.session-manager')
     end,
     branch = 'only-on-session',
-  }, --   {
+  },
+  --   {
   --     'Shatur/neovim-session-manager',
   --     config = function()
   --       require('plugin-settings.session-manager')
@@ -208,7 +226,8 @@ return {
     config = function()
       require('plugin-settings.toggleterm')
     end,
-  }, -- text navigation
+  },
+  -- text navigation
   {
     'justinmk/vim-sneak',
     config = function()
@@ -220,14 +239,17 @@ return {
     config = function()
       require('plugin-settings.suda')
     end,
-  }, -- highlight color codes with its color
+  },
+  -- highlight color codes with its color
   {
     'norcalli/nvim-colorizer.lua',
     config = function()
       require('plugin-settings.colorizer')
     end,
-  }, -- pretty quickfix
-  { 'kevinhwang91/nvim-bqf' }, -- indentations
+  },
+  -- pretty quickfix
+  { 'kevinhwang91/nvim-bqf' },
+  -- indent lines
   {
     'lukas-reineke/indent-blankline.nvim',
     -- TODO: if i require a file, options won't get loaded, plugin doest show on :PackerStatus
