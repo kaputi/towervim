@@ -17,7 +17,7 @@ local M = {
         cmd = {
           'node',
           DATA_PATH
-            .. '/lspinstall/css/vscode-css/css-language-features/server/dist/node/cssServerMain.js',
+            .. '/lspinstall/cssls/node_modules/.bin/vscode-css-language-server',
           '--stdio',
         },
       },
@@ -35,7 +35,7 @@ local M = {
         cmd = {
           'node',
           DATA_PATH
-            .. '/lspinstall/css/vscode-css/css-language-features/server/dist/node/cssServerMain.js',
+            .. '/lspinstall/cssls/node_modules/.bin/vscode-css-language-server',
           '--stdio',
         },
       },
@@ -67,7 +67,7 @@ local M = {
         cmd = {
           'node',
           DATA_PATH
-            .. '/lspinstall/html/vscode-html/html-language-features/server/dist/node/htmlServerMain.js',
+            .. '/lspinstall/html/node_modules/.bin/vscode-html-language-server',
           '--stdio',
         },
       },
@@ -92,7 +92,7 @@ local M = {
         cmd = {
           'node',
           DATA_PATH
-            .. '/lspinstall/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js',
+            .. '/lspinstall/json/node_modules/.bin/vscod-json-language-server',
           '--stdio',
         },
         settings = {
@@ -145,9 +145,12 @@ local M = {
       provider = 'sumneko_lua',
       setup = {
         cmd = {
-          DATA_PATH .. '/lspinstall/lua/sumneko-lua-language-server',
+          DATA_PATH
+            .. '/lspinstall/sumneko_lua/extension/server/bin/Linux/lua-language-server',
+          -- DATA_PATH .. '/lspinstall/lua/sumneko-lua-language-server',
           '-E',
-          DATA_PATH .. '/lspinstall/lua/main.lua',
+          -- DATA_PATH .. '/lspinstall/lua/main.lua',
+          DATA_PATH .. '/lspinstall/sumneko_lua/extension/server/bin/Linux/main.lua',
         },
         settings = {
           Lua = {
@@ -165,7 +168,7 @@ local M = {
               -- Make the server aware of Neovim runtime files
               -- TODO: change to towervim
               library = {
-                [vim.fn.expand('~/.local/share/lunarvim/lvim/lua')] = true,
+                -- [vim.fn.expand('~/.local/share/lunarvim/lvim/lua')] = true,
                 [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                 [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
               },
@@ -189,7 +192,7 @@ local M = {
       provider = 'intelephense',
       setup = {
         cmd = {
-          DATA_PATH .. '/lspinstall/php/node_modules/.bin/intelephense',
+          DATA_PATH .. 'lspinstall/php/node_modules/.bin/intelephense',
           '--stdio',
         },
         filetypes = { 'php', 'phtml' },
@@ -214,8 +217,8 @@ local M = {
       provider = 'tsserver',
       setup = {
         cmd = {
-          -- TODO:
-          DATA_PATH .. '/lspinstall/typescript/node_modules/.bin/typescript-language-server',
+          DATA_PATH
+            .. '/lspinstall/tsserver/node_modules/.bin/typescript-language-server',
           '--stdio',
         },
       },
@@ -237,8 +240,8 @@ local M = {
       provider = 'tsserver',
       setup = {
         cmd = {
-          -- TODO:
-          DATA_PATH .. '/lspinstall/typescript/node_modules/.bin/typescript-language-server',
+          DATA_PATH
+            .. '/lspinstall/tsserver/node_modules/.bin/typescript-language-server',
           '--stdio',
         },
       },
@@ -268,10 +271,10 @@ local M = {
   },
   sh = {
     formatters = {
-      -- {
-      --   exe = "shfmt",
-      --   args = {},
-      -- },
+      {
+        exe = 'shfmt',
+        args = {},
+      },
     },
     linters = {},
     lsp = {
@@ -302,7 +305,7 @@ local M = {
       setup = {
         cmd = {
           -- TODO:
-          DATA_PATH .. '/lspinstall/typescript/node_modules/.bin/typescript-language-server',
+          DATA_PATH .. '/lspinstall/tsserver/node_modules/.bin/typescript-language-server',
           '--stdio',
         },
       },
@@ -327,7 +330,7 @@ local M = {
       setup = {
         cmd = {
           -- TODO:
-          DATA_PATH .. '/lspinstall/typescript/node_modules/.bin/typescript-language-server',
+          DATA_PATH .. '/lspinstall/tsserver/node_modules/.bin/typescript-language-server',
           '--stdio',
         },
       },
@@ -359,7 +362,7 @@ local M = {
     lsp = {
       provider = 'vuels',
       setup = {
-        cmd = { DATA_PATH .. '/lspinstall/vue/node_modules/.bin/vls' },
+        cmd = { DATA_PATH .. '/lspinstall/vuels/node_modules/.bin/vls' },
         root_dir = function(fname)
           local util = require('lspconfig/util')
           return util.root_pattern('package.json')(fname)

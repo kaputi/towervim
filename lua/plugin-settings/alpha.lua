@@ -1,16 +1,27 @@
 local ok, alpha = pcall(require, 'alpha')
 if ok then
-  local name = nil
-  local session_ok, session_utils = pcall(require, 'session_manager.utils')
-  if session_ok then
-    local filename = session_utils.get_last_session_filename()
-    if filename then
-      name = filename:match('^.+_(.+)$')
+  local name = ''
+
+  local scandir = require('plenary.scandir')
+  local get_last_session_filename = function()
+    local sessions_path = CACHE_PATH .. '/sessions'
+
+    local most_recent_filename = nil
+    local most_recent_timestamp = 0
+    for _, session_filename in ipairs(scandir.scan_dir(sessions_path)) do
+      local timestamp = vim.fn.getftime(session_filename)
+      if most_recent_timestamp < timestamp then
+        most_recent_timestamp = timestamp
+        most_recent_filename = session_filename
+      end
     end
+    return most_recent_filename
   end
 
-  if name then
-    name = ': ' .. name
+  local filename = get_last_session_filename()
+
+  if filename ~= nil then
+    name = ': ' .. filename:match('^.+_(.+)$')
   end
 
   local dashboard = require('alpha.themes.dashboard')

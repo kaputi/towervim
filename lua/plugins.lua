@@ -9,14 +9,21 @@ return {
   { 'jose-elias-alvarez/null-ls.nvim' },
   { 'tamago324/nlsp-settings.nvim' },
   {
-    'kabouzeid/nvim-lspinstall',
+    'williamboman/nvim-lsp-installer',
     config = function()
-      local ok, lspinstall = pcall(require('lspinstall'))
-      if ok then
-        lspinstall.setup()
-      end
+      require('plugin-settings.lspinstall')
     end,
   },
+  -- {
+  --   'kabouzeid/nvim-lspinstall',
+  --   config = function()
+  --     local ok, lspinstall = pcall(require('lspinstall'))
+  --     if ok then
+  --       lspinstall.setup()
+  --     end
+  --   end,
+  --   disbled = true,
+  -- },
   -- {
   --   "ray-x/lsp_signature.nvim",
   -- },
@@ -117,14 +124,6 @@ return {
 
   -- Tabbar, statusbar
   {
-    'romgrk/barbar.nvim',
-    config = function()
-      require('plugin-settings.barbar')
-    end,
-    event = 'BufWinEnter',
-    disable = true,
-  },
-  {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
@@ -192,12 +191,6 @@ return {
   --   "ahmedkhalf/project.nvim",
   --   config = function()
   --     require("plugin-settings.project")
-  --   end,
-  -- },
-  -- {
-  --   'mhinz/vim-startify',
-  --   config = function()
-  --     require("plugin-settings.startify")
   --   end,
   -- },
   {
