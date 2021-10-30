@@ -48,7 +48,3 @@ end
 -- KEYMAPPINGS
 local mappings = require('core.mappings')
 mappings:setup()
-
--- TODO:
---  checkout kristijanhusak/orgmode.nvim
---  install vimwiki

@@ -289,7 +289,7 @@ if ok then
     -- },
 
     -- Window Layer
-    ['w'] = {
+    ['W'] = {
       name = '>> Window <<',
       ['h'] = { '<C-W>H', 'Move Left' },
       ['j'] = { '<C-W>J', 'Move Down' },

@@ -230,8 +230,16 @@ return {
   {
     'mbbill/undotree',
   },
+  {
+    'vimwiki/vimwiki',
+    setup = function()
+      require('plugin-settings.vimwiki')
+    end,
+    cmd = 'VimwikiUISelect',
+    -- ft = 'markdown',
+  },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
-  -- TODO: undotree 'mbbill/undotree'
   -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
+  -- TODO: lazyloading
 }
