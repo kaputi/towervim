@@ -61,4 +61,12 @@ if telescope_ok and job_ok then
       -- }
     },
   })
+
+  vim.cmd([[
+    augroup Telescope-Browser
+      au!
+      au VimEnter * sil! au! FileExplorer *
+      au BufEnter * lua require('plugin-settings.telescope-browser')
+    augroup END
+  ]])
 end
