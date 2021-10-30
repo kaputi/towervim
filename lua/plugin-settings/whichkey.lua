@@ -106,7 +106,10 @@ if ok then
     -- ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
     ['d'] = { '<cmd>bdelete<CR>', 'Delete Buffer' },
     ['e'] = { '<cmd>NvimTreeToggle<CR>', 'File Explorer' },
-    ['h'] = { '<cmd>split | Telescope buffers<CR>', 'Horizontal Split' },
+    ['h'] = {
+      '<cmd>split | Telescope buffers initial_mode=normal<CR>',
+      'Horizontal Split',
+    },
     ['n'] = { '<cmd>BufferLineCycleNext<CR>', 'next buffer' },
     ['o'] = {
       '<cmd>call append(line("."),   repeat([""], v:count1))<CR>',
@@ -123,7 +126,10 @@ if ok then
     -- ['u'] = {},
     -- ['t'] = {'<cmd>ToggleTerm<CR>', 'Terminal'},
     -- ['r'] = {},
-    ['v'] = { '<cmd>vsplit | Telescope buffers<CR>', 'Vertical Split' },
+    ['v'] = {
+      '<cmd>vsplit | Telescope buffers initial_mode=normal<CR>',
+      'Vertical Split',
+    },
     ['y'] = { '<cmd>Telescope registers<CR>', 'Yank List' },
 
     -- Dashboard Layer

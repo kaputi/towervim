@@ -77,8 +77,11 @@ local function lsp_buffer_keybindings(bufnr)
     ['k'] = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Show hover' },
     ['l'] = {
       name = '>> LSP <<',
-      ['a'] = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'lsp code action' },
-      ['A'] = { '<cmd>Telescope code_action<CR>', 'telescope code action' },
+      ['A'] = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'lsp code action' },
+      ['a'] = {
+        '<cmd>Telescope lsp_code_actions<CR>',
+        'telescope code action',
+      },
       ['d'] = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
       ['D'] = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Goto declaration' },
       ['r'] = { '<cmd>lua vim.lsp.buf.references()<CR>', 'Goto references' },
