@@ -52,4 +52,3 @@ mappings:setup()
 -- TODO:
 --  checkout kristijanhusak/orgmode.nvim
 --  install vimwiki
---  Ranger as file explorer

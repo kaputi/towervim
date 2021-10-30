@@ -1,7 +1,4 @@
--- TODO: change backgound for tree
--- without this when opening a startify session, nvimtree don't set filetype and wont delete buffer when close
--- TODO: startify still missbehaves
--- vim.cmd([[doautocmd NvimTree BufEnter *]])
+-- tree background
 vim.cmd([[hi NvimTreeNormal guibg=#212333]])
 
 -- vim.g.nvim_tree_side = 'left'

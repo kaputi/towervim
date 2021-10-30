@@ -4,6 +4,8 @@ if status_ok then
   schemas = jsonls_settings.get_default_schemas()
 end
 
+-- TODO: there must be a better way to get the paths installed with LspInstall
+
 local M = {
   scss = {
     formatters = {
@@ -166,9 +168,8 @@ local M = {
             },
             workspace = {
               -- Make the server aware of Neovim runtime files
-              -- TODO: change to towervim
               library = {
-                -- [vim.fn.expand('~/.local/share/lunarvim/lvim/lua')] = true,
+                [vim.fn.expand('~/.config/towervim/lua')] = true,
                 [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                 [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
               },
