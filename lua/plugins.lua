@@ -15,16 +15,6 @@ return {
     end,
   },
   -- {
-  --   'kabouzeid/nvim-lspinstall',
-  --   config = function()
-  --     local ok, lspinstall = pcall(require('lspinstall'))
-  --     if ok then
-  --       lspinstall.setup()
-  --     end
-  --   end,
-  --   disbled = true,
-  -- },
-  -- {
   --   "ray-x/lsp_signature.nvim",
   -- },
   {
@@ -136,13 +126,6 @@ return {
       require('plugin-settings.windline')
     end,
   },
-  -- {
-  --   'glepnir/galaxyline.nvim',
-  --   config = function()
-  --     require('plugin-settings.galaxyline')
-  --   end,
-  --   event = 'BufWinEnter'
-  -- },
 
   -- ====================
   -- Tools
@@ -187,12 +170,12 @@ return {
     event = 'BufRead',
   },
   -- project.nvim
-  -- {
-  --   "ahmedkhalf/project.nvim",
-  --   config = function()
-  --     require("plugin-settings.project")
-  --   end,
-  -- },
+  {
+    'ahmedkhalf/project.nvim',
+    config = function()
+      require('plugin-settings.project')
+    end,
+  },
   {
     'goolord/alpha-nvim',
     config = function()
@@ -207,12 +190,6 @@ return {
     end,
     branch = 'only-on-session',
   },
-  --   {
-  --     'Shatur/neovim-session-manager',
-  --     config = function()
-  --       require('plugin-settings.session-manager')
-  --     end
-  --   }, -- Terminal
   {
     'akinsho/toggleterm.nvim',
     event = 'BufwinEnter',
