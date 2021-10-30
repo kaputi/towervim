@@ -64,7 +64,7 @@ hi PmenuSbar guifg=NONE ctermfg=NONE guibg=#3b4048 ctermbg=238 gui=NONE cterm=NO
 hi PmenuThumb guifg=NONE ctermfg=NONE guibg=#abb2bf ctermbg=249 gui=NONE cterm=NONE
 hi Question guifg=#d4bfff ctermfg=183 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi QuickFixLine guifg=#1e1e1e ctermfg=234 guibg=#ffc44c ctermbg=221 gui=NONE cterm=NONE
-hi Search guifg=#1da1f2 ctermfg=39 guibg=#ffc44c ctermbg=221 gui=NONE cterm=NONE
+hi Search guifg=#d8dee9 ctermfg=254 guibg=#3d4751 ctermbg=238 gui=NONE cterm=NONE
 hi SpecialKey guifg=#3b4048 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SpellBad guifg=#f44747 ctermfg=203 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 hi SpellCap guifg=#d7ba7d ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -188,7 +188,7 @@ hi LspDiagnosticsVirtualTextHint guifg=#4fc1ff ctermfg=75 guibg=NONE ctermbg=NON
 hi QuickScopePrimary guifg=#00c7df ctermfg=44 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 hi QuickScopeSecondary guifg=#ef5f70 ctermfg=203 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 hi MatchWord guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=underline cterm=underline
-hi MatchParen guifg=#ffcc66 ctermfg=221 guibg=#f07178 ctermbg=204 gui=NONE cterm=NONE
+hi MatchParen guifg=#d8dee9 ctermfg=254 guibg=#5c6773 ctermbg=242 gui=NONE cterm=NONE
 hi MatchWordCur guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=underline cterm=underline
 hi MatchParenCur guifg=#ffc44c ctermfg=221 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 hi CocExplorerIndentLine guifg=#5c6370 ctermfg=241 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
