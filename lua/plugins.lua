@@ -222,10 +222,13 @@ return {
   -- indent lines
   {
     'lukas-reineke/indent-blankline.nvim',
-    -- TODO: if i require a file, options won't get loaded, plugin doest show on :PackerStatus
     config = function()
       require('plugin-settings.indent-blankline')
     end,
+  },
+  -- undo tree
+  {
+    'mbbill/undotree',
   },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'

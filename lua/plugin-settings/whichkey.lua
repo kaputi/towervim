@@ -101,7 +101,10 @@ if ok then
   local nmappings = {
     ['/'] = { '<cmd>CommentToggle<CR>', 'Comment Line' },
     ['='] = { '<C-w>=', 'Balance Windows' },
-    [','] = { '<cmd>Telescope buffers<CR>', 'Buffer List' },
+    [','] = {
+      '<cmd>Telescope buffers initial_mode=normal<CR>',
+      'Buffer List',
+    },
     [' '] = { '<cmd>Telescope find_files<CR>', 'Files' },
     -- ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
     ['d'] = { '<cmd>bdelete<CR>', 'Delete Buffer' },
@@ -123,7 +126,7 @@ if ok then
     ['q'] = { '<cmd>q<CR>', 'Quit' },
     ['Q'] = { '<cmd>qa!<CR>', 'Quit All!!' },
     -- ['r'] = {},
-    -- ['u'] = {},
+    ['u'] = { '<cmd>UndotreeToggle<CR>', 'Undo tree' },
     -- ['t'] = {'<cmd>ToggleTerm<CR>', 'Terminal'},
     -- ['r'] = {},
     ['v'] = {
