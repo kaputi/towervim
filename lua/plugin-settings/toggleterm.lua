@@ -74,7 +74,7 @@ if ok then
   vim.api.nvim_set_keymap(
     'n',
     '<F2>',
-    ':2ToggleTerm direction=horizontal<CR> |<C-\\><C-n> | :3ToggleTerm direction=horizontal<CR>',
+    ':2ToggleTerm direction=horizontal<CR> <C-\\><C-n>  :3ToggleTerm direction=horizontal<CR> <C-\\><C-n><C-W>h',
     { noremap = true, silent = true }
   )
 

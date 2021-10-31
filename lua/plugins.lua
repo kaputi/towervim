@@ -14,9 +14,9 @@ return {
       require('plugin-settings.lspinstall')
     end,
   },
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  -- },
+  {
+    'ray-x/lsp_signature.nvim',
+  },
   {
     'folke/trouble.nvim',
     config = function()
