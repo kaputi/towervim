@@ -94,7 +94,7 @@ local M = {
         cmd = {
           'node',
           DATA_PATH
-            .. '/lspinstall/json/node_modules/.bin/vscod-json-language-server',
+            .. '/lspinstall/jsonls/node_modules/.bin/vscode-json-language-server',
           '--stdio',
         },
         settings = {

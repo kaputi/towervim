@@ -83,13 +83,14 @@ return {
   -- ====================
   -- comments
   {
-    'terrortylor/nvim-comment',
-    event = 'BufRead',
+    'numToStr/Comment.nvim',
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
     config = function()
       require('plugin-settings.comment')
     end,
   },
-  -- Auto pairs
   {
     'windwp/nvim-autopairs',
     after = 'nvim-cmp',
