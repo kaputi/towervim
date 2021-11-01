@@ -28,7 +28,7 @@ if telescope_ok and job_ok then
       :sync()
   end
 
-  telescope.load_extension('media_files')
+  -- telescope.load_extension('media_files')
   telescope.setup({
     defaults = {
       mappings = {
@@ -58,7 +58,7 @@ if telescope_ok and job_ok then
       -- filetypes whitelist
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
       -- filetypes = {"png", "webp", "jpg", "jpeg"},
-      find_command = 'rg', -- find command (defaults to `fd`)
+      -- find_command = 'rg', -- find command (defaults to `fd`)
       -- }
     },
   })
