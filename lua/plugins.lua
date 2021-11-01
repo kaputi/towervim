@@ -239,6 +239,12 @@ return {
     cmd = 'VimwikiUISelect',
     -- ft = 'markdown',
   },
+  {
+    'beauwilliams/focus.nvim',
+    config = function()
+      require('plugin-settings.focus')
+    end,
+  },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
