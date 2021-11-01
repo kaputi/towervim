@@ -199,12 +199,7 @@ return {
     end,
   },
   -- text navigation
-  {
-    'justinmk/vim-sneak',
-    config = function()
-      require('plugin-settings.sneak')
-    end,
-  },
+  { 'ggandor/lightspeed.nvim' },
   {
     'lambdalisue/suda.vim',
     config = function()
