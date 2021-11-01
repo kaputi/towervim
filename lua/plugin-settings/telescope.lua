@@ -40,15 +40,16 @@ if telescope_ok and job_ok then
         n = { ['l'] = actions.select_default },
       },
       buffer_previewer_maker = new_maker,
-      sorting_strategy = 'ascending',
+      -- sorting_strategy = 'ascending',
 
-      layout_strategy = 'bottom_pane',
-      layout_config = { height = 25 },
+      -- layout_strategy = 'bottom_pane',
+      -- layout_config = { height = 25 },
 
       border = true,
       borderchars = {
         prompt = { '─', ' ', ' ', ' ', '─', '─', ' ', ' ' },
-        results = { ' ' },
+        -- results = { ' ' },
+        results = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
         preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
       },
     },
@@ -62,6 +63,7 @@ if telescope_ok and job_ok then
     },
   })
 
+  -- Replace netrw with telescope when opening . or dir
   vim.cmd([[
     augroup Telescope-Browser
       au!
