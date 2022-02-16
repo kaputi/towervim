@@ -7,7 +7,7 @@ vim.cmd([[hi NvimTreeNormal guibg=#212333]])
 -- vim.g.nvim_tree_auto_open = 0 -- 0 by default, opens the tree when typing `vim $DIR` or `vim`
 -- vim.g.nvim_tree_auto_close = 1 -- 0 by default, closes the tree when it's the last window
 -- vim.g.nvim_tree_gitignore = 1 "0 by default
-vim.g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' } -- empty by default, don't auto open tree on specific filetypes.
+vim.g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard', 'alpha' } -- empty by default, don't auto open tree on specific filetypes.
 vim.g.nvim_tree_quit_on_open = 1 -- 0 by default, closes the tree when you open a file
 -- vim.g.nvim_tree_follow = 1 -- 0 by default, this option allows the cursor to be updated when entering a buffer
 -- vim.g.nvim_tree_follow_update_path = 1 -- 0 by default, will update the path of the current dir if the file is not inside the tree.
@@ -23,7 +23,7 @@ vim.g.nvim_tree_root_folder_modifier = ':~' -- This is the default. See :help fi
 vim.g.nvim_tree_add_trailing = 1 -- 0 by default, append a trailing slash to folder names
 vim.g.nvim_tree_group_empty = 0 --  0 by default, compact folders that only contain a single folder into one node in the file tree
 -- vim.g.nvim_tree_lsp_diagnostics = 1 -- 0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
-vim.g.nvim_tree_disable_window_picker = 0 -- 0 by default, will disable the window picker.
+vim.g.nvim_tree_disable_window_picker = 1 -- 0 by default, will disable the window picker.
 -- vim.g.nvim_tree_hijack_cursor = 1 -- 1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
 vim.g.nvim_tree_icon_padding = ' ' -- one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
 vim.g.nvim_tree_symlink_arrow = ' >> ' --  defaults to ' ➛ '. used as a separator between symlinks' source and target.
@@ -185,7 +185,7 @@ if ok then
     },
     filters = {
       dotfiles = true,
-      custom = { 'node_modules' },
+      custom = { 'node_modules', 'dist', 'build', '*.lock', '*.log' },
     },
   })
 end

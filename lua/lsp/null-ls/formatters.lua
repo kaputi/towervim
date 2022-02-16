@@ -37,7 +37,7 @@ function M.list_available(filetype)
   return formatters
 end
 
-function M.list_configured(formatter_configs)
+function M.list_configured(formatter_configs, filetypes)
   local available = {}
   local formatters, errors = {}, {}
 
@@ -55,6 +55,7 @@ function M.list_configured(formatter_configs)
           formatter = formatter.with({
             command = formatter_cmd,
             extra_args = fmt_config.args,
+            filetypes = {filetypes}
           }),
           default = fmt_config.default,
         }
@@ -70,11 +71,14 @@ function M.list_configured(formatter_configs)
     -- print(vim.inspect(formatter))
     if formatter.default then
       formatters = {}
-      formatters[name] = formatter.formatter
+      -- formatters[name] = formatter.formatter
+      table.insert(formatters, formatter.formatter)
       break
     end
-    formatters[name] = formatter.formatter
+    -- TODO: if not default add all
+    -- formatters[name] = formatter.formatter
   end
+
 
   return { supported = formatters, unsupported = errors }
 end
@@ -89,7 +93,7 @@ function M.setup(filetype, options)
     return
   end
 
-  formatters_by_ft[filetype] = M.list_configured(ls_settings.formatters)
+  formatters_by_ft[filetype] = M.list_configured(ls_settings.formatters, filetype)
 
   -- if prettier and prettierd available selecte only prettierd
   -- if formatters_by_ft[filetype].supported.prettier and
@@ -98,7 +102,12 @@ function M.setup(filetype, options)
   -- -- end
   -- print(vim.inspect(formatters_by_ft[filetype].supported))
 
-  null_ls.register({ sources = formatters_by_ft[filetype].supported })
+
+  -- local lala = formatters_by_ft[filetype].supported
+  -- print(vim.inspect(formatters_by_ft))
+  -- null_ls.register({ sources = formatters_by_ft[filetype].supported})
+  null_ls.register(formatters_by_ft[filetype].supported)
+  -- print(vim.inspect(formatters_by_ft[filetype].supported))
 end
 
 return M

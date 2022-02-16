@@ -55,11 +55,24 @@ if ok then
 --]]
       --
     },
-    watch_index = { interval = 1000 },
+    current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+      delay = 700,
+      ignore_whitespace = false,
+    },
+    current_line_blame_formatter_opts = {
+      relative_time = false
+    },
+    watch_gitdir = {
+        interval = 1000,
+        follow_files = true
+      },
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil, -- Use default
     -- use_decoration_api = true,
-    use_internal_diff = true, -- If luajit is present
+    -- use_internal_diff = true, -- If luajit is present
   })
 end

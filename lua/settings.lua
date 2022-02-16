@@ -1,6 +1,7 @@
 local M = {}
 
-M.colorscheme = 'towervim'
+-- M.colorscheme = 'towervim'
+M.colorscheme = 'tokyonight'
 
 -- this will be set with vim.opt.OPTION
 M.general = {
@@ -26,8 +27,8 @@ M.general = {
     hidden = true,
     hlsearch = true,
     ignorecase = true,
-    -- laststatus = 2,
-    laststatus = 0,
+    laststatus = 2,
+    -- laststatus = 0,
     linebreak = true,
     mouse = 'a',
     pumheight = 10,
@@ -39,7 +40,8 @@ M.general = {
     smartindent = true,
     splitbelow = true,
     splitright = true,
-    swapfile = false,
+    swapfile = true,
+    directory = CACHE_PATH .. '/swap',
     termguicolors = true,
     textwidth = 0,
     timeoutlen = 500,
@@ -50,7 +52,7 @@ M.general = {
     writebackup = false,
     expandtab = true,
     shiftwidth = 2,
-    showbreak = '->->->',
+    showbreak = '->->',
     tabstop = 2,
     cursorline = true,
     cursorcolumn = true,
@@ -69,6 +71,7 @@ M.general = {
   -- this will be set with vim.opt.OPTION:append(...) = :set+=
   append = {
     shortmess = 'c',
+    listchars = 'precedes:<,extends:>',
   },
 
   -- this will be set with vim.opt.OPTIONL:prepend(...) = :set^=

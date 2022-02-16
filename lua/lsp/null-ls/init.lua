@@ -27,12 +27,26 @@ end
 -- TODO: for linters and formatters with spaces and '-' replace with '_'
 function M.setup(filetype, options)
   options = options or {}
-
   local formatters = require('lsp.null-ls.formatters')
   local linters = require('lsp.null-ls.linters')
 
+
   formatters.setup(filetype, options)
   linters.setup(filetype, options)
+
+  -- TODO: this should be global there is no need to use handlers anymore
+  require('null-ls').setup({
+    on_attach= function()
+      vim.diagnostic.config({
+        virtual_text=false,
+        float = {
+          source="always",
+        },
+        severity_sort = true
+      })
+    end
+  })
+
 end
 
 return M

@@ -64,6 +64,28 @@ if ok then
   -- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
   vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
+
+  vim.api.nvim_set_keymap(
+    'i',
+    '<F1>',
+    '<cmd>1ToggleTerm direction=float<CR>',
+    { noremap = true, silent = true }
+  )
+
+  vim.api.nvim_set_keymap(
+    'i',
+    '<F2>',
+    '<cmd>2ToggleTerm direction=horizontal<CR> <C-\\><C-n>  :3ToggleTerm direction=horizontal<CR> <C-\\><C-n><C-W>h',
+    { noremap = true, silent = true }
+  )
+
+  vim.api.nvim_set_keymap(
+    'i',
+    '<F3>',
+    '<cmd>4ToggleTerm direction=float<CR>',
+    { noremap = true, silent = true }
+  )
+
   vim.api.nvim_set_keymap(
     'n',
     '<F1>',

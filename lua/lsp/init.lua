@@ -10,7 +10,7 @@ local toggle_autoformat = function()
         {
           'BufWritePre',
           '*',
-          ':silent lua vim.lsp.buf.formatting_sync(nil, 500)',
+          ':silent lua vim.lsp.buf.formatting_sync(nil, 1000)',
         },
       },
     })
@@ -84,16 +84,16 @@ local function lsp_buffer_keybindings(bufnr)
       },
       ['d'] = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
       ['D'] = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Goto declaration' },
-      ['r'] = { '<cmd>lua vim.lsp.buf.references()<CR>', 'Goto references' },
-      ['R'] = {
-        '<cmd>lua vim.lsp.buf.rename()<CR>',
-        'Rename symbol projectwise',
-      },
+      ['f'] = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format with lsp'},
       ['I'] = {
         '<cmd>lua vim.lsp.buf.implementation()<CR>',
         'Goto Implementation',
       },
-      ['s'] = {
+      ['l'] = {
+        "<cmd>lua require'lsp.handlers'.show_line_diagnostics()<CR>",
+        'Show line diagnostics',
+      },
+      ['k'] = {
         '<cmd>lua vim.lsp.buf.signature_help()<CR>',
         'show signature help',
       },
@@ -101,11 +101,12 @@ local function lsp_buffer_keybindings(bufnr)
         "<cmd>lua require'lsp.peek'.Peek('definition')<CR>",
         'Peek definition',
       },
-      ['l'] = {
-        "<cmd>lua require'lsp.handlers'.show_line_diagnostics()<CR>",
-        'Show line diagnostics',
+      ['r'] = { '<cmd>lua vim.lsp.buf.references()<CR>', 'Goto references' },
+      ['R'] = {
+        '<cmd>lua vim.lsp.buf.rename()<CR>',
+        'Rename symbol projectwise',
       },
-      ['t'] = { '<cmd>TroubleToggle<CR>', 'Trouble' },
+      ['t'] = { '<cmd>TroubleToggle document_diagnostics<CR>', 'Trouble' },
     },
   }
 
@@ -125,10 +126,10 @@ local function lsp_buffer_keybindings(bufnr)
       "<cmd>lua require'lsp.peek'.Peek('definition')<CR>",
       'Peek definition',
     },
-    ['gl'] = {
-      "<cmd>lua require'lsp.handlers'.show_line_diagnostics()<CR>",
-      'Show line diagnostics',
-    },
+    -- ['gl'] = {
+    --   "<cmd>lua require'lsp.handlers'.show_line_diagnostics()<CR>",
+    --   'Show line diagnostics',
+    -- },
   }
 
   local common_opts = {

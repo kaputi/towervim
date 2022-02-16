@@ -37,7 +37,7 @@ function M.list_available(filetype)
   return linters
 end
 
-function M.list_configured(linter_configs)
+function M.list_configured(linter_configs, filetype)
   local available = {}
   local linters, errors = {}, {}
 
@@ -56,6 +56,7 @@ function M.list_configured(linter_configs)
             command = linter_cmd,
             extra_args = lnt_config.args,
             diagnostics_format = '#{m} [#{c}]',
+            filetypes = {filetype}
           }),
           default = lnt_config.default,
         }
@@ -71,12 +72,14 @@ function M.list_configured(linter_configs)
   for name, linter in pairs(available) do
     if linter.default then
       linters = {}
-      linters[name] = linter.linter
+      -- linters[name] = linter.linter
+      table.insert(linters, linter.linter)
       break
     end
-    print(name)
-    print(vim.inspect(linter))
-    linters[name] = linter.linter
+    -- print(name)
+    -- print(vim.inspect(linter))
+    -- TODO: if not default add all
+    -- linters[name] = linter.linter
   end
 
   return { supported = linters, unsupported = errors }
@@ -91,8 +94,8 @@ function M.setup(filetype, options)
     return
   end
 
-  linters_by_ft[filetype] = M.list_configured(ls_settings.linters)
-  vim.g.lintc = linters_by_ft
+  linters_by_ft[filetype] = M.list_configured(ls_settings.linters, filetype)
+  -- vim.g.lintc = linters_by_ft
   null_ls.register({
     sources = linters_by_ft[filetype].supported,
     name = ls_settings.linters.exe,

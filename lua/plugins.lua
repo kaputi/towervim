@@ -2,9 +2,9 @@ return {
   -- Packwe can manage itself as a plugin
   { 'wbthomason/packer.nvim' },
 
-  -- ====================
-  -- Syntax, LSP, Autocomplete
-  -- ====================
+  -- ============================================================
+  -- LSP
+  -- ============================================================
   { 'neovim/nvim-lspconfig' },
   { 'jose-elias-alvarez/null-ls.nvim' },
   { 'tamago324/nlsp-settings.nvim' },
@@ -16,6 +16,9 @@ return {
   },
   {
     'ray-x/lsp_signature.nvim',
+    config = function()
+      require('plugin-settings.lsp_signature')
+    end
   },
   {
     'folke/trouble.nvim',
@@ -32,18 +35,14 @@ return {
       end
     end,
   },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require('plugin-settings.treesitter')
-    end,
-  },
+  -- ============================================================
+  -- AUTOCOMPLETE / SNIPETTS
+  -- ============================================================
   {
     'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/vim-vsnip-integ',
-      'hrsh7th/vim-vsnip',
+      -- 'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
@@ -65,22 +64,29 @@ return {
       require('plugin-settings.cmp-tabnine')
     end,
   },
-
-  -- ====================
-  -- Snippets
-  -- ====================
-  -- sniped engine
+  -- snipet engine
   {
     'hrsh7th/vim-vsnip',
     config = function()
       require('plugin-settings.vsnip')
     end,
   },
-  { 'dsznajder/vscode-es7-javascript-react-snippets' },
-
-  -- ====================
-  -- CODE
-  -- ====================
+  -- ============================================================
+  -- TREESITTER
+  -- ============================================================
+  {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('plugin-settings.treesitter')
+    end,
+  },
+  {
+    'nvim-treesitter/playground',
+  },
+  -- ============================================================
+  -- BETTER CODE
+  -- ============================================================
   -- comments
   {
     'numToStr/Comment.nvim',
@@ -105,14 +111,34 @@ return {
   -- uses treesitter
   -- rainbow parentheses
   { 'p00f/nvim-ts-rainbow' },
-
-  -- ====================
+  -- highlight color codes with its color
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('plugin-settings.colorizer')
+    end,
+  },
+  -- text navigation
+  { 'ggandor/lightspeed.nvim' },
+  -- indent lines
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugin-settings.indent-blankline')
+    end,
+  },
+  {
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      require('plugin-settings.symbols-outline')
+    end,
+  },
+  -- ============================================================
   -- UI
-  -- ====================
+  -- ============================================================
   -- Icons
   { 'kyazdani42/nvim-web-devicons' },
   { 'ryanoasis/vim-devicons' },
-
   -- Tabbar, statusbar
   {
     'akinsho/bufferline.nvim',
@@ -127,17 +153,26 @@ return {
       require('plugin-settings.windline')
     end,
   },
-
-  -- ====================
-  -- Tools
-  -- ====================
-  -- Vista
+  -- themes
+  { 'NLKNguyen/papercolor-theme' },
+  { 'savq/melange' },
   {
-    'liuchengxu/vista.vim',
+    'folke/tokyonight.nvim',
     config = function()
-      require('plugin-settings.vista')
+      vim.g.tokyonight_style = "night"
+      -- vim.g.tokyonight_style = "storm"
+      -- vim.g.tokyonight_style = "day"
     end,
   },
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      require('plugin-settings.notify')
+    end,
+  },
+  -- ============================================================
+  -- TOOLS
+  -- ============================================================
   -- whichkey
   {
     'folke/which-key.nvim',
@@ -161,14 +196,6 @@ return {
     config = function()
       require('plugin-settings.telescope')
     end,
-  },
-  { 'nvim-telescope/telescope-media-files.nvim' }, -- git signs
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('plugin-settings.gitsigns')
-    end,
-    event = 'BufRead',
   },
   -- project.nvim
   {
@@ -198,41 +225,38 @@ return {
       require('plugin-settings.toggleterm')
     end,
   },
-  -- text navigation
-  { 'ggandor/lightspeed.nvim' },
+  -- save as sudo
   {
     'lambdalisue/suda.vim',
     config = function()
       require('plugin-settings.suda')
     end,
   },
-  -- highlight color codes with its color
-  {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require('plugin-settings.colorizer')
-    end,
-  },
   -- pretty quickfix
   { 'kevinhwang91/nvim-bqf' },
-  -- indent lines
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('plugin-settings.indent-blankline')
-    end,
-  },
   -- undo tree
-  {
-    'mbbill/undotree',
-  },
+  { 'mbbill/undotree' },
+  -- VIMWIKI
   {
     'vimwiki/vimwiki',
     setup = function()
       require('plugin-settings.vimwiki')
     end,
-    cmd = 'VimwikiUISelect',
-    -- ft = 'markdown',
+    ft = { 'markdown', 'vimwiki' },
+    -- cmd = 'VimwikiUISelect',
+  },
+  {
+    'kaputi/telescope-vimwiki',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      local ok_telescope, telescope = pcall(require, 'telescope')
+
+      if ok_telescope then
+        telescope.load_extension('wikis')
+      end
+    end,
   },
   {
     'beauwilliams/focus.nvim',
@@ -240,8 +264,97 @@ return {
       require('plugin-settings.focus')
     end,
   },
+  {
+    -- SHOWS PREVIEW OF LINE WHEN USING :[linenumber]
+    'nacro90/numb.nvim',
+    config = function()
+      require('plugin-settings.numb')
+    end,
+  },
+  {
+    -- smooth scroll
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('plugin-settings.neoscroll')
+    end,
+  },
+  -- delete buffers without changing layout
+  { 'famiu/bufdelete.nvim' },
+  {
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require('nvim-lastplace').setup{}
+    end
+  },
+  { 'elianiva/telescope-npm.nvim' ,
+  config =  function()
+      local ok_telescope, telescope = pcall(require, 'telescope')
+      if ok_telescope then
+        telescope.load_extension('npm')
+      end
+  end
+  },
+  {
+    'chentau/marks.nvim',
+    config = function()
+      require('plugin-settings.marks')
+    end
+  },
+  -- ============================================================
+  -- GIT
+  -- ============================================================
+  -- lazygit
+  { 'kdheepak/lazygit.nvim' },
+  -- git signs
+  {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('plugin-settings.gitsigns')
+    end,
+    event = 'BufRead',
+  },
+  {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim'
+  },
+  {
+    'sindrets/diffview.nvim',
+    config = function()
+      require('plugin-settings.diffview')
+    end,
+  },
+  -- ============================================================
+  -- NOT IN USE / CHECK / FIX
+  -- ============================================================
+  -- CHECK-----------------------------
+  -- { 'andymass/vim-matchup' },
+  -- FIX -------------------------------
+  -- {
+  --   'ray-x/navigator.lua',
+  --   requires = {
+  --     'ray-x/guihua.lua',
+  --     run = 'cd lua/fzy && make'
+  --   },
+  --   config = function()
+  --     require('plugin-settings.navigator')
+  --   end
+  -- },
+  -- { 'nvim-telescope/telescope-media-files.nvim' },
+  {
+    --TODO: new version generates the snipets on the go for vs code so vsnip
+    -- wont load them, either generate them by calling the function that does or
+    -- find a snipet engine that works more like vscode
+    'dsznajder/vscode-es7-javascript-react-snippets',
+    run = 'yarn install --frozen-lockfile && yarn compile'
+  },
+  -- OFF -------------------------------
+  -- cursor on last place when open file === === REPLACE BY LUA
+  -- { 'farmergreg/vim-lastplace' },
+
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
-  -- TODO: cursor in last postion when opening a file 'farmergreg/vim-lastplace'
   -- TODO: lazyloading
 }

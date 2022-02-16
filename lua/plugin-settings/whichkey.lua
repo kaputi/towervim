@@ -107,8 +107,10 @@ if ok then
     },
     [' '] = { '<cmd>Telescope find_files<CR>', 'Files' },
     -- ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
-    ['d'] = { '<cmd>bdelete<CR>', 'Delete Buffer' },
+    -- ['d'] = { '<cmd>bdelete<CR>', 'Delete Buffer' },
+    ['d'] = { '<cmd>Bdelete<CR>', 'Delete Buffer' },
     ['e'] = { '<cmd>NvimTreeToggle<CR>', 'File Explorer' },
+    ['E'] = { '<cmd>NvimTreeFindFileToggle<CR>', 'File Explorer' },
     ['h'] = {
       '<cmd>split | Telescope buffers initial_mode=normal<CR>',
       'Horizontal Split',
@@ -125,7 +127,7 @@ if ok then
     ['P'] = { '<cmd>Telescope commands<CR>', 'Commands' },
     ['q'] = { '<cmd>q<CR>', 'Quit' },
     ['Q'] = { '<cmd>qa!<CR>', 'Quit All!!' },
-    -- ['r'] = {},
+    ['r'] = {'<cmd>Telescope npm scripts initial_mode=normal <CR>', 'Run npm scripts'},
     ['u'] = { '<cmd>UndotreeToggle<CR>', 'Undo tree' },
     -- ['t'] = {'<cmd>ToggleTerm<CR>', 'Terminal'},
     -- ['r'] = {},
@@ -133,6 +135,8 @@ if ok then
       '<cmd>vsplit | Telescope buffers initial_mode=normal<CR>',
       'Vertical Split',
     },
+    ['V'] = {'<cmd>diffthis<CR>', 'Diff this'},
+
     ['y'] = { '<cmd>Telescope registers<CR>', 'Yank List' },
 
     -- Dashboard Layer
@@ -156,19 +160,21 @@ if ok then
       ['s'] = { '<cmd>set hls!<CR>', 'Remove Search Highlights' },
       ['c'] = { '<cmd>setlocal cursorcolumn!<CR>', 'Cursor Column' },
       ['d'] = { '<cmd>set background=dark<CR>', 'Dark  Background' },
+      ['f'] = { '<cmd>FocusToggle<CR>', 'Focus'},
       ['i'] = { '<cmd>IndentBlanklineToggle<CR>', 'Indent Lines' },
       ['l'] = { '<cmd>set background=light<CR>', 'Light Background' },
-      ['L'] = { '<cmd>setlocal cursorline!<CR>', 'Cursor Line' },
-      ['n'] = { '<cmd>setlocal nonumber!<CR>', 'Line Numbers' },
-      ['r'] = { '<cmd>setlocal norelativenumber!<CR>', 'Relative Numbers' },
+      ['L'] = { '<cmd>set cursorline!<CR>', 'Cursor Line' },
+      ['n'] = { '<cmd>set nonumber!<CR>', 'Line Numbers' },
+      ['r'] = { '<cmd>set norelativenumber!<CR>', 'Relative Numbers' },
       ['R'] = { '<cmd>syntax on<CR>', 'Reset Colors (syntax on)' },
-      ['t'] = { '<cmd>Vista!!<CR>', 'Vista Tag Viewer' },
+      -- ['t'] = { '<cmd>Vista!!<CR>', 'Vista Tag Viewer' },
+      ['t'] = { '<cmd>SymbolsOutline<CR>', 'Symbol explorer' },
       ['T'] = {
         '<cmd>hi Normal ctermbg=NONE guibg=NONE<CR><CR>',
         'Transparent Background',
       },
       -- ['p'] = {'<cmd>RainbowToggle<CR>'                         , 'Color Parenthesis'},
-      ['v'] = { '<cmd>Vista!!<CR>', 'Vista Tag Viewer' },
+      ['v'] = { '<cmd>SymbolsOutline<CR>', 'Symbol Explorer' },
       ['w'] = { '<cmd>setlocal wrap!<CR>', 'Wrap' },
       -- ['z'] = {'<cmd>Goyo<CR>', 'Zen Mode'}
     },
@@ -177,7 +183,8 @@ if ok then
     ['b'] = {
       name = '>> Buffers <<',
       ['b'] = { '<cmd>Telescope buffers<CR>', 'Find Buffer' },
-      ['d'] = { '<cmd>bp | bd! #<CR>', 'Delete Buffer Without Saving' },
+      -- ['d'] = { '<cmd>bp | bd! #<CR>', 'Delete Buffer Without Saving' },
+      ['d'] = { '<cmd>Bdelete!<CR>', 'Delete Buffer Without Saving' },
       ['D'] = { '<cmd>%bd<CR>', 'Delete All Buffers' },
       ['k'] = {
         '<cmd>%bd!|edit #|bd #|normal `"<CR>',
@@ -198,6 +205,7 @@ if ok then
     -- File Layer
     ['f'] = {
       name = '>> File <<',
+      ['p'] = {'<cmd>echo expand("%:r")<CR>', 'Current Buffer Path'}
       -- TODO: new file at same path as current
       -- TODO: delete file
       -- TODO: rename file
@@ -208,6 +216,25 @@ if ok then
     -- Git Layer
     ['g'] = {
       name = '>> Git <<',
+      ['b'] = {'<cmd>Gitsigns toggle_current_line_blame<CR>', 'Line Blame'},
+      ['d'] = {'<cmd>Gitsigns diffthis<CR>','Gitsigns DiffView'},
+      ['D'] = {'<cmd>DiffviewOpen<CR>', 'DiffView'},
+      ['H'] = {'<cmd>DiffviewFileHistory<CR>', 'File History'},
+      ['l'] = {'<cmd>LazyGit<CR>', 'Lazygit'},
+      ['L'] = {'<cmd>Gitsigns toggle_linehl<CR>', 'Line Highlights'},
+      ['n'] = {'<cmd>Neogit<CR>', 'Neogit'},
+      ['p'] = {'<cmd>Gitsigns preview_hunk<CR>', 'Preview Hunk'},
+      ['Q'] = {'<cmd>DiffviewClose<CR>', 'DiffView Close'},
+      ['q'] = {'<cmd>Gitsigns setloclist<CR>', 'Hunks to qf list'},
+      ['r'] = {
+        name = '>> Reset <<',
+        ['b'] = {'<cmd>Gitsigns reset_buffer<CR>','Reset Buffer'},
+        ['h'] = {'<cmd>Gitsigns reset_hunk<CR>','Reset Hunk'},
+      },
+      ['s'] = {'<cmd>Gitsigns stage_buffer<CR>', 'Stage Buffer'},
+      ['S'] = {'<cmd>Gitsigns stage_hunk<CR>', 'Stage hunk'},
+      ['u'] = {'<cmd>Gitsigns undo_stage_hunk', 'Undo stage hunk'},
+      ['v'] = {'<cmd>Gitsigns select_hunk<CR>', 'Select Hunk'},
       -- TODO:
     },
 

@@ -35,8 +35,9 @@ local null_ls_ok, null_ls = pcall(require, 'null-ls')
 if lspconfig_ok and null_ls_ok then
   require('lsp').config()
 
-  null_ls.config({})
-  lspconfig['null-ls'].setup({})
+  -- require('null-ls').setup({})
+  -- null_ls.setup({})
+  -- lspconfig['null-ls'].setup({})
 end
 
 -- json configs for lsp

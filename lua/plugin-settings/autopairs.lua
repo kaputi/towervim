@@ -1,5 +1,5 @@
 local ok, nvim_autopairs = pcall(require, 'nvim-autopairs')
-local cmp_ok, cmp = pcall(require, 'cmp')
+-- local cmp_ok, cmp = pcall(require, 'cmp')
 
 if ok then
   nvim_autopairs.setup({
@@ -10,12 +10,12 @@ if ok then
     enable_check_bracket_line = true, --- check bracket in same line
     check_ts = false,
   })
-  if cmp_ok then
-    -- If you want insert `(` after select function or method item
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done({ map_char = { tex = '' } })
-    )
-  end
+  -- if cmp_ok then
+  --   -- If you want insert `(` after select function or method item
+  --   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+  --   cmp.event:on(
+  --     'confirm_done',
+  --     cmp_autopairs.on_confirm_done({ map_char = { tex = '' } })
+  --   )
+  -- end
 end

@@ -68,7 +68,8 @@ M.mappings = {
     -- ['<Tab>'] = ':BufferNext<CR>',
     -- ['<S-Tab>'] = ':BufferPrevious<CR>',
     ['<Tab>'] = ':BufferLineCycleNext<CR>',
-    ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
+    -- ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
+    ['<C-Tab>'] = ':BufferLineCyclePrev<CR>',
 
     -- Yank to end of line
     ['Y'] = 'y$',
@@ -91,6 +92,10 @@ M.mappings = {
     -- Better indenting
     ['>'] = '>gv',
     ['<'] = '<gv',
+
+    -- search selected
+    ['/'] = 'y/<C-r>"<CR>',
+    ['?'] = 'y?<C-r>"<CR>'
   },
   visual_block_mode = {},
   command_mode = {},

@@ -42,8 +42,8 @@ if telescope_ok and job_ok then
       buffer_previewer_maker = new_maker,
       -- sorting_strategy = 'ascending',
 
-      -- layout_strategy = 'bottom_pane',
-      -- layout_config = { height = 25 },
+      layout_strategy = 'vertical',
+      -- layout_config = { preview_width = 60 },
 
       border = true,
       borderchars = {
@@ -61,6 +61,19 @@ if telescope_ok and job_ok then
       -- find_command = 'rg', -- find command (defaults to `fd`)
       -- }
     },
+    pickers = {
+      live_grep = {
+        mappings = {
+          n = {
+            -- ['<C-o>'] =  actions.send_to_qflist + actions.open_qflist,
+            -- ['<CR>'] = actions.select_default
+          },
+          i = {
+            ['<CR>'] = {'<esc>', type = 'command'}
+          }
+        }
+      }
+    }
   })
 
   -- Replace netrw with telescope when opening . or dir

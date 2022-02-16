@@ -63,7 +63,8 @@ if ok then
     ),
     dashboard.button('e', '  New file', ':ene<CR>'),
     dashboard.button('f', ' Find file', ':Telescope find_files<CR>'),
-    dashboard.button('w', ' Vimwiki', ':VimwikiUISelect<CR>'),
+    -- dashboard.button('w', ' Vimwiki', ':VimwikiUISelect<CR>'),
+    dashboard.button('w', ' Vimwiki', ':Telescope wikis<CR>'),
     dashboard.button('q', '  Quit', ':qa<CR>'),
   }
   -- local handle = io.popen('fortune')

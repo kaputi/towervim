@@ -10,9 +10,9 @@ function M:load()
 
   -- TODO:
   -- General append
-  -- for k, v in pairs(settings.general.append) do
-  --   vim.opt[k]:append = v
-  -- end
+  for k, v in pairs(settings.general.append) do
+    vim.opt[k]:append(v)
+  end
 
   -- General prepend
   -- for k, v in pairs(settings.general.prepend) do

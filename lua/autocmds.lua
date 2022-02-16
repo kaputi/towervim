@@ -30,6 +30,15 @@ M.groups = {
   Alpha = {
     'FileType alpha set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2',
     'FileType alpha set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2',
+    'FileType alpha set number=nonumber | autocmd BufUnload <buffer> set laststatus=2',
+  },
+  Vimwiki = {
+    'FileType vimwiki setlocal textwidth=80',
+    {
+      'BufRead,BufNewFile',
+      '*.wiki',
+      'set filetype=vimwiki',
+    },
   },
 }
 
