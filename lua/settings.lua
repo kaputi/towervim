@@ -1,7 +1,6 @@
 local M = {}
 
--- M.colorscheme = 'towervim'
-M.colorscheme = 'tokyonight'
+M.colorscheme = 'towervim'
 
 -- this will be set with vim.opt.OPTION
 M.general = {
