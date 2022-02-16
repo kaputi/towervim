@@ -33,7 +33,7 @@ function M.config()
   for _, sign in ipairs(settings.diagnostics.signs.values) do
     vim.fn.sign_define(sign.name, {
       texthl = sign.name,
-      text = sign.text,
+text = sign.text,
       numhl = sign.name,
     })
   end
@@ -190,8 +190,8 @@ end
 -- This gets called on ftplugin so they only load for specific ft
 function M.setup(lang)
   local ls_settings = require('lsp.ls-settings')[lang]
-
   local lsp = ls_settings.lsp
+
 
   -- check if lsp is already active if it is return
   if is_client_active(lsp.provider) then
@@ -213,6 +213,8 @@ function M.setup(lang)
       lsp.setup.capabilities = M.common_capabilities()
     end
 
+    -- TODO: pass settings to nlspsettings here
+    -- print(vim.inspect( lsp.provider ))
     require('lspconfig')[lsp.provider].setup(lsp.setup)
   end
 end

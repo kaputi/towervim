@@ -69,7 +69,7 @@ M.mappings = {
     -- ['<S-Tab>'] = ':BufferPrevious<CR>',
     ['<Tab>'] = ':BufferLineCycleNext<CR>',
     -- ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
-    ['<C-Tab>'] = ':BufferLineCyclePrev<CR>',
+    ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
 
     -- Yank to end of line
     ['Y'] = 'y$',

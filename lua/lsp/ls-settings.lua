@@ -1,4 +1,4 @@
-local schemas = nil
+local schemas = {}
 local status_ok, jsonls_settings = pcall(require, 'nlspsettings.jsonls')
 if status_ok then
   schemas = jsonls_settings.get_default_schemas()
@@ -108,17 +108,17 @@ local M = {
             -- },
           },
         },
-        commands = {
-          Format = {
-            -- function()
-            --   vim.lsp.buf.range_formatting(
-            --     {},
-            --     { 0, 0 },
-            --     { vim.fn.line('$'), 0 }
-            --   )
-            -- end,
-          },
-        },
+        -- commands = {
+        --   Format = {
+        --     -- function()
+        --     --   vim.lsp.buf.range_formatting(
+        --     --     {},
+        --     --     { 0, 0 },
+        --     --     { vim.fn.line('$'), 0 }
+        --     --   )
+        --     -- end,
+        --   },
+        -- },
       },
     },
   },

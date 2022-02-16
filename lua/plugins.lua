@@ -286,14 +286,6 @@ return {
       require('nvim-lastplace').setup{}
     end
   },
-  { 'elianiva/telescope-npm.nvim' ,
-  config =  function()
-      local ok_telescope, telescope = pcall(require, 'telescope')
-      if ok_telescope then
-        telescope.load_extension('npm')
-      end
-  end
-  },
   {
     'chentau/marks.nvim',
     config = function()
@@ -353,6 +345,16 @@ return {
   -- OFF -------------------------------
   -- cursor on last place when open file === === REPLACE BY LUA
   -- { 'farmergreg/vim-lastplace' },
+
+  -- NO SE SI ESTO FUNCUINA BIEN
+  -- { 'elianiva/telescope-npm.nvim' ,
+  -- config =  function()
+  --     local ok_telescope, telescope = pcall(require, 'telescope')
+  --     if ok_telescope then
+  --       telescope.load_extension('npm')
+  --     end
+  -- end
+  -- },
 
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
