@@ -69,7 +69,7 @@ if telescope_ok and job_ok then
             -- ['<CR>'] = actions.select_default
           },
           i = {
-            ['<CR>'] = {'<esc>', type = 'command'}
+            -- ['<CR>'] = {'<esc>', type = 'command'}
           }
         }
       }
