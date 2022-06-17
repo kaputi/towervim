@@ -1,0 +1,911 @@
+{
+  "information": {
+    "name": "towervim",
+    "author": "Eduardo Lonighi <eduloni3@gmail.com>"
+  },
+  "palletes": {
+    "dark": {
+      "bg": "#212733",
+      "fg": "#D8DEE9",
+      "black": "#1E1E1E",
+      "white": "#ABB2BF",
+      "light_red": "#F44747",
+      "red": "#F07178",
+      "bright_red": "#CC241D",
+      "light_green" :"#bbe67e",
+      "green": "#98971a",
+      "bright_green": "#608B4E",
+      "light_yellow": "#FFD57F",
+      "yellow": "#FFC44C",
+      "bright_yellow": "#ff8800",
+      "light_blue": "#80D4FF",
+      "blue": "#5CCFE6",
+      "bright_blue": "#1da1f2",
+      "light_purple": "",
+      "purple": "#D4BFFF",
+      "bright_purple": "#C586C0",
+      "light_cyan": "#4EC9B0",
+      "cyan": "#4EC9B0",
+      "brigt_cyan": "#4EC9B0",
+      "grey": "#212121",
+      "grey1": "#424242",
+      "grey2": "#616161",
+      "grey3": "#757575",
+      "grey4": "#9e9e9e",
+      "grey5": "#bdbdbd",
+      "grey6": "#e0e0e0",
+      "grey7": "#eeeeee",
+      "grey8": "#f5f5f5",
+      "grey9": "#2C323C",
+      "unsure": "#FF00FF"
+    },
+    "light": {
+      "fg": "#212733",
+      "bg": "#D8DEE9",
+
+      "white": "#1E1E1E",
+      "black": "#ABB2BF",
+      "light_red": "#F44747",
+      "red": "#af0000",
+      "bright_red": "#d70000",
+      "light_green": "#5f8700",
+      "green" :"#008700",
+      "bright_green": "#5f8700",
+      "light_yellow": "#FFD57F",
+      "yellow": "#b58900",
+      "bright_yellow": "#d75f00",
+      "blue": "#1da0ff",
+      "bright_blue": "#0087af",
+      "light_blue": "#005fff",
+      "light_purple": "",
+      "purple": "#d70087",
+      "bright_purple": "#8700af",
+      "light_cyan": "#4EC9B0",
+      "cyan":"#2aa198",
+      "brigt_cyan": "#4EC9B0",
+      "grey": "#212121",
+      "grey1": "#424242",
+      "grey3": "#616161",
+      "grey2": "#757575",
+      "grey4": "#9e9e9e",
+      "grey9": "#bdbdbd",
+      "grey5": "#e0e0e0",
+      "grey6": "#eeeeee",
+      "grey7": "#f5f5f5",
+      "grey8": "#2C323C",
+      "unsure": "#FF00FF"
+    }
+  },
+  "highlights": {
+    "Normal": {
+      "bg": "bg",
+      "fg": "fg"
+    },
+    "NormalFloat": {
+      "link": "Normal"
+    },
+    "Comment": {
+      "bg": "-",
+      "fg": "grey2",
+      "mod": ["italic"]
+    },
+    "Constant": {
+      "fg": "yellow"
+    },
+    "String": {
+      "fg": "yellow"
+    },
+    "Character": {
+      "fg": "yellow"
+    },
+    "Number": {
+      "fg": "light_green"
+    },
+    "Boolean": {
+      "fg": "blue"
+    },
+    "Float": {
+      "fg": "light_green"
+    },
+    "Identifier": {
+      "fg": "blue"
+    },
+    "Function": {
+      "fg": "yellow"
+    },
+    "Statement": {
+      "fg": "purple"
+    },
+    "Conditional": {
+      "fg": "purple"
+    },
+    "Repeat": {
+      "fg": "purple"
+    },
+    "Label": {
+      "fg": "light_blue"
+    },
+    "Operator": {
+      "fg": "purple"
+    },
+    "Keyword": {
+      "fg": "blue"
+    },
+    "Exception": {
+      "fg": "purple"
+    },
+    "PreProc": {
+      "fg": "yellow"
+    },
+    "Include": {
+      "fg": "purple"
+    },
+    "Define": {
+      "fg": "purple"
+    },
+    "Title": {
+      "fg": "cyan"
+    },
+    "Macro": {
+      "fg": "purple"
+    },
+    "PreCondit": {
+      "fg": "light_blue"
+    },
+    "Type": {
+      "fg": "light_blue"
+    },
+    "StorageClass": {
+      "fg": "light_blue"
+    },
+    "Structure": {
+      "fg": "yellow"
+    },
+    "Typedef": {
+      "fg": "yellow"
+    },
+    "Special": {
+      "bg": "-",
+      "fg": "blue",
+      "mod": ["italic"]
+    },
+    "SpecialComment": {
+      "fg": "grey3"
+    },
+    "Error": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["bold", "reverse"]
+    },
+    "NvimInternalError": {
+      "link": "Error"
+    },
+    "Todo": {
+      "bg": "-",
+      "fg": "purple",
+      "mod": ["bold", "italic"]
+    },
+    "Underlined": {
+      "fg": "cyan",
+      "mod": ["underline"]
+    },
+    "Cursor": {
+      "bg": "-",
+      "fg": "-",
+      "mod": ["reverse"]
+    },
+    "ColorColumn": {
+      "link": "CursorColumn"
+    },
+    "CursorLineNr": {
+      "bg": "grey9",
+      "fg": "yellow",
+      "mod": ["bold"]
+    },
+    "SignColumn": {
+      "link": "Normal"
+    },
+    "Conceal": {
+      "fg": "grey3"
+    },
+    "CursorColumn": {
+      "bg": "grey9",
+      "fg": "-"
+    },
+    "CursorLine": {
+      "link": "CursorColumn"
+    },
+    "Directory": {
+      "fg": "blue"
+    },
+    "DiffAdd": {
+      "bg": "green",
+      "fg": "black"
+    },
+    "DiffChange": {
+      "bg": "-",
+      "fg": "yellow",
+      "mod": ["underline"]
+    },
+    "DiffDelete": {
+      "bg": "red",
+      "fg": "black"
+    },
+    "DiffText": {
+      "bg": "yellow",
+      "fg": "black"
+    },
+    "ErrorMsg": {
+      "link": "Error"
+    },
+    "vertSplit": {
+      "fg": "grey1"
+    },
+    "WinSeparator":{
+      "fg": "grey1",
+      "bg": "-"
+    },
+    "Folded": {
+      "bg": "grey9",
+      "fg": "grey2",
+      "mod": ["italic"]
+    },
+    "IncSearch": {
+      "bg": "grey3",
+      "fg": "bright_blue"
+    },
+    "LineNr": {
+      "fg": "grey3"
+    },
+    "NonText": {
+      "fg": "grey2"
+    },
+    "Pmenu": {
+      "bg": "grey",
+      "fg": "purple"
+    },
+    "PmenuSel": {
+      "bg": "grey2",
+      "fg": "yellow"
+    },
+    "PmenuSbar": {
+      "bg": "grey2",
+      "fg": "-"
+    },
+    "PmenuThumb": {
+      "bg": "white",
+      "fg": "-"
+    },
+    "Question": {
+      "fg": "purple"
+    },
+    "QuickFixLine": {
+      "bg": "yellow",
+      "fg": "black"
+    },
+    "Search": {
+      "bg": "grey3",
+      "fg": "fg"
+    },
+    "SpecialKey": {
+      "fg": "grey2"
+    },
+    "SpellBad": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["undercurl"]
+    },
+    "SpellCap": {
+      "fg": "light_yellow"
+    },
+    "SpellLocal": {
+      "fg": "light_yellow"
+    },
+    "SpellRare": {
+      "fg": "light_yellow"
+    },
+    "StatusLine": {
+      "bg": "grey2",
+      "fg": "white"
+    },
+    "StatusLineNC": {
+      "fg": "grey3"
+    },
+    "StatusLineTerm": {
+      "bg": "grey2",
+      "fg": "white"
+    },
+    "StatusLineTermNC": {
+      "fg": "grey2"
+    },
+    "TabLine": {
+      "fg": "grey3"
+    },
+    "TabLineSel": {
+      "fg": "white"
+    },
+    "TabLineFill": {
+      "bg": "bg",
+      "fg": "-"
+    },
+    "Terminal": {
+      "bg": "black",
+      "fg": "white"
+    },
+    "Visual": {
+      "bg": "grey1",
+      "fg": "-"
+    },
+    "VisualNOS": {
+      "fg": "grey1"
+    },
+    "WarningMsg": {
+      "fg": "yellow"
+    },
+    "WildMenu": {
+      "bg": "blue",
+      "fg": "black"
+    },
+    "EndOfBuffer": {
+      "fg": "black"
+    },
+    "diffAdded": {
+      "fg": "green"
+    },
+    "diffRemoved": {
+      "fg": "red"
+    },
+    "diffFileId": {
+      "bg": "-",
+      "fg": "blue",
+      "mod": ["bold", "reverse"]
+    },
+    "diffFile": {
+      "fg": "grey2"
+    },
+    "diffNewFile": {
+      "fg": "green"
+    },
+    "diffOldFile": {
+      "fg": "red"
+    },
+    "debugPc": {
+      "bg": "cyan",
+      "fg": "-"
+    },
+    "debugBreakpoint": {
+      "bg": "-",
+      "fg": "red",
+      "mod": ["reverse"]
+    },
+    "MatchWord": {
+      "bg": "-",
+      "fg": "-",
+      "mod": ["underline"]
+    },
+    "MatchParen": {
+      "bg": "-",
+      "fg": "-",
+      "mod": ["underline"]
+    },
+    "MatchWordCur": {
+      "bg": "-",
+      "fg": "-",
+      "mod": ["underline"]
+    },
+    "MatchParenCur": {
+      "bg": "-",
+      "fg": "-",
+      "mod": ["underline", "reverse"]
+    },
+    "TSComment": {
+      "link": "Comment"
+    },
+    "TSError": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["undercurl"]
+    },
+    "TSPunctDelimiter": {
+      "fg": "white"
+    },
+    "TSPunctBracket": {
+      "fg": "white"
+    },
+    "TSPunctSpecial": {
+      "fg": "white"
+    },
+    "TSConstant": {
+      "fg": "yellow"
+    },
+    "TSConstBuiltin": {
+      "fg": "blue"
+    },
+    "TSConstMacro": {
+      "fg": "cyan"
+    },
+    "TSStringRegex": {
+      "fg": "yellow"
+    },
+    "TSString": {
+      "fg": "light_green"
+    },
+    "TSStringEscape": {
+      "fg": "light_yellow"
+    },
+    "TSCharacter": {
+      "fg": "yellow"
+    },
+    "TSNumber": {
+      "fg": "light_green"
+    },
+    "TSBoolean": {
+      "fg": "blue"
+    },
+    "TSFloat": {
+      "fg": "light_green"
+    },
+    "TSAnnotation": {
+      "fg": "yellow"
+    },
+    "TSAttribute": {
+      "fg": "cyan"
+    },
+    "TSNamespace": {
+      "fg": "cyan"
+    },
+    "TSFuncBuiltin": {
+      "fg": "yellow"
+    },
+    "TSFunction": {
+      "fg": "yellow"
+    },
+    "TSFuncMacro": {
+      "fg": "yellow"
+    },
+    "TSParameter": {
+      "fg": "light_blue"
+    },
+    "TSParameterReference": {
+      "fg": "light_blue"
+    },
+    "TSMethod": {
+      "fg": "yellow"
+    },
+    "TSField": {
+      "fg": "light_blue"
+    },
+    "TSProperty": {
+      "fg": "light_blue"
+    },
+    "TSConstructor": {
+      "fg": "cyan"
+    },
+    "TSConditional": {
+      "fg": "purple"
+    },
+    "TSRepeat": {
+      "fg": "purple"
+    },
+    "TSLabel": {
+      "fg": "light_blue"
+    },
+    "TSKeyword": {
+      "fg": "yellow"
+    },
+    "TSKeywordFunction": {
+      "fg": "purple"
+    },
+    "TSKeywordOperator": {
+      "fg": "blue"
+    },
+    "TSOperator": {
+      "fg": "white"
+    },
+    "TSException": {
+      "fg": "purple"
+    },
+    "TSType": {
+      "fg": "cyan"
+    },
+    "TSTypeBuiltin": {
+      "fg": "blue"
+    },
+    "TTSStructure": {
+      "bg": "unsure",
+      "fg": "unsure"
+    },
+    "TSInclude": {
+      "fg": "purple"
+    },
+    "TSVariable": {
+      "fg": "light_blue"
+    },
+    "TSVariableBuiltin": {
+      "fg": "light_blue"
+    },
+    "TSText": {
+      "fg": "yellow"
+    },
+    "TSStrong": {
+      "bg": "unsure",
+      "fg": "unsure"
+    },
+    "TSEmphasis": {
+      "bg": "unsure",
+      "fg": "unsure"
+    },
+    "TSUnderline": {
+      "bg": "unsure",
+      "fg": "unsure"
+    },
+    "TSTitle": {
+      "fg": "yellow"
+    },
+    "TSLiteral": {
+      "bg": "unsure",
+      "fg": "unsure"
+    },
+    "TSURI": {
+      "fg": "bright_green"
+    },
+    "TSTag": {
+      "fg": "blue"
+    },
+    "TSTagDelimiter": {
+      "fg": "red"
+    },
+    "htmlArg": {
+      "fg": "light_yellow"
+    },
+    "htmlBold": {
+      "bg": "-",
+      "fg": "light_yellow",
+      "mod": ["bold"]
+    },
+    "htmlEndTag": {
+      "fg": "white"
+    },
+    "htmlH1": {
+      "fg": "blue"
+    },
+    "htmlH2": {
+      "fg": "blue"
+    },
+    "htmlH3": {
+      "fg": "blue"
+    },
+    "htmlH4": {
+      "fg": "blue"
+    },
+    "htmlH5": {
+      "fg": "blue"
+    },
+    "htmlH6": {
+      "fg": "blue"
+    },
+    "htmlItalic": {
+      "bg": "-",
+      "fg": "purple",
+      "mod": ["italic"]
+    },
+    "htmlLink": {
+      "bg": "-",
+      "fg": "cyan",
+      "mod": ["underline"]
+    },
+    "htmlSpecialChar": {
+      "fg": "light_yellow"
+    },
+    "htmlSpecialTagName": {
+      "fg": "blue"
+    },
+    "htmlTag": {
+      "fg": "white"
+    },
+    "htmlTagN": {
+      "fg": "blue"
+    },
+    "htmlTagName": {
+      "fg": "blue"
+    },
+    "htmlTitle": {
+      "fg": "white"
+    },
+    "markdownBlockquote": {
+      "fg": "grey3"
+    },
+    "markdownBold": {
+      "bg": "-",
+      "fg": "light_yellow",
+      "mod": ["bold"]
+    },
+    "markdownCode": {
+      "fg": "green"
+    },
+    "markdownCodeBlock": {
+      "fg": "green"
+    },
+    "markdownCodeDelimiter": {
+      "fg": "green"
+    },
+    "markdownH1": {
+      "fg": "blue"
+    },
+    "markdownH2": {
+      "fg": "blue"
+    },
+    "markdownH3": {
+      "fg": "blue"
+    },
+    "markdownH4": {
+      "fg": "blue"
+    },
+    "markdownH5": {
+      "fg": "blue"
+    },
+    "markdownH6": {
+      "fg": "blue"
+    },
+    "markdownHeadingDelimiter": {
+      "fg": "red"
+    },
+    "markdownHeadingRule": {
+      "fg": "grey3"
+    },
+    "markdownId": {
+      "fg": "purple"
+    },
+    "markdownIdDeclaration": {
+      "fg": "blue"
+    },
+    "markdownIdDelimiter": {
+      "fg": "purple"
+    },
+    "markdownItalic": {
+      "bg": "-",
+      "fg": "purple",
+      "mod": ["italic"]
+    },
+    "markdownLinkDelimiter": {
+      "fg": "purple"
+    },
+    "markdownLinkText": {
+      "fg": "blue"
+    },
+    "markdownListMarker": {
+      "fg": "red"
+    },
+    "markdownOrderedListMarker": {
+      "fg": "red"
+    },
+    "markdownRule": {
+      "fg": "grey3"
+    },
+    "markdownUrl": {
+      "bg": "-",
+      "fg": "cyan",
+      "mod": ["underline"]
+    },
+
+
+
+
+    "DiagnosticUnderlineError": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["undercurl"]
+    },
+    "DiagnosticUnderlineWarn": {
+      "bg": "-",
+      "fg": "yellow",
+      "mod": ["undercurl"]
+    },
+    "DiagnosticUnderlineInfo": {
+      "bg": "-",
+      "fg": "yellow",
+      "mod": ["undercurl"]
+    },
+    "DiagnosticUnderlineHint": {
+      "bg": "-",
+      "fg": "light_blue",
+      "mod": ["undercurl"]
+    },
+    "DiagnosticSignError": {
+      "fg": "bright_red"
+    },
+    "DiagnosticSignWarn": {
+      "fg": "yellow"
+    },
+    "DiagnosticSignInfo": {
+      "fg": "yellow"
+    },
+    "DiagnosticSignHint": {
+      "fg": "light_blue"
+    },
+    "DiagnosticVirtualTextError": {
+      "fg": "bright_red"
+    },
+    "DiagnosticVirtualTextWarn": {
+      "fg": "yellow"
+    },
+    "DiagnosticVirtualTextInfo": {
+      "fg": "yellow"
+    },
+    "DiagnosticVirtualTextHint": {
+      "fg": "light_blue"
+    },
+
+
+
+
+
+
+    "LspDiagnosticsUnderlineError": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["undercurl"]
+    },
+    "LspDiagnosticsUnderlineWarning": {
+      "bg": "-",
+      "fg": "yellow",
+      "mod": ["undercurl"]
+    },
+    "LspDiagnosticsUnderlineInformation": {
+      "bg": "-",
+      "fg": "yellow",
+      "mod": ["undercurl"]
+    },
+    "LspDiagnosticsUnderlineHint": {
+      "bg": "-",
+      "fg": "light_blue",
+      "mod": ["undercurl"]
+    },
+    "LspDiagnosticsSignError": {
+      "fg": "bright_red"
+    },
+    "LspDiagnosticsSignWarning": {
+      "fg": "yellow"
+    },
+    "LspDiagnosticsSignInformation": {
+      "fg": "yellow"
+    },
+    "LspDiagnosticsSignHint": {
+      "fg": "light_blue"
+    },
+    "LspDiagnosticsVirtualTextError": {
+      "fg": "bright_red"
+    },
+    "LspDiagnosticsVirtualTextWarning": {
+      "fg": "yellow"
+    },
+    "LspDiagnosticsVirtualTextInformation": {
+      "fg": "yellow"
+    },
+    "LspDiagnosticsVirtualTextHint": {
+      "fg": "light_blue"
+    },
+    "CocExplorerIndentLine": {
+      "fg": "grey3"
+    },
+    "CocExplorerBufferRoot": {
+      "fg": "cyan"
+    },
+    "CocExplorerFileRoot": {
+      "fg": "cyan"
+    },
+    "CocExplorerBufferFullPath": {
+      "fg": "grey3"
+    },
+    "CocExplorerFileFullPath": {
+      "fg": "grey3"
+    },
+    "CocExplorerBufferReadonly": {
+      "fg": "purple"
+    },
+    "CocExplorerBufferModified": {
+      "fg": "purple"
+    },
+    "CocExplorerBufferNameVisible": {
+      "fg": "yellow"
+    },
+    "CocExplorerFileReadonly": {
+      "fg": "purple"
+    },
+    "CocExplorerFileModified": {
+      "fg": "purple"
+    },
+    "CocExplorerFileHidden": {
+      "fg": "grey3"
+    },
+    "CocExplorerHelpLine": {
+      "fg": "purple"
+    },
+    "EasyMotionTarget": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["bold"]
+    },
+    "EasyMotionTarget2First": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["bold"]
+    },
+    "EasyMotionTarget2Second": {
+      "bg": "-",
+      "fg": "bright_red",
+      "mod": ["bold"]
+    },
+    "StartifyNumber": {
+      "fg": "yellow"
+    },
+    "StartifySelect": {
+      "fg": "green"
+    },
+    "StartifyBracket": {
+      "fg": "blue"
+    },
+    "StartifySpecial": {
+      "fg": "cyan"
+    },
+    "StartifyVar": {
+      "fg": "blue"
+    },
+    "StartifyPath": {
+      "fg": "blue"
+    },
+    "StartifyFile": {
+      "fg": "yellow"
+    },
+    "StartifySlash": {
+      "fg": "blue"
+    },
+    "StartifyHeader": {
+      "fg": "blue"
+    },
+    "StartifySection": {
+      "fg": "purple"
+    },
+    "StartifyFooter": {
+      "fg": "green"
+    },
+    "WhichKey": {
+      "fg": "purple"
+    },
+    "WhichKeySeperator": {
+      "fg": "green"
+    },
+    "WhichKeyGroup": {
+      "fg": "light_blue"
+    },
+    "WhichKeyDesc": {
+      "fg": "blue"
+    },
+    "GitSignsAdd": {
+      "fg": "bright_green"
+    },
+    "GitSignsChange": {
+      "fg": "bright_blue"
+    },
+    "GitSignsDelete": {
+      "fg": "bright_red"
+    },
+  "VimwikiHeader1" :{
+      "fg": "bright_blue",
+      "mod":[ "bold", ["underline"] ]
+    },
+  "VimwikiHeader2" :{
+      "fg": "purple",
+      "mod":[ "bold", ["underline"] ]
+    },
+  "VimwikiHeader3" :{
+      "fg": "blue",
+      "mod":[ "bold", ["underline"] ]
+    },
+  "VimwikiHeader4" :{
+      "fg": "bright_purple",
+      "mod":[ "bold", ["underline"] ]
+    }
+
+  }
+}
