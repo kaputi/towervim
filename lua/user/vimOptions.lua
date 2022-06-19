@@ -1,4 +1,4 @@
-Settings.vimOpt = {
+Settings.vim = {
 
   opt = {
 
@@ -29,14 +29,12 @@ Settings.vimOpt = {
       hlsearch = true,
       ignorecase = true,
       laststatus = 3,
-      -- laststatus = 0,
       linebreak = true,
       mouse = 'a',
       pumheight = 10,
       pumblend = 25,
       showmode = false,
-      -- showtabline = 2,
-      showtabline = 0,
+      showtabline = 2,
       smartcase = true,
       smarttab = true,
       smartindent = true,

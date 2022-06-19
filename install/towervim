@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export TVIM_CONFIG_DIR="${HOME}/.config/towervim"
+export TVIM_CACHE_DIR="${HOME}/.cache/towervim"
+export TVIM_DATA_DIR="${HOME}/.local/share/towervim"
+
+export TVIM_RUNTIME_DIR="${TVIM_CONFIG_DIR:-${HOME}/.config/towervim}"
+
+exec nvim -u "$TVIM_RUNTIME_DIR/init.lua" "$@"
