@@ -76,18 +76,24 @@ if ok then
 
   alpha.setup(dashboard.opts)
 
-
-end
-
-  print("ALPHA AUTOCMD")
-
+  local alphaBuf = nil;
   vim.api.nvim_create_autocmd({"FileType"},{
     pattern = {"alpha"},
-    nested = true,
-    -- group = augroup,
-    callback = function()
-      -- vim.opt.showtabline = 0
-      -- vim.opt.laststatus = 0
-      -- vim.opt.number='nonumber'
+    callback = function(cmd)
+      vim.opt.showtabline = 0
+      vim.opt.laststatus = 0
+      vim.opt.number='nonumber'
+      alphaBuf = cmd.buf
     end
   })
+  vim.api.nvim_create_autocmd({"BufUnload"}, {
+    buffer=alphaBuf,
+    callback = function()
+      vim.opt.showtabline = 2
+      vim.opt.laststatus = 3
+      vim.opt.number= true
+    end
+  })
+end
+
+
