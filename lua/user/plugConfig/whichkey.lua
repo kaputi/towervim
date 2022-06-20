@@ -111,8 +111,10 @@ if ok then
     -- ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
     -- ['d'] = { '<cmd>bdelete<CR>', 'Delete Buffer' },
     ['d'] = { '<cmd>Bdelete<CR>', 'Delete Buffer' },
-    ['E'] = { '<cmd>NvimTreeToggle<CR>', 'File Explorer' },
-    ['e'] = { '<cmd>NvimTreeFindFileToggle<CR>', 'File Explorer' },
+    -- ['E'] = { '<cmd>NvimTreeToggle<CR>', 'File Explorer' },
+    -- ['e'] = { '<cmd>NvimTreeFindFileToggle<CR>', 'File Explorer' },
+    ['E'] = { '<cmd>Neotree reveal toggle<CR>', 'File Explorer' },
+    ['e'] = { '<cmd>Neotree toggle<CR>', 'File Explorer' },
     ['h'] = {
       '<cmd>split | Telescope buffers initial_mode=normal<CR>',
       'Horizontal Split',

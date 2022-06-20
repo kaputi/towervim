@@ -55,6 +55,7 @@ if ok then
       offsets = {
         { filetype = 'NvimTree', text = 'File Explorer' },
         { filetype = 'vista_kind', text = 'Tag Viewer' },
+        { filetype = 'neo-tree', text = 'File Explorer' },
       }, -- | function , text_align = "left" | "center" | "right"}},
       show_buffer_icons = true, --  | false, -- disable filetype icons for buffers
       show_buffer_close_icons = true, -- | false,

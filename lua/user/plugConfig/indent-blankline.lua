@@ -10,7 +10,7 @@ if blankline_ok then
   blankline.setup({
     char_list = { '|', '¦', '┆', '┊' },
     buftype_exclude = { 'terminal' },
-    filetype_exclude = { 'startify', 'help', 'alpha', 'vimwiki', 'NvimTree' },
+    filetype_exclude = { 'startify', 'help', 'alpha', 'vimwiki', 'NvimTree', 'neo-tree' },
     use_treesitter = true,
     space_char_blankline = ' ',
     show_current_context = true,

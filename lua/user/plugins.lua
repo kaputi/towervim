@@ -36,10 +36,10 @@ return {
     config = loadConfig('lspinstall'),
     -- TODO: commit = ''
   },
-  {
-    'ray-x/lsp_signature.nvim',
+  -- {
+    -- 'ray-x/lsp_signature.nvim',
     -- TODO: commit = ''
-  },
+  -- },
   {
     'folke/trouble.nvim',
     config = loadConfig('trouble')
@@ -216,10 +216,20 @@ return {
     -- TODO: commit = ''
   },
   -- File tree
-  {
-    'kyazdani42/nvim-tree.lua',
-    config = loadConfig('nvimtree'),
+  -- {
+    -- 'kyazdani42/nvim-tree.lua',
+    -- config = loadConfig('nvimtree'),
     -- TODO: commit = ''
+  -- },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
+    config = loadConfig('neotree')
   },
   -- fuzzy  find
   {
