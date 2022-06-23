@@ -29,6 +29,7 @@ return {
   },
   {
     'ray-x/lsp_signature.nvim',
+    config = loadConfig('lsp_signature'),
     commit = '4983797',
   },
   {

@@ -7,7 +7,11 @@ M.setup = function(bufnr)
   end
 
   local leader_keys = {
-    ['k'] = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Show hover' },
+    -- ['k'] = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Show hover' },
+    ['k'] = {
+      '<cmd>lua vim.lsp.buf.signature_help()<CR>',
+      'Show hover',
+    },
     ['l'] = {
       name = '>> LSP <<',
       ['A'] = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'lsp code action' },

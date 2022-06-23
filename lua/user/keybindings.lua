@@ -18,7 +18,7 @@ M.bindings = {
       { expr = true, noremap = true },
     },
     ['<C-k>'] = {
-      'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
+      'pumvisible() ? "\\<C-p>" : "<cmd>lua vim.lsp.buf.signature_help()<CR>"',
       { expr = true, noremap = true },
     },
 
