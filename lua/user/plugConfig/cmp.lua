@@ -26,15 +26,15 @@ if ok then
     -- documentation = {
     --   border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
     -- },
-    window ={
+    window = {
       documentation = {
         border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-      }
+      },
     },
     formatting = {
       format = function(entry, vim_item)
-        -- local icons = Settings.lsp.kind
-        -- vim_item.kind = icons[vim_item.kind]
+        local icons = Settings.gui.kind
+        vim_item.kind = icons[vim_item.kind]
         vim_item.menu = ({
           nvim_lsp = '[lsp]',
           path = '[path]',
@@ -47,10 +47,10 @@ if ok then
       end,
     },
     sources = {
-      { name = 'vsnip'},
-      { name = 'nvim_lsp'},
-      { name = 'buffer'},
-      { name = 'path'},
+      { name = 'vsnip' },
+      { name = 'nvim_lsp' },
+      { name = 'buffer' },
+      { name = 'path' },
       { name = 'nvim_lua' },
       -- { name = 'calc' },
       -- { name = 'emoji' },
@@ -151,5 +151,3 @@ if ok then
     },
   })
 end
-
-print("CMP ICONS")

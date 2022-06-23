@@ -3,12 +3,16 @@ local M = {}
 local virtual_text = Settings.lsp.diagnostics.virtual_text
 local signs = Settings.lsp.diagnostics.signs
 
-if virtual_text ~= nil and not virtual_text.active then
-  virtual_text = false
+if virtual_text then
+  virtual_text = {
+    active = true,
+    prefix = '',
+    spacing = 0,
+  }
 end
 
-if signs ~= nil and not signs.active then
-  signs = false
+if signs then
+  signs = SignsLsp
 end
 
 M.setup = function()
