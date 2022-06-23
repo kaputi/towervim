@@ -83,5 +83,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- if ok then
 --   telescope.load_extension('wikis')
 -- end
-
-print("wiki autocmds")

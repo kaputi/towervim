@@ -33,14 +33,11 @@ if ok then
     },
     formatting = {
       format = function(entry, vim_item)
-        local icons = Settings.lsp.kind
-        vim_item.kind = icons[vim_item.kind]
+        -- local icons = Settings.lsp.kind
+        -- vim_item.kind = icons[vim_item.kind]
         vim_item.menu = ({
           nvim_lsp = '[lsp]',
-          emoji = '[emoji]',
           path = '[path]',
-          calc = '[calc]',
-          cmp_tabnine = '[tabnine]',
           vsnip = '[snippet]',
           buffer = '[buffer]',
         })[entry.source.name]
@@ -154,3 +151,5 @@ if ok then
     },
   })
 end
+
+print("CMP ICONS")

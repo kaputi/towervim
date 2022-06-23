@@ -120,7 +120,6 @@ return {
   },
   {
     'windwp/nvim-autopairs',
-    after = 'nvim-cmp',
     config = loadConfig('autopairs')
     -- TODO: commit = ''
   },
@@ -265,7 +264,6 @@ return {
   {
     'akinsho/toggleterm.nvim',
     branch = 'main',
-    event = 'BufwinEnter',
     config = loadConfig('toggleterm'),
     -- TODO: commit = ''
   },
@@ -278,6 +276,7 @@ return {
   -- pretty quickfix
   {
     'kevinhwang91/nvim-bqf',
+    branch = 'main',
     -- TODO: commit = ''
   },
   -- undo tree

@@ -18,7 +18,7 @@ local util = require('packer.util')
 
 packer.init({
   package_root = DATA_PATH .. '/site/pack',
-  -- compile_path = DATA_PATH .. '/packer_compile/packer_compile.lua',
+  compile_path = CONFIG_PATH .. '/plugin/packer_compile.lua',
   snapshot_path = CACHE_PATH .. '/packer-snapshots', -- Default save directory for s
   display = {
     open_fn = function()
