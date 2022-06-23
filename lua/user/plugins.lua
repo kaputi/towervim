@@ -5,10 +5,7 @@ end
 
 return {
   -- Packwe can manage itself as a plugin
-  {
-    'wbthomason/packer.nvim',
-    -- TODO: commit = ''
-  },
+  { 'wbthomason/packer.nvim' },
 
   -- -- -- -- -- -- -- -- -- -- -- -- - -- -- -- -- - --
   -- TODO:
@@ -16,50 +13,34 @@ return {
   {
     'antoinemadec/FixCursorHold.nvim',
     config = 'vim.g.cursorhold_updatetime = 300',
-    -- TODO: commit = ''
+    commit = '1bfb32e',
   },
   -- -- -- -- -- -- -- -- -- -- -- -- - -- -- -- -- - --
 
   -- ============================================================
   -- LSP
   -- ============================================================
-  {
-    'neovim/nvim-lspconfig',
-    -- TODO: commit = ''
-  },
-  {
-    'jose-elias-alvarez/null-ls.nvim',
-    -- TODO: commit = ''
-  },
+  { 'neovim/nvim-lspconfig', commit = '9278dfb' },
+  { 'jose-elias-alvarez/null-ls.nvim', commit = 'ff40739' },
   {
     'williamboman/nvim-lsp-installer',
     config = loadConfig('lspinstall'),
-    -- TODO: commit = ''
+    commit = '5904749',
   },
-  -- {
-  -- 'ray-x/lsp_signature.nvim',
-  -- TODO: commit = ''
-  -- },
+  {
+    'ray-x/lsp_signature.nvim',
+    commit = '4983797',
+  },
   {
     'folke/trouble.nvim',
     config = loadConfig('trouble'),
-    -- TODO: commit = ''
+    commit = 'da61737',
   },
   {
     'rmagatti/goto-preview',
     config = loadConfig('goto-preview'),
-    -- TODO: commit = ''
+    commit = '37116fb',
   },
-  -- {
-  --   'kaputi/e-kaput.nvim',
-  --   config = function()
-  --     local ok, ekaput = pcall(require, 'e-kaput')
-  --     if ok then
-  --       ekaput.setup()
-  --     end
-  --   end,
-  --   -- TODO: commit = ''
-  -- },
   -- ============================================================
   -- AUTOCOMPLETE / SNIPETTS
   -- ============================================================
@@ -78,20 +59,13 @@ return {
       'ray-x/cmp-treesitter',
     },
     config = loadConfig('cmp'),
-    -- TODO: commit = ''
+    commit = 'df6734a',
   },
-  -- {
-  --   'tzachar/cmp-tabnine',
-  --   run = './install.sh',
-  --   requires = 'hrsh7th/nvim-cmp',
-  --   config = loadConfig('cmp-tabnine')
-  --   -- TODO: commit = ''
-  -- },
   -- snipet engine
   {
     'hrsh7th/vim-vsnip',
     config = loadConfig('vsnip'),
-    -- TODO: commit = ''
+    commit = '8f199ef',
   },
   -- ============================================================
   -- TREESITTER
@@ -100,11 +74,10 @@ return {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = loadConfig('treesitter'),
-    -- TODO: commit = ''
+    commit = 'f5aa00d',
   },
   -- {
   --   'nvim-treesitter/playground',
-  --   -- TODO: commit = ''
   -- },
   -- ============================================================
   -- BETTER CODE
@@ -116,94 +89,75 @@ return {
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = loadConfig('comment'),
-    -- TODO: commit = ''
+    commit = '2c26a00',
   },
   {
     'windwp/nvim-autopairs',
     config = loadConfig('autopairs'),
-    -- TODO: commit = ''
+    commit = '4a95b39',
   },
   --  surround
-  {
-    'tpope/vim-surround',
-    -- TODO: commit = ''
-  },
+  { 'tpope/vim-surround', commit = 'bf3480d' },
   -- auto close html jsx tags
-  {
-    'windwp/nvim-ts-autotag',
-    -- TODO: commit = ''
-  },
+  { 'windwp/nvim-ts-autotag', commit = '044a05c' },
   -- uses treesitter
   -- rainbow parentheses
   -- {
   --   'p00f/nvim-ts-rainbow',
-  --   -- TODO: commit = ''
+  --   commit = ''
   -- },
   -- highlight color codes with its color
   {
     'norcalli/nvim-colorizer.lua',
     config = loadConfig('colorizer'),
-    -- TODO: commit = ''
+    commit = '36c610a',
   },
   -- text navigation
   {
     'ggandor/lightspeed.nvim',
-    -- TODO: commit = ''
+    commit = '79519bf',
   },
   -- indent lines
   {
     'lukas-reineke/indent-blankline.nvim',
     config = loadConfig('indent-blankline'),
-    -- TODO: commit = ''
+    commit = '42fe62e',
   },
   {
     'simrat39/symbols-outline.nvim',
     config = loadConfig('symbols-outline'),
-    -- TODO: commit = ''
+    commit = '',
   },
   -- ============================================================
   -- UI
   -- ============================================================
   -- Icons
-  {
-    'kyazdani42/nvim-web-devicons',
-    -- TODO: commit = ''
-  },
-  {
-    'ryanoasis/vim-devicons',
-    -- TODO: commit = ''
-  },
+  { 'kyazdani42/nvim-web-devicons' },
+  { 'ryanoasis/vim-devicons' },
   -- Tabbar, statusbar
   {
     'akinsho/bufferline.nvim',
     branch = 'main',
     requires = 'kyazdani42/nvim-web-devicons',
     config = loadConfig('bufferline'),
-    -- TODO: commit = ''
+    commit = '68839d6',
   },
   {
     'windwp/windline.nvim',
     config = loadConfig('windline'),
-    -- TODO: commit = ''
+    commit = '48af656',
   },
   -- themes
-  {
-    'NLKNguyen/papercolor-theme',
-    -- TODO: commit = ''
-  },
-  {
-    'savq/melange',
-    -- TODO: commit = ''
-  },
+  { 'NLKNguyen/papercolor-theme' },
+  { 'savq/melange' },
   {
     'folke/tokyonight.nvim',
     config = 'vim.g.tokyonight_style = "night"',
-    -- TODO: commit = ''
   },
   {
     'rcarriga/nvim-notify',
     config = loadConfig('notify'),
-    -- TODO: commit = ''
+    commit = '7caeaae',
   },
   -- ============================================================
   -- TOOLS
@@ -212,14 +166,8 @@ return {
   {
     'folke/which-key.nvim',
     config = loadConfig('whichkey'),
-    -- TODO: commit = ''
+    commit = 'bd4411a',
   },
-  -- File tree
-  -- {
-  -- 'kyazdani42/nvim-tree.lua',
-  -- config = loadConfig('nvimtree'),
-  -- TODO: commit = ''
-  -- },
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
@@ -231,65 +179,53 @@ return {
     config = loadConfig('neotree'),
   },
   -- fuzzy  find
-  {
-    'nvim-lua/popup.nvim',
-    -- TODO: commit = ''
-  },
-  {
-    'nvim-lua/plenary.nvim',
-    -- TODO: commit = ''
-  },
+  { 'nvim-lua/popup.nvim' },
+  { 'nvim-lua/plenary.nvim' },
   {
     'nvim-telescope/telescope.nvim',
     config = loadConfig('telescope'),
-    -- TODO: commit = ''
+    commit = 'd88b44d',
   },
   -- project.nvim
-  {
-    'ahmedkhalf/project.nvim',
-    config = loadConfig('project'),
-  },
+  -- {
+  -- TODO: a lo mejor no lo necesito
+  --   'ahmedkhalf/project.nvim',
+  --   config = loadConfig('project'),
+  --   commit = '',
+  -- },
   {
     'goolord/alpha-nvim',
     config = loadConfig('alpha'),
-    -- TODO: commit = ''
+    commit = 'ef27a59',
   },
   -- sessions
   {
     'kaputi/neovim-session-manager',
     config = loadConfig('session-manager'),
     branch = 'only-on-session',
-    -- TODO: commit = ''
   },
   {
     'akinsho/toggleterm.nvim',
     branch = 'main',
     config = loadConfig('toggleterm'),
-    -- TODO: commit = ''
+    commit = '8f2e78d',
   },
   -- save as sudo
-  {
-    'lambdalisue/suda.vim',
-    config = loadConfig('suda'),
-    -- TODO: commit = ''
-  },
+  { 'lambdalisue/suda.vim', config = loadConfig('suda') },
   -- pretty quickfix
   {
     'kevinhwang91/nvim-bqf',
     branch = 'main',
-    -- TODO: commit = ''
+    commit = 'd4bc26c',
   },
   -- undo tree
-  {
-    'mbbill/undotree',
-    -- TODO: commit = ''
-  },
+  { 'mbbill/undotree' },
   -- VIMWIKI
   {
     'vimwiki/vimwiki',
     setup = loadConfig('vimwiki'),
     ft = { 'markdown', 'vimwiki' },
-    -- TODO: commit = ''
+    commit = '63af6e7',
   },
   {
     'kaputi/telescope-vimwiki',
@@ -303,24 +239,23 @@ return {
         telescope.load_extension('wikis')
       end
     end,
-    -- TODO: commit = ''
   },
   {
     -- SHOWS PREVIEW OF LINE WHEN USING :[linenumber]
     'nacro90/numb.nvim',
     config = loadConfig('numb'),
-    -- TODO: commit = ''
+    commit = '453c50a',
   },
   {
     -- smooth scroll
     'karb94/neoscroll.nvim',
     config = loadConfig('neoscroll'),
-    -- TODO: commit = ''
+    commit = '71c8fad',
   },
   -- delete buffers without changing layout
   {
     'famiu/bufdelete.nvim',
-    -- TODO: commit = ''
+    commit = '46255e4',
   },
   {
     'ethanholz/nvim-lastplace',
@@ -330,42 +265,37 @@ return {
         lastplace.setup({})
       end
     end,
-    -- TODO: commit = ''
+    commit = '30fe710',
   },
   {
     -- 'chentau/marks.nvim',
     'chentoast/marks.nvim',
     config = loadConfig('marks'),
-    -- TODO: commit = ''
+    commit = 'bb25757',
   },
   -- ============================================================
   -- GIT
   -- ============================================================
   -- lazygit
-  {
-    'kdheepak/lazygit.nvim',
-    branch = 'main',
-    -- TODO: commit = ''
-  },
+  { 'kdheepak/lazygit.nvim', branch = 'main' },
   -- git signs
   {
     'lewis6991/gitsigns.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
-      -- TODO: commit = ''
     },
     config = loadConfig('gitsigns'),
-    -- TODO: commit = ''
+    commit = '4883988',
   },
   {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
-    -- TODO: commit = ''
+    commit = '2b33d2e',
   },
   {
     'sindrets/diffview.nvim',
     config = loadConfig('diffview'),
-    -- TODO: commit = ''
+    commit = '2e77bed',
   },
   -- ============================================================
   -- NEW
@@ -374,13 +304,13 @@ return {
     'anuvyklack/pretty-fold.nvim',
     requires = 'anuvyklack/nvim-keymap-amend',
     config = loadConfig('pretty-fold'),
-    -- TODO: commit = ''
+    commit = 'e6385d6',
   },
   {
     'SmiteshP/nvim-gps',
     requires = 'nvim-treesitter/nvim-treesitter',
     config = loadConfig('nvim-gps'),
-    -- TODO: commit = ''
+    commit = 'be4bb5b',
   },
   -- ============================================================
   -- NOT IN USE / CHECK / FIX
@@ -390,12 +320,9 @@ return {
   -- FIX -------------------------------
   -- { 'nvim-telescope/telescope-media-files.nvim' },
   {
-    --TODO: new version generates the snipets on the go for vs code so vsnip
-    -- wont load them, either generate them by calling the function that does or
-    -- find a snipet engine that works more like vscode
     'dsznajder/vscode-es7-javascript-react-snippets',
     run = 'yarn install --frozen-lockfile && yarn compile',
-    -- TODO: commit = ''
+    commit = '185bb91',
   },
   -- OFF -------------------------------
   -- cursor on last place when open file === === REPLACE BY LUA
