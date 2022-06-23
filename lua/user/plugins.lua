@@ -186,13 +186,6 @@ return {
     config = loadConfig('telescope'),
     commit = 'd88b44d',
   },
-  -- project.nvim
-  -- {
-  -- TODO: a lo mejor no lo necesito
-  --   'ahmedkhalf/project.nvim',
-  --   config = loadConfig('project'),
-  --   commit = '',
-  -- },
   {
     'goolord/alpha-nvim',
     config = loadConfig('alpha'),
