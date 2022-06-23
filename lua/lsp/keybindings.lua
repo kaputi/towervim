@@ -18,6 +18,10 @@ M.setup = function(bufnr)
       ['d'] = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
       ['D'] = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Goto declaration' },
       ['f'] = { '<cmd>lua vim.lsp.buf.format()<CR>', 'Format' },
+      ['l'] = {
+        '<cmd>lua require("user.functions").lineDiagnostics()<CR>',
+        'line diagnostic',
+      },
       -- ['f'] = { '<cmd>lua vim.lsp.buf.formatting_sync(nil,1000)<CR>', 'Format'},
       ['R'] = { '<cmd>lua vim.lsp.buf.references()<CR>', 'Goto references' },
       ['r'] = {
@@ -63,10 +67,6 @@ M.setup = function(bufnr)
     ['gpd'] = {
       "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
       'Peak Definition',
-    },
-    ['gl'] = {
-      "<cmd>lua require'lsp.handlers'.show_line_diagnostics()<CR>",
-      'Show line diagnostics',
     },
   }
 

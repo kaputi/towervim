@@ -190,6 +190,7 @@ if ok then
       },
       ['i'] = { '<cmd>IndentBlanklineToggle<CR>', 'Indent Lines' },
       -- ['l'] = { '<cmd>set background=light<CR>', 'Light Background' },
+      ['k'] = {'<cmd>lua require"user.functions".toggleLineDiagnostics()<CR>', 'Toggle Line Diagnostics'},
       ['l'] = {
         '<cmd>let tokyonight_style="day" | colorscheme tokyonight<CR>',
         'Light Background',

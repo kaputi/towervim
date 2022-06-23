@@ -2,7 +2,7 @@ SignsLsp = {
   { name = 'DiagnosticSignError', text = Settings.gui.diagnostics.error },
   { name = 'DiagnosticSignWarn', text = Settings.gui.diagnostics.warning },
   { name = 'DiagnosticSignHint', text = Settings.gui.diagnostics.hint },
-  { name = 'DiagnosticSignInfo', text = Settings.gui.diagnostics.into },
+  { name = 'DiagnosticSignInfo', text = Settings.gui.diagnostics.info },
 }
 
 for _, sign in ipairs(SignsLsp) do
@@ -18,3 +18,9 @@ vim.lsp.protocol.CompletionItemKind = Settings.gui.kind
 
 require('lsp.lspConfig')
 require('lsp.null_ls')
+
+vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+  callback = function()
+    require('user.functions').lineDiagnostics()
+  end,
+})

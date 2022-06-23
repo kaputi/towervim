@@ -2,6 +2,7 @@ Settings.general = {
   colorscheme = 'towervim',
   formatOnSave = false,
   trimWhitespace = false,
+  lineDiagnostics = true
 }
 
 Settings.gui = {
@@ -36,6 +37,6 @@ Settings.gui = {
     error = '',
     warning = '',
     hint = '',
-    into = '',
+    info = '',
   },
 }
