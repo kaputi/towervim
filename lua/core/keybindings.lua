@@ -50,14 +50,12 @@ local function loadMappings(keymaps)
 end
 
 local function loadCommands(commands)
-  for _, command in  pairs(commands) do
-      vim.cmd(':command! ' .. command)
+  for _, command in pairs(commands) do
+    vim.cmd(':command! ' .. command)
   end
 end
-
 
 local keys = require('user.keybindings')
 
 loadMappings(keys.bindings)
 loadCommands(keys.commands)
-

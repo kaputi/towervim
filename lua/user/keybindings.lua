@@ -87,7 +87,6 @@ M.bindings = {
     -- sideScroll scroll
     -- ['<ScrollWheelDown>'] = '<C-E>',
     -- ['<ScrollWheelUp>'] = '<C-Y>'
-
   },
   term_mode = {},
   visual_mode = {
@@ -118,13 +117,13 @@ M.bindings = {
 }
 
 M.commands = {
-  "-bar -bang WQ wq<bang>",
-  "-bar -bang Wq wq<bang>",
-  "-bar -bang Wqa wqa<bang>",
-  "-bar -bang WQa wqa<bang>",
-  "-bar -bang WQA wqa<bang>",
-  "-bar -bang W w<bang>",
-  "-bar -bang Q q<bang>"
+  '-bar -bang WQ wq<bang>',
+  '-bar -bang Wq wq<bang>',
+  '-bar -bang Wqa wqa<bang>',
+  '-bar -bang WQa wqa<bang>',
+  '-bar -bang WQA wqa<bang>',
+  '-bar -bang W w<bang>',
+  '-bar -bang Q q<bang>',
 }
 
 return M

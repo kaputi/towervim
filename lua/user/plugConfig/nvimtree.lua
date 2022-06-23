@@ -119,7 +119,7 @@ if ok then
     { key = 'dd', cb = tree_cb('cut') },
     { key = 'cc', cb = tree_cb('copy') },
     { key = 'df', cb = tree_cb('remove') },
-    { key = "?", action = "toggle_help" },
+    { key = '?', action = 'toggle_help' },
   }
 
   nvim_tree.setup({
@@ -188,9 +188,9 @@ if ok then
       indent_markers = {
         enable = true,
         icons = {
-          corner = "└ ",
-          edge = "│ ",
-          none = "  ",
+          corner = '└ ',
+          edge = '│ ',
+          none = '  ',
         },
       },
       icons = {
@@ -211,10 +211,17 @@ if ok then
         resize_window = false,
         window_picker = {
           enable = false,
-          chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+          chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
           exclude = {
-            filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-            buftype = { "nofile", "terminal", "help" },
+            filetype = {
+              'notify',
+              'packer',
+              'qf',
+              'diff',
+              'fugitive',
+              'fugitiveblame',
+            },
+            buftype = { 'nofile', 'terminal', 'help' },
           },
         },
       },

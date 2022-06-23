@@ -16,7 +16,7 @@ Settings.vim = {
       fileencoding = 'utf-8',
       fillchars = 'vert:│',
       -- opt.fillchars       = "fold: "
-      foldlevel = 99 ,
+      foldlevel = 99,
       -- foldtext      = "[[substitute(getline(v:foldstart),'\\\\t',repeat('\\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]",
       -- foldmethod = 'manual',
       -- foldmethod = 'indent',
@@ -75,7 +75,7 @@ Settings.vim = {
     -- this will be set with vim.opt.OPTIONL:prepend(...) = :set^=
     prepend = {},
     -- this will be set with vim.opt.OPTIONL:remove(...) = :set-=
-    remove = {}
+    remove = {},
   },
 
   -- this will be set with vim.o.OPTION = :set OPTION

@@ -1,6 +1,6 @@
 local ok, gps = pcall(require, 'nvim-gps')
 if ok then
--- Customized config
+  -- Customized config
   gps.setup({
     -- disable_icons = false,           -- Setting it to true will disable all icons
 

@@ -1,7 +1,9 @@
 local ok, marks = pcall(require, 'marks')
-if not ok then return end
+if not ok then
+  return
+end
 
-marks.setup {
+marks.setup({
   -- whether to map keybinds or not. default true
   -- mx              Set mark x
   -- m,              Set the next available alphabetical (lowercase) mark
@@ -38,7 +40,7 @@ marks.setup {
   -- can be either a table with all/none of the keys, or a single number, in which case
   -- the priority applies to all marks.
   -- default 10.
-  sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
+  sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
   -- disables mark tracking for specific filetypes. default {}
   excluded_filetypes = {},
   -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
@@ -46,8 +48,8 @@ marks.setup {
   -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
   -- default virt_text is "".
   bookmark_0 = {
-    sign = "⚑",
-    virt_text = ""
+    sign = '⚑',
+    virt_text = '',
   },
   -- mappings :
   -- set_next               Set next available lowercase mark at cursor.
@@ -76,6 +78,6 @@ marks.setup {
   -- annotate               Prompts the user for a virtual line annotation that is then placed
   --                        above the bookmark. Requires neovim 0.6+ and is not mapped by default.
   mappings = {
-    delete_bookmark = "dmm"
-  }
-}
+    delete_bookmark = 'dmm',
+  },
+})

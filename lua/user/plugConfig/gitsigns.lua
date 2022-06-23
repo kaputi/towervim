@@ -64,12 +64,12 @@ if ok then
       ignore_whitespace = false,
     },
     current_line_blame_formatter_opts = {
-      relative_time = false
+      relative_time = false,
     },
     watch_gitdir = {
-        interval = 1000,
-        follow_files = true
-      },
+      interval = 1000,
+      follow_files = true,
+    },
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil, -- Use default

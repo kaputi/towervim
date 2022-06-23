@@ -29,27 +29,24 @@ if ok then
     width = 90,
     hl_colors = { text = { 'white', 'black' } },
     text = function(bufnr)
-
       local string = ''
 
-    local clients = {}
-    local icon = ' '
-    local lspSep = '|'
+      local clients = {}
+      local icon = ' '
+      local lspSep = '|'
 
-    for _, client in pairs(vim.lsp.buf_get_clients(bufnr or 0)) do
+      for _, client in pairs(vim.lsp.buf_get_clients(bufnr or 0)) do
         -- DONT SHOW null-ls
         if client.name ~= 'null-ls' then
           clients[#clients + 1] = client.name
         end
-    end
+      end
 
-      
+      if next(clients) then
+        string = icon .. table.concat(clients, lspSep)
+      end
 
-    if next(clients) then
-        string =  icon .. table.concat(clients, lspSep)
-    end
-
-      return {{string, 'text'}}
+      return { { string, 'text' } }
     end,
   }
 
@@ -181,43 +178,44 @@ if ok then
             if value._disabled then
               sign = ' |'
             end
-           table.insert(registered, {value.name .. sign, 'text'})
-         end
+            table.insert(registered, { value.name .. sign, 'text' })
+          end
         end
       end
 
       return registered
-    end
+    end,
   }
 
   basic.onSave = {
     hl_colors = { text = { 'white', 'black' } },
-    text = function ()
+    text = function()
       local fos = {}
 
       if Settings.general.formatOnSave then
-        table.insert(fos,'F')
+        table.insert(fos, 'F')
       end
 
       if Settings.general.trimWhitespace then
-        table.insert(fos,'WS')
+        table.insert(fos, 'WS')
       end
 
-      if not Settings.general.formatOnSave and not Settings.general.trimWhitespace then
-        table.insert(fos,'N')
+      if
+        not Settings.general.formatOnSave
+        and not Settings.general.trimWhitespace
+      then
+        table.insert(fos, 'N')
       end
 
-     local string = ''
+      local string = ''
       for _, value in ipairs(fos) do
         string = string .. value
-       end
+      end
 
+      string = string .. ' |'
 
-       string = string .. ' |'
-
-      return {{'OS:'.. string, 'text'}}
-    end
-
+      return { { 'OS:' .. string, 'text' } }
+    end,
   }
 
   -- basic.curretFunc = {
@@ -246,7 +244,7 @@ if ok then
       basic.vi_mode,
       {
         git_comps.git_branch({ icon = '  ' }),
-       { 'white', 'black_light' },
+        { 'white', 'black_light' },
         -- { 'yellow_light', 'black' },
         90,
       },
@@ -357,5 +355,4 @@ if ok then
     end,
     statuslines = { default, quickfix, explorer, tag_view },
   })
-  
 end

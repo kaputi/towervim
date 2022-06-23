@@ -96,7 +96,7 @@ if ok then
     nowait = true, -- use `nowait` when creating keymaps
   }
 
-  local vmappings = { 
+  local vmappings = {
     ['r'] = { '"_d"*p', 'Replace Selection with register' },
   }
 
@@ -113,8 +113,8 @@ if ok then
     ['d'] = { '<cmd>Bdelete<CR>', 'Delete Buffer' },
     -- ['E'] = { '<cmd>NvimTreeToggle<CR>', 'File Explorer' },
     -- ['e'] = { '<cmd>NvimTreeFindFileToggle<CR>', 'File Explorer' },
-    ['E'] = { '<cmd>Neotree reveal toggle<CR>', 'File Explorer' },
-    ['e'] = { '<cmd>Neotree toggle<CR>', 'File Explorer' },
+    ['e'] = { '<cmd>Neotree reveal toggle<CR>', 'File Explorer' },
+    ['E'] = { '<cmd>Neotree toggle<CR>', 'File Explorer' },
     ['h'] = {
       '<cmd>split | Telescope buffers initial_mode=normal<CR>',
       'Horizontal Split',
@@ -132,7 +132,10 @@ if ok then
     ['P'] = { '<cmd>Telescope commands<CR>', 'Commands' },
     ['q'] = { '<cmd>q<CR>', 'Quit' },
     ['Q'] = { '<cmd>qa!<CR>', 'Quit All!!' },
-    ['r'] = {'<cmd>Telescope npm scripts initial_mode=normal <CR>', 'Run npm scripts'},
+    ['r'] = {
+      '<cmd>Telescope npm scripts initial_mode=normal <CR>',
+      'Run npm scripts',
+    },
     ['u'] = { '<cmd>UndotreeToggle<CR>', 'Undo tree' },
     -- ['t'] = {'<cmd>ToggleTerm<CR>', 'Terminal'},
     -- ['r'] = {},
@@ -140,7 +143,7 @@ if ok then
       '<cmd>vsplit | Telescope buffers initial_mode=normal<CR>',
       'Vertical Split',
     },
-    ['V'] = {'<cmd>diffthis<CR>', 'Diff this'},
+    ['V'] = { '<cmd>diffthis<CR>', 'Diff this' },
     ['y'] = { '<cmd>Telescope registers<CR>', 'Yank List' },
 
     -- Dashboard Layer
@@ -164,15 +167,33 @@ if ok then
       ['s'] = { '<cmd>set hls!<CR>', 'Remove Search Highlights' },
       ['c'] = { '<cmd>setlocal cursorcolumn!<CR>', 'Cursor Column' },
       -- ['d'] = { '<cmd>set background=dark<CR>', 'Dak  Background' },
-      ['d'] = { '<cmd>set background=dark | colorscheme towervim<CR>', 'Dark  Background' },
-      ['D'] = { '<cmd>set background=dark |let tokyonight_style="night" | colorscheme tokyonight<CR>', 'Dark  Background' },
-      ['E'] = { '<cmd>lua require("functions").toggleLinter()<CR>', 'Toggle Linter'},
+      ['d'] = {
+        '<cmd>set background=dark | colorscheme towervim<CR>',
+        'Dark  Background',
+      },
+      ['D'] = {
+        '<cmd>set background=dark |let tokyonight_style="night" | colorscheme tokyonight<CR>',
+        'Dark  Background',
+      },
+      ['E'] = {
+        '<cmd>lua require("functions").toggleLinter()<CR>',
+        'Toggle Linter',
+      },
       -- ['f'] = { '<cmd>FocusToggle<CR>', 'Focus'},
-      ['f'] = { '<cmd>lua require("functions").toggleFormatOnSave()<CR>', 'Toggle Formatter on Save'},
-      ['F'] = { '<cmd>lua require("functions").toggleFormatter()<CR>', 'Toggle Formatter'},
+      ['f'] = {
+        '<cmd>lua require("functions").toggleFormatOnSave()<CR>',
+        'Toggle Formatter on Save',
+      },
+      ['F'] = {
+        '<cmd>lua require("functions").toggleFormatter()<CR>',
+        'Toggle Formatter',
+      },
       ['i'] = { '<cmd>IndentBlanklineToggle<CR>', 'Indent Lines' },
       -- ['l'] = { '<cmd>set background=light<CR>', 'Light Background' },
-      ['l'] = { '<cmd>let tokyonight_style="day" | colorscheme tokyonight<CR>', 'Light Background' },
+      ['l'] = {
+        '<cmd>let tokyonight_style="day" | colorscheme tokyonight<CR>',
+        'Light Background',
+      },
       ['L'] = { '<cmd>set cursorline!<CR>', 'Cursor Line' },
       ['n'] = { '<cmd>set nonumber!<CR>', 'Line Numbers' },
       ['r'] = { '<cmd>set norelativenumber!<CR>', 'Relative Numbers' },
@@ -186,7 +207,10 @@ if ok then
       -- ['p'] = {'<cmd>RainbowToggle<CR>'                         , 'Color Parenthesis'},
       ['v'] = { '<cmd>SymbolsOutline<CR>', 'Symbol Explorer' },
       ['w'] = { '<cmd>setlocal wrap!<CR>', 'Wrap' },
-      ['W'] = { '<cmd>lua require("functions").toggleTrimWhitespace()<CR>', 'Toggle Trim Whitespace'},
+      ['W'] = {
+        '<cmd>lua require("functions").toggleTrimWhitespace()<CR>',
+        'Toggle Trim Whitespace',
+      },
       -- ['z'] = {'<cmd>Goyo<CR>', 'Zen Mode'}
     },
 
@@ -218,7 +242,7 @@ if ok then
     -- File Layer
     ['f'] = {
       name = '>> File <<',
-      ['p'] = {'<cmd>echo expand("%:r")<CR>', 'Current Buffer Path'}
+      ['p'] = { '<cmd>echo expand("%:r")<CR>', 'Current Buffer Path' },
       -- TODO: new file at same path as current
       -- TODO: delete file
       -- TODO: rename file
@@ -229,25 +253,25 @@ if ok then
     -- Git Layer
     ['g'] = {
       name = '>> Git <<',
-      ['b'] = {'<cmd>Gitsigns toggle_current_line_blame<CR>', 'Line Blame'},
-      ['d'] = {'<cmd>Gitsigns diffthis<CR>','Gitsigns DiffView'},
-      ['D'] = {'<cmd>DiffviewOpen<CR>', 'DiffView'},
-      ['H'] = {'<cmd>DiffviewFileHistory<CR>', 'File History'},
-      ['l'] = {'<cmd>LazyGit<CR>', 'Lazygit'},
-      ['L'] = {'<cmd>Gitsigns toggle_linehl<CR>', 'Line Highlights'},
-      ['n'] = {'<cmd>Neogit<CR>', 'Neogit'},
-      ['p'] = {'<cmd>Gitsigns preview_hunk<CR>', 'Preview Hunk'},
-      ['Q'] = {'<cmd>DiffviewClose<CR>', 'DiffView Close'},
-      ['q'] = {'<cmd>Gitsigns setloclist<CR>', 'Hunks to qf list'},
+      ['b'] = { '<cmd>Gitsigns toggle_current_line_blame<CR>', 'Line Blame' },
+      ['d'] = { '<cmd>Gitsigns diffthis<CR>', 'Gitsigns DiffView' },
+      ['D'] = { '<cmd>DiffviewOpen<CR>', 'DiffView' },
+      ['H'] = { '<cmd>DiffviewFileHistory<CR>', 'File History' },
+      ['l'] = { '<cmd>LazyGit<CR>', 'Lazygit' },
+      ['L'] = { '<cmd>Gitsigns toggle_linehl<CR>', 'Line Highlights' },
+      ['n'] = { '<cmd>Neogit<CR>', 'Neogit' },
+      ['p'] = { '<cmd>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
+      ['Q'] = { '<cmd>DiffviewClose<CR>', 'DiffView Close' },
+      ['q'] = { '<cmd>Gitsigns setloclist<CR>', 'Hunks to qf list' },
       ['r'] = {
         name = '>> Reset <<',
-        ['b'] = {'<cmd>Gitsigns reset_buffer<CR>','Reset Buffer'},
-        ['h'] = {'<cmd>Gitsigns reset_hunk<CR>','Reset Hunk'},
+        ['b'] = { '<cmd>Gitsigns reset_buffer<CR>', 'Reset Buffer' },
+        ['h'] = { '<cmd>Gitsigns reset_hunk<CR>', 'Reset Hunk' },
       },
-      ['s'] = {'<cmd>Gitsigns stage_buffer<CR>', 'Stage Buffer'},
-      ['S'] = {'<cmd>Gitsigns stage_hunk<CR>', 'Stage hunk'},
-      ['u'] = {'<cmd>Gitsigns undo_stage_hunk', 'Undo stage hunk'},
-      ['v'] = {'<cmd>Gitsigns select_hunk<CR>', 'Select Hunk'},
+      ['s'] = { '<cmd>Gitsigns stage_buffer<CR>', 'Stage Buffer' },
+      ['S'] = { '<cmd>Gitsigns stage_hunk<CR>', 'Stage hunk' },
+      ['u'] = { '<cmd>Gitsigns undo_stage_hunk', 'Undo stage hunk' },
+      ['v'] = { '<cmd>Gitsigns select_hunk<CR>', 'Select Hunk' },
       -- TODO:
     },
 
@@ -306,7 +330,10 @@ if ok then
       -- ['s'] = {':CocList snippets'  , 'Snippets'},
       ['S'] = { '<cmd>Telescope colorscheme<CR>', 'Color Schemes' },
       ['t'] = { '<cmd>Telescope live_grep<CR>', 'Text Rg' },
-      ['T'] = {'<cmd>Telescope grep_string<cr>', 'search string under cursor'},
+      ['T'] = {
+        '<cmd>Telescope grep_string<cr>',
+        'search string under cursor',
+      },
       -- ['T'] = { '<cmd>Telescope current_buffer_tags<CR>', 'Buffer Tags' },
       -- ['w'] = {':Windows'           , 'Windows'},
       ['y'] = { '<cmd>Telescope       filetypes<CR>', 'File Types' },

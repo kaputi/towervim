@@ -10,7 +10,7 @@ end
 
 M.toggleLinter = function()
   for linter, _ in pairs(Settings.linter.linters) do
-    require('null-ls').toggle({name=linter})
+    require('null-ls').toggle({ name = linter })
   end
 end
 
@@ -23,7 +23,7 @@ end
 M.trimWhiteSpace = function()
   if Settings.general.trimWhitespace then
     local save = vim.fn.winsaveview()
-    vim.api.nvim_exec(string.format("silent! %s", [[%s/\s\+$//e]]), false)
+    vim.api.nvim_exec(string.format('silent! %s', [[%s/\s\+$//e]]), false)
     vim.fn.winrestview(save)
   end
 end

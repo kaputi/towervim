@@ -39,6 +39,6 @@ end
 
 -- === === === === === Custom And general options === === === === === === === === === === === ===
 require('user.general')
-require('user.lsp')
+require('lsp.settings')
 
 vim.cmd('colorscheme ' .. Settings.general.colorscheme)

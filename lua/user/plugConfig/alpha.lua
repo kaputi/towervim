@@ -73,27 +73,24 @@ if ok then
 
   dashboard.section.footer.val = 'Go then, there are other worlds than these'
 
-
   alpha.setup(dashboard.opts)
 
-  local alphaBuf = nil;
-  vim.api.nvim_create_autocmd({"FileType"},{
-    pattern = {"alpha"},
+  local alphaBuf = nil
+  vim.api.nvim_create_autocmd({ 'FileType' }, {
+    pattern = { 'alpha' },
     callback = function(cmd)
       vim.opt.showtabline = 0
       vim.opt.laststatus = 0
-      vim.opt.number='nonumber'
+      vim.opt.number = 'nonumber'
       alphaBuf = cmd.buf
-    end
+    end,
   })
-  vim.api.nvim_create_autocmd({"BufUnload"}, {
-    buffer=alphaBuf,
+  vim.api.nvim_create_autocmd({ 'BufUnload' }, {
+    buffer = alphaBuf,
     callback = function()
       vim.opt.showtabline = 2
       vim.opt.laststatus = 3
-      vim.opt.number= true
-    end
+      vim.opt.number = true
+    end,
   })
 end
-
-

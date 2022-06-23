@@ -65,7 +65,6 @@ if ok then
   -- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
   vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
-
   vim.api.nvim_set_keymap(
     'i',
     '<F1>',

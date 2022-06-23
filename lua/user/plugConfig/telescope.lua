@@ -70,20 +70,20 @@ if telescope_ok and job_ok then
           },
           i = {
             -- ['<CR>'] = {'<esc>', type = 'command'}
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   })
 
   -- Replace netrw with telescope when opening . or dir
   -- TODO
---   vim.cmd([[
---     augroup Telescope-Browser
---       au!
---       au VimEnter * sil! au! FileExplorer *
---       au BufEnter * lua require('plugin-settings.telescope-browser')
---     augroup END
---   ]])
+  --   vim.cmd([[
+  --     augroup Telescope-Browser
+  --       au!
+  --       au VimEnter * sil! au! FileExplorer *
+  --       au BufEnter * lua require('plugin-settings.telescope-browser')
+  --     augroup END
+  --   ]])
   telescope.load_extension('npm')
 end

@@ -1,5 +1,23 @@
 Settings.lsp = {
   installPath = DATA_PATH .. '/lspinstall',
+  diagnostics = {
+    signs = {
+      active = true,
+      values = {
+        { name = 'DiagnosticSignError', text = '' },
+        { name = 'DiagnosticSignWarn', text = '' },
+        { name = 'DiagnosticSignHint', text = '' },
+        { name = 'DiagnosticSignInfo', text = '' },
+      },
+    },
+    virtual_text = {
+      active = false,
+      prefix = '',
+      spacing = 0,
+    },
+    underline = true,
+    severity_sort = true,
+  },
   servers = {
     intelephense = {
       settings = { intelephense = { environment = { phpVersion = '7.4' } } },

@@ -1,5 +1,5 @@
-Settings.general ={
+Settings.general = {
   colorscheme = 'towervim',
-  formatOnSave = false,
-  trimWhitespace = false
+  formatOnSave = true,
+  trimWhitespace = false,
 }

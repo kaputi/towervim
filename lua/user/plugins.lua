@@ -1,6 +1,6 @@
-local pluginConfDir = "user.plugConfig."
+local pluginConfDir = 'user.plugConfig.'
 local loadConfig = function(configName)
-  pcall(require, pluginConfDir .. configName )
+  pcall(require, pluginConfDir .. configName)
 end
 
 return {
@@ -15,7 +15,7 @@ return {
   -- this is temporary until the isue with neovim cursorhold gets fixed
   {
     'antoinemadec/FixCursorHold.nvim',
-    config = "vim.g.cursorhold_updatetime = 300"
+    config = 'vim.g.cursorhold_updatetime = 300',
     -- TODO: commit = ''
   },
   -- -- -- -- -- -- -- -- -- -- -- -- - -- -- -- -- - --
@@ -37,17 +37,17 @@ return {
     -- TODO: commit = ''
   },
   -- {
-    -- 'ray-x/lsp_signature.nvim',
-    -- TODO: commit = ''
+  -- 'ray-x/lsp_signature.nvim',
+  -- TODO: commit = ''
   -- },
   {
     'folke/trouble.nvim',
-    config = loadConfig('trouble')
+    config = loadConfig('trouble'),
     -- TODO: commit = ''
   },
   {
     'rmagatti/goto-preview',
-    config = loadConfig('goto-preview')
+    config = loadConfig('goto-preview'),
     -- TODO: commit = ''
   },
   {
@@ -77,7 +77,7 @@ return {
       -- 'hrsh7th/cmp-calc',
       'ray-x/cmp-treesitter',
     },
-    config = loadConfig('cmp')
+    config = loadConfig('cmp'),
     -- TODO: commit = ''
   },
   -- {
@@ -90,7 +90,7 @@ return {
   -- snipet engine
   {
     'hrsh7th/vim-vsnip',
-    config = loadConfig('vsnip')
+    config = loadConfig('vsnip'),
     -- TODO: commit = ''
   },
   -- ============================================================
@@ -99,7 +99,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = loadConfig('treesitter')
+    config = loadConfig('treesitter'),
     -- TODO: commit = ''
   },
   -- {
@@ -115,12 +115,12 @@ return {
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
-    config = loadConfig('comment')
+    config = loadConfig('comment'),
     -- TODO: commit = ''
   },
   {
     'windwp/nvim-autopairs',
-    config = loadConfig('autopairs')
+    config = loadConfig('autopairs'),
     -- TODO: commit = ''
   },
   --  surround
@@ -142,7 +142,7 @@ return {
   -- highlight color codes with its color
   {
     'norcalli/nvim-colorizer.lua',
-    config = loadConfig('colorizer')
+    config = loadConfig('colorizer'),
     -- TODO: commit = ''
   },
   -- text navigation
@@ -153,12 +153,12 @@ return {
   -- indent lines
   {
     'lukas-reineke/indent-blankline.nvim',
-    config = loadConfig('indent-blankline')
+    config = loadConfig('indent-blankline'),
     -- TODO: commit = ''
   },
   {
     'simrat39/symbols-outline.nvim',
-    config = loadConfig('symbols-outline')
+    config = loadConfig('symbols-outline'),
     -- TODO: commit = ''
   },
   -- ============================================================
@@ -178,12 +178,12 @@ return {
     'akinsho/bufferline.nvim',
     branch = 'main',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = loadConfig('bufferline')
+    config = loadConfig('bufferline'),
     -- TODO: commit = ''
   },
   {
     'windwp/windline.nvim',
-    config = loadConfig('windline')
+    config = loadConfig('windline'),
     -- TODO: commit = ''
   },
   -- themes
@@ -197,12 +197,12 @@ return {
   },
   {
     'folke/tokyonight.nvim',
-    config = 'vim.g.tokyonight_style = "night"'
+    config = 'vim.g.tokyonight_style = "night"',
     -- TODO: commit = ''
   },
   {
     'rcarriga/nvim-notify',
-    config = loadConfig('notify')
+    config = loadConfig('notify'),
     -- TODO: commit = ''
   },
   -- ============================================================
@@ -216,19 +216,19 @@ return {
   },
   -- File tree
   -- {
-    -- 'kyazdani42/nvim-tree.lua',
-    -- config = loadConfig('nvimtree'),
-    -- TODO: commit = ''
+  -- 'kyazdani42/nvim-tree.lua',
+  -- config = loadConfig('nvimtree'),
+  -- TODO: commit = ''
   -- },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v2.x',
     requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
     },
-    config = loadConfig('neotree')
+    config = loadConfig('neotree'),
   },
   -- fuzzy  find
   {
@@ -327,7 +327,7 @@ return {
     config = function()
       local ok, lastplace = pcall(require, 'nvim-lastplace')
       if ok then
-        lastplace.setup{}
+        lastplace.setup({})
       end
     end,
     -- TODO: commit = ''
@@ -372,14 +372,14 @@ return {
   -- ============================================================
   {
     'anuvyklack/pretty-fold.nvim',
-    requires="anuvyklack/nvim-keymap-amend",
-     config = loadConfig('pretty-fold'),
+    requires = 'anuvyklack/nvim-keymap-amend',
+    config = loadConfig('pretty-fold'),
     -- TODO: commit = ''
   },
   {
     'SmiteshP/nvim-gps',
-     requires = "nvim-treesitter/nvim-treesitter",
-     config = loadConfig('nvim-gps'),
+    requires = 'nvim-treesitter/nvim-treesitter',
+    config = loadConfig('nvim-gps'),
     -- TODO: commit = ''
   },
   -- ============================================================
@@ -396,7 +396,7 @@ return {
     'dsznajder/vscode-es7-javascript-react-snippets',
     run = 'yarn install --frozen-lockfile && yarn compile',
     -- TODO: commit = ''
-  }
+  },
   -- OFF -------------------------------
   -- cursor on last place when open file === === REPLACE BY LUA
   -- { 'farmergreg/vim-lastplace' },
@@ -411,7 +411,6 @@ return {
   -- end
   -- },
 
-
   -- needs better config
   -- {
   --   'beauwilliams/focus.nvim',
@@ -419,7 +418,6 @@ return {
   --     require('pluginConfigs.focus')
   --   end,
   -- },
-
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: lazyloading
