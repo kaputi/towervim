@@ -1,39 +1,55 @@
 local home_dir = vim.loop.os_homedir()
-local wiki_home = home_dir .. '/Documents/vimwiki'
+local wiki_home = home_dir .. "/Documents/vimwiki"
 
 local wikis = {}
 
 local get_file_name = function(file)
-  return file:match('^.+/(.+)$')
+	return file:match("^.+/(.+)$")
 end
 local firstToUpper = function(str)
-  return (str:gsub('^%l', string.upper))
+	return (str:gsub("^%l", string.upper))
 end
 
-local plenary_ok, _ = pcall(require, 'plenary')
+local plenary_ok, _ = pcall(require, "plenary")
 if plenary_ok then
-  local scandir = require('plenary.scandir')
-  local Path = require('plenary.path')
+	local scandir = require("plenary.scandir")
+	local Path = require("plenary.path")
 
-  scandir.scan_dir(wiki_home, {
-    depth = 1,
-    only_dirs = true,
-    respect_gitignore = true,
-    on_insert = function(entry)
-      if string.find(entry, '_html') then
-        return
-      end
+	scandir.scan_dir(wiki_home, {
+		depth = 1,
+		only_dirs = true,
+		respect_gitignore = true,
+		on_insert = function(entry)
+			if string.find(entry, "_html") then
+				return
+			end
 
-      table.insert(wikis, {
-        path = entry,
-        ext = '.wiki',
-        name = firstToUpper(get_file_name(entry)),
-      })
-    end,
-  })
+			table.insert(wikis, {
+				path = entry,
+				ext = ".wiki",
+				name = firstToUpper(get_file_name(entry)),
+			})
+		end,
+	})
 end
 
 vim.g.vimwiki_list = wikis
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.wiki",
+	callback = function()
+		vim.bo.filetype = "vimwiki"
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = "vimwiki",
+
+	callback = function()
+		-- vim.cmd([[setlocal textwidth=80]])
+		vim.bo.textwidth = 80
+	end,
+})
 
 -- vim.g.vimwiki_list = {
 --   {
