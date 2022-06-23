@@ -50,16 +50,16 @@ return {
     config = loadConfig('goto-preview'),
     -- TODO: commit = ''
   },
-  {
-    'kaputi/e-kaput.nvim',
-    config = function()
-      -- local ok, ekaput = pcall(require, 'e-kaput')
-      -- if ok then
-      --   ekaput.setup()
-      -- end
-    end,
-    -- TODO: commit = ''
-  },
+  -- {
+  --   'kaputi/e-kaput.nvim',
+  --   config = function()
+  --     local ok, ekaput = pcall(require, 'e-kaput')
+  --     if ok then
+  --       ekaput.setup()
+  --     end
+  --   end,
+  --   -- TODO: commit = ''
+  -- },
   -- ============================================================
   -- AUTOCOMPLETE / SNIPETTS
   -- ============================================================
