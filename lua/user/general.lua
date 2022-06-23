@@ -1,6 +1,6 @@
 Settings.general = {
   colorscheme = 'towervim',
-  formatOnSave = true,
+  formatOnSave = false,
   trimWhitespace = false,
 }
 
