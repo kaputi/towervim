@@ -77,9 +77,7 @@ return {
     config = loadConfig('treesitter'),
     commit = 'f5aa00d',
   },
-  -- {
-  --   'nvim-treesitter/playground',
-  -- },
+  { 'nvim-treesitter/playground' },
   -- ============================================================
   -- BETTER CODE
   -- ============================================================
