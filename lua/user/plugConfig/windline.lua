@@ -193,28 +193,28 @@ if ok then
       local fos = {}
 
       if Settings.general.formatOnSave then
-        table.insert(fos, 'F')
+        table.insert(fos, 'Format')
       end
 
       if Settings.general.trimWhitespace then
-        table.insert(fos, 'WS')
+        table.insert(fos, 'WhiteSpace')
       end
 
       if
         not Settings.general.formatOnSave
         and not Settings.general.trimWhitespace
       then
-        table.insert(fos, 'N')
+        table.insert(fos, 'None')
       end
 
       local string = ''
       for _, value in ipairs(fos) do
-        string = string .. value
+        string = string .. ' ' .. value
       end
 
       string = string .. ' |'
 
-      return { { 'OS:' .. string, 'text' } }
+      return { { 'On Save:' .. string, 'text' } }
     end,
   }
 

@@ -176,21 +176,24 @@ if ok then
         'Dark  Background',
       },
       ['E'] = {
-        '<cmd>lua require("functions").toggleLinter()<CR>',
+        '<cmd>lua require"user.functions".toggleLinter()<CR>',
         'Toggle Linter',
       },
       -- ['f'] = { '<cmd>FocusToggle<CR>', 'Focus'},
       ['f'] = {
-        '<cmd>lua require("functions").toggleFormatOnSave()<CR>',
+        '<cmd>lua require"user.functions".toggleFormatOnSave()<CR>',
         'Toggle Formatter on Save',
       },
       ['F'] = {
-        '<cmd>lua require("functions").toggleFormatter()<CR>',
+        '<cmd>lua require"user.functions".toggleFormatter()<CR>',
         'Toggle Formatter',
       },
       ['i'] = { '<cmd>IndentBlanklineToggle<CR>', 'Indent Lines' },
       -- ['l'] = { '<cmd>set background=light<CR>', 'Light Background' },
-      ['k'] = {'<cmd>lua require"user.functions".toggleLineDiagnostics()<CR>', 'Toggle Line Diagnostics'},
+      ['k'] = {
+        '<cmd>lua require"user.functions".toggleLineDiagnostics()<CR>',
+        'Toggle Line Diagnostics',
+      },
       ['l'] = {
         '<cmd>let tokyonight_style="day" | colorscheme tokyonight<CR>',
         'Light Background',
@@ -209,7 +212,7 @@ if ok then
       ['v'] = { '<cmd>SymbolsOutline<CR>', 'Symbol Explorer' },
       ['w'] = { '<cmd>setlocal wrap!<CR>', 'Wrap' },
       ['W'] = {
-        '<cmd>lua require("functions").toggleTrimWhitespace()<CR>',
+        '<cmd>lua require"user.functions".toggleTrimWhitespace()<CR>',
         'Toggle Trim Whitespace',
       },
       -- ['z'] = {'<cmd>Goyo<CR>', 'Zen Mode'}
