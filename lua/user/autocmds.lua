@@ -22,8 +22,8 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 
 -- format options
 vim.api.nvim_create_autocmd({ 'FileType', 'BufRead', 'BufEnter' }, {
-  pattern = { '.eslintrc', '.babelrc', '.prettierrc' },
-  callback = 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o',
+  pattern = "*",
+  command = 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o',
 })
 
 -- change dir to oppened file

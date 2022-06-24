@@ -513,7 +513,7 @@
     },
     "TTSStructure": {
       "bg": "unsure",
-      "fg": "unsure"
+      "fg": "black"
     },
     "TSInclude": {
       "fg": "purple"
@@ -529,22 +529,22 @@
     },
     "TSStrong": {
       "bg": "unsure",
-      "fg": "unsure"
+      "fg": "black"
     },
     "TSEmphasis": {
       "bg": "unsure",
-      "fg": "unsure"
+      "fg": "black"
     },
     "TSUnderline": {
       "bg": "unsure",
-      "fg": "unsure"
+      "fg": "black"
     },
     "TSTitle": {
       "fg": "yellow"
     },
     "TSLiteral": {
       "bg": "unsure",
-      "fg": "unsure"
+      "fg": "black"
     },
     "TSURI": {
       "fg": "bright_green"
