@@ -295,6 +295,11 @@ return {
   -- NEW
   -- ============================================================
   {
+    'lewis6991/impatient.nvim',
+    config = loadConfig('impatient'),
+    commit = '969f2c5',
+  },
+  {
     'anuvyklack/pretty-fold.nvim',
     requires = 'anuvyklack/nvim-keymap-amend',
     config = loadConfig('pretty-fold'),
