@@ -74,6 +74,16 @@ M.setup = function(bufnr)
     },
   }
 
+  local visual_keys = {
+    ['l'] = {
+      name = '>> LSP <<',
+      ['f'] = {
+        '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
+        'Format Selection',
+      },
+    },
+  }
+
   local common_opts = {
     mode = 'n', -- NORMAL mode
     buffer = bufnr, -- buffer number
@@ -87,6 +97,11 @@ M.setup = function(bufnr)
   common_opts.prefix = '<leader>'
 
   wk.register(leader_keys, common_opts)
+
+  local visual_options = common_opts
+  visual_options.mode = 'v'
+
+  wk.register(visual_keys, visual_options)
 end
 
 return M

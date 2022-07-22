@@ -70,7 +70,10 @@ Settings.lsp = {
 Settings.formatter = {
   enabled = true,
   formatters = {
-    prettierd = {
+    -- prettierd = {
+    --   prefer_local = 'node_modules/.bin',
+    -- },
+    prettier = {
       prefer_local = 'node_modules/.bin',
     },
     stylua = {
