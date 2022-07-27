@@ -93,4 +93,80 @@ M.notify = function(text)
   vim.notify(text)
 end
 
+local function isempty(s)
+  return s == nil or s == ''
+end
+
+M.filename = function()
+  local filename = vim.fn.expand('%:t')
+  local extension = ''
+  local file_icon = ''
+  local file_icon_color = ''
+  local default_file_icon = ''
+  local default_file_icon_color = ''
+
+  if not isempty(filename) then
+    extension = vim.fn.expand('%:e')
+
+    local default = false
+
+    if isempty(extension) then
+      extension = ''
+      default = true
+    end
+
+    file_icon, file_icon_color = require('nvim-web-devicons').get_icon_color(
+      filename,
+      extension,
+      { default = default }
+    )
+
+    local hl_group = 'FileIconColor' .. extension
+
+    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
+    if file_icon == nil then
+      file_icon = default_file_icon
+      file_icon_color = default_file_icon_color
+    end
+
+    return '%#CursorLineNr#      %m %*'
+      .. '%#'
+      .. hl_group
+      .. '#'
+      .. file_icon
+      .. '%*'
+      .. ' '
+      .. '%#LineNr#'
+      .. filename
+      .. '%*'
+  end
+end
+
+M.winbarValue = function()
+  local status_gps_ok, gps = pcall(require, 'nvim-gps')
+
+  local filename = M.filename()
+
+  local gps_location = ''
+  if status_gps_ok and gps.is_available() then
+    gps_location = gps.get_location()
+  end
+  -- if status_gps_ok then
+
+  --   if gps.is_available()then
+  --     vim.g.yaya = "si"
+  --   end
+  -- end
+
+  if gps_location == 'error' then
+    gps_location = ''
+  end
+
+  if not isempty(gps_location) then
+    return filename .. ' > ' .. gps_location
+  else
+    return filename
+  end
+end
+
 return M
