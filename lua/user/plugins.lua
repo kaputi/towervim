@@ -304,12 +304,13 @@ return {
     config = loadConfig('pretty-fold'),
     commit = 'e6385d6',
   },
-  {
-    'SmiteshP/nvim-gps',
-    requires = 'nvim-treesitter/nvim-treesitter',
-    config = loadConfig('nvim-gps'),
-    commit = 'be4bb5b',
-  },
+  { "SmiteshP/nvim-navic"},
+  -- {
+  --   'SmiteshP/nvim-gps',
+  --   requires = 'nvim-treesitter/nvim-treesitter',
+  --   config = loadConfig('nvim-gps'),
+  --   commit = 'be4bb5b',
+  -- },
   -- ============================================================
   -- NOT IN USE / CHECK / FIX
   -- ============================================================

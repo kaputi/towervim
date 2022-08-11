@@ -263,8 +263,10 @@ if ok then
       ['H'] = { '<cmd>DiffviewFileHistory<CR>', 'File History' },
       ['l'] = { '<cmd>LazyGit<CR>', 'Lazygit' },
       ['L'] = { '<cmd>Gitsigns toggle_linehl<CR>', 'Line Highlights' },
-      ['n'] = { '<cmd>Neogit<CR>', 'Neogit' },
-      ['p'] = { '<cmd>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
+      ['n'] = { '<cmd>Gitsigns next_hunk<CR>', 'Next Hunk' },
+      ['N'] = { '<cmd>Neogit<CR>', 'Neogit' },
+      ['p'] = { '<cmd>Gitsigns prev_hunk<CR>', 'Preview Hunk' },
+      ['P'] = { '<cmd>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
       ['Q'] = { '<cmd>DiffviewClose<CR>', 'DiffView Close' },
       ['q'] = { '<cmd>Gitsigns setloclist<CR>', 'Hunks to qf list' },
       ['r'] = {

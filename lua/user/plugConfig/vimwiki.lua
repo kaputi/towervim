@@ -38,7 +38,8 @@ end
 vim.g.vimwiki_list = wikis
 
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '*.wiki', '*.md' },
+  pattern = '*.wiki',
+  -- pattern = { '*.wiki', '*.md' },
   callback = function()
     vim.bo.filetype = 'vimwiki'
   end,
