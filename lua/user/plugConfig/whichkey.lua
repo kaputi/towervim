@@ -268,7 +268,7 @@ if ok then
       ['p'] = { '<cmd>Gitsigns prev_hunk<CR>', 'Preview Hunk' },
       ['P'] = { '<cmd>Gitsigns preview_hunk<CR>', 'Preview Hunk' },
       ['Q'] = { '<cmd>DiffviewClose<CR>', 'DiffView Close' },
-      ['q'] = { '<cmd>Gitsigns setloclist<CR>', 'Hunks to qf list' },
+      ['q'] = { '<cmd>Gitsigns setqflist<CR>', 'Hunks to qf list' },
       ['r'] = {
         name = '>> Reset <<',
         ['b'] = { '<cmd>Gitsigns reset_buffer<CR>', 'Reset Buffer' },
