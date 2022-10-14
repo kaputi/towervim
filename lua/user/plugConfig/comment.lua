@@ -24,7 +24,7 @@ if comment_ok then
       basic = true,
       ---extra mapping
       ---Includes `gco`, `gcO`, `gcA`
-      extra = false,
+      extra = true,
       ---extended mapping
       ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
       extended = false,
