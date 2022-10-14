@@ -271,7 +271,7 @@ if ok then
       ['q'] = { '<cmd>Gitsigns setqflist<CR>', 'Hunks to qf list' },
       ['r'] = {
         name = '>> Reset <<',
-        ['b'] = { '<cmd>Gitsigns reset_buffer<CR>', 'Reset Buffer' },
+        ['B'] = { '<cmd>Gitsigns reset_buffer<CR>', 'Reset Buffer' },
         ['h'] = { '<cmd>Gitsigns reset_hunk<CR>', 'Reset Hunk' },
       },
       ['S'] = { '<cmd>Gitsigns stage_buffer<CR>', 'Stage Buffer' },
