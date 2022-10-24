@@ -62,10 +62,14 @@ if ok then
       ['<c-f>'] = cmp.mapping.scroll_docs(4),
       -- vsnip
       ['<Tab>'] = cmp.mapping(function(fallback)
-        if vim.fn.call('vsnip#jumpable', { 1 }) == 1 then
-          vim.fn.feedkeys(t('<plug>(vsnip-expand-or-jump)'), '')
-        elseif cmp.visible() == true then
+        if cmp.visible() == true then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        -- elseif vim.fn.call('vsnip#jumpable', { 1 }) == 1 then
+        --   vim.fn.feedkeys(t('<plug>(vsnip-expand-or-jump)'), '')
+        -- if vim.fn.call('vsnip#jumpable', { 1 }) == 1 then
+        --   vim.fn.feedkeys(t('<plug>(vsnip-expand-or-jump)'), '')
+        -- elseif cmp.visible() == true then
+        --   cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
         elseif check_backspace() then
           vim.fn.feedkeys(t('<tab>'), 'n')
         else
@@ -75,11 +79,29 @@ if ok then
         'i',
         's',
       }),
-      ['<s-Tab>'] = cmp.mapping(function(fallback)
+      ['<c-n>'] = cmp.mapping(function(fallback)
+        if vim.fn.call('vsnip#jumpable', { 1 }) == 1 then
+          vim.fn.feedkeys(t('<plug>(vsnip-expand-or-jump)'), '')
+        else
+          fallback()
+        end
+      end),
+      ['<s-n>'] = cmp.mapping(function(fallback)
         if vim.fn.call('vsnip#jumpable', { -1 }) == 1 then
           vim.fn.feedkeys(t('<plug>(vsnip-jump-prev)'), '')
-        elseif cmp.visible() == true then
+        else
+          fallback()
+        end
+      end),
+      ['<s-Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() == true then
           cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+        -- elseif vim.fn.call('vsnip#jumpable', { -1 }) == 1 then
+        --   vim.fn.feedkeys(t('<plug>(vsnip-jump-prev)'), '')
+        -- if vim.fn.call('vsnip#jumpable', { -1 }) == 1 then
+        --   vim.fn.feedkeys(t('<plug>(vsnip-jump-prev)'), '')
+        -- elseif cmp.visible() == true then
+        --   cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
         else
           fallback() -- The fallback function is treated as original mapped key. In this case, it might be `<Tab>`.
         end
