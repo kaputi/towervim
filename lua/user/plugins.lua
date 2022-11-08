@@ -79,7 +79,7 @@ return {
   -- ============================================================
   {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    -- run = ':TSUpdate',
     config = loadConfig('treesitter'),
     -- commit = 'f5aa00d',
   },
