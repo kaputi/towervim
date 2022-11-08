@@ -3,6 +3,8 @@ local session_ok, session_manager = pcall(require, 'session_manager')
 local telescope_ok, telescope = pcall(require, 'telescope')
 
 if path_ok and session_ok then
+local create_dir_if_no_exist = require('core.tvUtils').create_dir_if_no_exist
+  create_dir_if_no_exist(CACHE_PATH .. '/sessions')
   session_manager.setup({
     sessions_dir = Path:new(CACHE_PATH, 'sessions'),
     -- sessions_dir = CACHE_PATH .. '/sessions',
