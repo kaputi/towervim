@@ -36,6 +36,10 @@ M.setup = function(bufnr)
         '<cmd>lua vim.lsp.buf.implementation()<CR>',
         'Goto Implementation',
       },
+      ['p'] = {
+        "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+        'Peak Definition',
+      },
       ['s'] = {
         '<cmd>lua vim.lsp.buf.signature_help()<CR>',
         'show signature help',
@@ -60,6 +64,10 @@ M.setup = function(bufnr)
       '<cmd>lua vim.lsp.buf.implementation()<CR>',
       'Goto Implementation',
     },
+    ['gp'] = {
+      "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+      'Peak Definition',
+    },
     ['gs'] = {
       '<cmd>lua vim.lsp.buf.signature_help()<CR>',
       'show signature help',
@@ -68,10 +76,6 @@ M.setup = function(bufnr)
     --   "<cmd>lua require'lsp.peek'.Peek('definition')<CR>",
     --   'Peek definition',
     -- },
-    ['gpd'] = {
-      "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
-      'Peak Definition',
-    },
   }
 
   local visual_keys = {
