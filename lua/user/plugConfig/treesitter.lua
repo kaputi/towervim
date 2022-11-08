@@ -2,7 +2,12 @@ local ok, treesitter_configs = pcall(require, 'nvim-treesitter.configs')
 
 if ok then
   treesitter_configs.setup({
-    ensure_installed = 'all', -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    -- ensure_installed = 'all', -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+    -- Automatically install missing parsers when entering buffer
+    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+    auto_install = true,
     highlight = {
       enable = true, -- false will disable the whole extension
     },

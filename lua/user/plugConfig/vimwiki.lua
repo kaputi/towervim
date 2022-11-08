@@ -1,5 +1,7 @@
 local home_dir = vim.loop.os_homedir()
 local wiki_home = home_dir .. '/Documents/vimwiki'
+local create_dir_if_no_exist = require('core.tvUtils').create_dir_if_no_exist
+create_dir_if_no_exist(home_dir)
 
 local wikis = {}
 

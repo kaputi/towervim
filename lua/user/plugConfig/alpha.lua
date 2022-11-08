@@ -81,7 +81,7 @@ if ok then
     callback = function(cmd)
       vim.opt.showtabline = 0
       vim.opt.laststatus = 0
-      vim.opt.number = 'nonumber'
+      vim.opt.number = false
       alphaBuf = cmd.buf
     end,
   })
