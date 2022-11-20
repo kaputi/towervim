@@ -85,5 +85,5 @@ if telescope_ok and job_ok then
   --       au BufEnter * lua require('plugin-settings.telescope-browser')
   --     augroup END
   --   ]])
-  telescope.load_extension('npm')
+  -- telescope.load_extension('npm')
 end
