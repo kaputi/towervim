@@ -71,8 +71,7 @@ return {
   },
   {
     'github/copilot.vim',
-    config = loadConfig('copilot')
-
+    config = loadConfig('copilot'),
   },
   -- ============================================================
   -- TREESITTER
@@ -144,6 +143,28 @@ return {
     'windwp/nvim-spectre',
     config = loadConfig('spectre'),
   },
+  {
+    'LunarVim/bigfile.nvim',
+    config = function()
+      require('bigfile').setup({
+        rules = {
+          {
+            size = 1,
+            features = {
+              'indent_blankline',
+              'illuminate',
+              -- 'lsp',
+              -- 'treesitter',
+              'syntax',
+              'matchparen',
+              'vimopts',
+            },
+          },
+          { size = 50, features = { 'filetype' } },
+        },
+      })
+    end,
+  },
   -- ============================================================
   -- UI
   -- ============================================================
@@ -164,12 +185,34 @@ return {
   -- themes
   { 'NLKNguyen/papercolor-theme' },
   { 'savq/melange' },
+  { 'lunarvim/horizon.nvim' },
   {
     'folke/tokyonight.nvim',
     config = 'vim.g.tokyonight_style = "night"',
   },
   {
     'LunarVim/darkplus.nvim',
+  },
+  {
+    'lunarvim/synthwave84.nvim',
+    config = function()
+      local synth_ok, synth = pcall(require, 'synthwave84')
+      if not synth_ok then
+        return
+      end
+      synth.setup({
+        -- glow = {
+        --   error_msg = true,
+        --   type2 = true,
+        --   func = true,
+        --   keyword = true,
+        --   operator = false,
+        --   buffer_current_target = true,
+        --   buffer_visible_target = true,
+        --   buffer_inactive_target = true,
+        -- },
+      })
+    end,
   },
   {
     'rcarriga/nvim-notify',
@@ -295,11 +338,19 @@ return {
       end
     end,
   },
-  {
-    -- 'chentau/marks.nvim',
-    'chentoast/marks.nvim',
-    config = loadConfig('marks'),
-  },
+  -- {
+  --   'chentoast/marks.nvim',
+  --   config = loadConfig('marks'),
+  -- },
+  -- {
+  --   'MattesGroeger/vim-bookmarks',
+  --   requires = {
+  --     'tom-anders/telescope-vim-bookmarks.nvim',
+  --   },
+  -- },
+  -- {
+  --   'ThePrimeagen/harpoon',
+  -- },
   -- ============================================================
   -- GIT
   -- ============================================================

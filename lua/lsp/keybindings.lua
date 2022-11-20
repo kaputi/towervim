@@ -82,7 +82,8 @@ M.setup = function(bufnr)
     ['l'] = {
       name = '>> LSP <<',
       ['f'] = {
-        '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
+        '<cmd>lua require("user.functions").formatSelection()<CR>',
+        -- '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
         'Format Selection',
       },
     },

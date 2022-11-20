@@ -192,4 +192,10 @@ function M.toggleTabLine()
   end
 end
 
+function M.formatSelection()
+  local startPos = {vim.fn.line('.'), vim.fn.col('.')}
+  local endPos = {vim.fn.line('v'), vim.fn.col('v')}
+  vim.lsp.buf.format({range={startPos,endPos}})
+end
+
 return M
