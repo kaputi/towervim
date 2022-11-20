@@ -63,5 +63,5 @@ if ok then
       { '%[', ']' }, -- % to escape lua pattern char
     },
   })
-  require('pretty-fold.preview').setup()
+  -- require('pretty-fold.preview').setup()
 end

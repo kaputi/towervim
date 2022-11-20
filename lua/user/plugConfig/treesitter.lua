@@ -10,6 +10,7 @@ if ok then
     auto_install = true,
     highlight = {
       enable = true, -- false will disable the whole extension
+      additional_vim_regex_highlighting = { 'markdown' },
     },
     playground = {
       enable = true,
@@ -17,7 +18,7 @@ if ok then
       updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
       persist_queries = false, -- Whether the query persists across vim sessions
     },
-    -- rainbow = { enable = true },
+    rainbow = { enable = true },
     autotag = { enable = true },
     indent = {
       enable = true,

@@ -13,7 +13,6 @@ return {
   {
     'antoinemadec/FixCursorHold.nvim',
     config = 'vim.g.cursorhold_updatetime = 300',
-    -- commit = '1bfb32e',
   },
   -- -- -- -- -- -- -- -- -- -- -- -- - -- -- -- -- - --
 
@@ -22,31 +21,29 @@ return {
   -- ============================================================
   {
     'neovim/nvim-lspconfig',
-    -- commit = '9278dfb'
   },
   {
     'jose-elias-alvarez/null-ls.nvim',
-    -- commit = 'ff40739'
   },
   {
     'williamboman/nvim-lsp-installer',
     config = loadConfig('lspinstall'),
-    -- commit = '5904749',
   },
   {
     'ray-x/lsp_signature.nvim',
     config = loadConfig('lsp_signature'),
-    -- commit = '4983797',
   },
   {
     'folke/trouble.nvim',
     config = loadConfig('trouble'),
-    -- commit = 'da61737',
   },
   {
     'rmagatti/goto-preview',
     config = loadConfig('goto-preview'),
-    -- commit = '37116fb',
+  },
+  {
+    'lvimuser/lsp-inlayhints.nvim',
+    config = loadConfig('lsp-inlayhint'),
   },
   -- ============================================================
   -- AUTOCOMPLETE / SNIPETTS
@@ -66,13 +63,16 @@ return {
       'ray-x/cmp-treesitter',
     },
     config = loadConfig('cmp'),
-    -- commit = 'df6734a',
   },
   -- snipet engine
   {
     'hrsh7th/vim-vsnip',
     config = loadConfig('vsnip'),
-    -- commit = '8f199ef',
+  },
+  {
+    'github/copilot.vim',
+    config = loadConfig('copilot')
+
   },
   -- ============================================================
   -- TREESITTER
@@ -81,7 +81,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     -- run = ':TSUpdate',
     config = loadConfig('treesitter'),
-    -- commit = 'f5aa00d',
   },
   { 'nvim-treesitter/playground' },
   -- ============================================================
@@ -89,7 +88,7 @@ return {
   -- ============================================================
   {
     'RRethy/vim-illuminate',
-    -- commit = 'c82e6d0'
+    config = loadConfig('illuminate'),
   },
   -- comments
   {
@@ -98,50 +97,52 @@ return {
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = loadConfig('comment'),
-    -- commit = '2c26a00',
+  },
+  -- todo comments
+  {
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = loadConfig('todo-comments'),
   },
   {
     'windwp/nvim-autopairs',
     config = loadConfig('autopairs'),
-    -- commit = '4a95b39',
   },
   --  surround
   {
     'tpope/vim-surround',
-    -- commit = 'bf3480d'
   },
   -- auto close html jsx tags
   {
     'windwp/nvim-ts-autotag',
-    -- commit = '044a05c'
   },
   -- uses treesitter
   -- rainbow parentheses
-  -- {
-  --   'p00f/nvim-ts-rainbow',
-  --   commit = ''
-  -- },
+  {
+    'p00f/nvim-ts-rainbow',
+    commit = '',
+  },
   -- highlight color codes with its color
   {
     'norcalli/nvim-colorizer.lua',
     config = loadConfig('colorizer'),
-    -- commit = '36c610a',
   },
   -- text navigation
   {
     'ggandor/lightspeed.nvim',
-    -- commit = '79519bf',
   },
   -- indent lines
   {
     'lukas-reineke/indent-blankline.nvim',
     config = loadConfig('indent-blankline'),
-    -- commit = '42fe62e',
   },
   {
     'simrat39/symbols-outline.nvim',
     config = loadConfig('symbols-outline'),
-    -- commit = '',
+  },
+  {
+    'windwp/nvim-spectre',
+    config = loadConfig('spectre'),
   },
   -- ============================================================
   -- UI
@@ -155,12 +156,10 @@ return {
     branch = 'main',
     requires = 'kyazdani42/nvim-web-devicons',
     config = loadConfig('bufferline'),
-    -- commit = '68839d6',
   },
   {
     'windwp/windline.nvim',
     config = loadConfig('windline'),
-    -- commit = '48af656',
   },
   -- themes
   { 'NLKNguyen/papercolor-theme' },
@@ -170,9 +169,22 @@ return {
     config = 'vim.g.tokyonight_style = "night"',
   },
   {
+    'LunarVim/darkplus.nvim',
+  },
+  {
     'rcarriga/nvim-notify',
     config = loadConfig('notify'),
-    -- commit = '7caeaae',
+  },
+  {
+    'j-hui/fidget.nvim',
+    config = function()
+      -- local fidget_ok, fidget = pcall(require, 'fidget')
+      -- if not fidget_ok then
+      -- return
+      -- end
+      -- fidget.setup({})
+      require('fidget').setup({})
+    end,
   },
   -- ============================================================
   -- TOOLS
@@ -181,7 +193,6 @@ return {
   {
     'folke/which-key.nvim',
     config = loadConfig('whichkey'),
-    -- commit = 'bd4411a',
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -199,12 +210,10 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     config = loadConfig('telescope'),
-    -- commit = 'd88b44d',
   },
   {
     'goolord/alpha-nvim',
     config = loadConfig('alpha'),
-    -- commit = 'ef27a59',
   },
   -- sessions
   {
@@ -216,7 +225,6 @@ return {
     'akinsho/toggleterm.nvim',
     branch = 'main',
     config = loadConfig('toggleterm'),
-    -- commit = '8f2e78d',
   },
   -- save as sudo
   { 'lambdalisue/suda.vim', config = loadConfig('suda') },
@@ -224,46 +232,59 @@ return {
   {
     'kevinhwang91/nvim-bqf',
     branch = 'main',
-    -- commit = 'd4bc26c',
   },
   -- undo tree
   { 'mbbill/undotree' },
+  -- {
+  --   'oberblastmeister/neuron.nvim',
+  --   requires = {
+  --     'nvim-telescope/telescope.nvim',
+  --     'nvim-lua/popup.nvim',
+  --     'nvim-lua/plenary.nvim',
+  --   },
+  --   config = loadConfig('neuron'),
+  -- },
+  -- {
+  -- {
+  --   'mickael-menu/zk-nvim',
+  --   config = loadConfig('zk-nvim'),
+  -- },
+  {
+    'jakewvincent/mkdnflow.nvim',
+    rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
+    config = loadConfig('mkdnflow'),
+  },
   -- VIMWIKI
-  {
-    'vimwiki/vimwiki',
-    setup = loadConfig('vimwiki'),
-    ft = { 'markdown', 'vimwiki' },
-    -- commit = '63af6e7',
-  },
-  {
-    'kaputi/telescope-vimwiki',
-    requires = {
-      'nvim-telescope/telescope.nvim',
-    },
-    config = function()
-      local ok_telescope, telescope = pcall(require, 'telescope')
+  --   'vimwiki/vimwiki',
+  --   setup = loadConfig('vimwiki'),
+  --   ft = { 'markdown', 'vimwiki' },
+  -- },
+  -- {
+  --   'kaputi/telescope-vimwiki',
+  --   requires = {
+  --     'nvim-telescope/telescope.nvim',
+  --   },
+  --   config = function()
+  --     local ok_telescope, telescope = pcall(require, 'telescope')
 
-      if ok_telescope then
-        telescope.load_extension('wikis')
-      end
-    end,
-  },
+  --     if ok_telescope then
+  --       telescope.load_extension('wikis')
+  --     end
+  --   end,
+  -- },
   {
     -- SHOWS PREVIEW OF LINE WHEN USING :[linenumber]
     'nacro90/numb.nvim',
     config = loadConfig('numb'),
-    -- commit = '453c50a',
   },
   {
     -- smooth scroll
     'karb94/neoscroll.nvim',
     config = loadConfig('neoscroll'),
-    -- commit = '71c8fad',
   },
   -- delete buffers without changing layout
   {
     'famiu/bufdelete.nvim',
-    -- commit = '46255e4',
   },
   {
     'ethanholz/nvim-lastplace',
@@ -273,13 +294,11 @@ return {
         lastplace.setup({})
       end
     end,
-    -- commit = '30fe710',
   },
   {
     -- 'chentau/marks.nvim',
     'chentoast/marks.nvim',
     config = loadConfig('marks'),
-    -- commit = 'bb25757',
   },
   -- ============================================================
   -- GIT
@@ -293,17 +312,14 @@ return {
       'nvim-lua/plenary.nvim',
     },
     config = loadConfig('gitsigns'),
-    -- commit = '4883988',
   },
   {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim',
-    -- commit = '2b33d2e',
   },
   {
     'sindrets/diffview.nvim',
     config = loadConfig('diffview'),
-    -- commit = '2e77bed',
   },
   -- ============================================================
   -- NEW
@@ -311,15 +327,17 @@ return {
   {
     'lewis6991/impatient.nvim',
     config = loadConfig('impatient'),
-    -- commit = '969f2c5',
   },
   {
     'anuvyklack/pretty-fold.nvim',
     requires = 'anuvyklack/nvim-keymap-amend',
     config = loadConfig('pretty-fold'),
-    -- commit = 'e6385d6',
   },
-  { 'SmiteshP/nvim-navic' },
+  {
+    'SmiteshP/nvim-navic',
+    requires = 'neovim/nvim-lspconfig',
+    config = loadConfig('navic'),
+  },
   -- {
   --   'SmiteshP/nvim-gps',
   --   requires = 'nvim-treesitter/nvim-treesitter',
@@ -336,12 +354,9 @@ return {
   {
     'dsznajder/vscode-es7-javascript-react-snippets',
     run = 'yarn install --frozen-lockfile && yarn compile',
-    -- commit = '185bb91',
   },
   -- OFF -------------------------------
   -- cursor on last place when open file === === REPLACE BY LUA
-  -- { 'farmergreg/vim-lastplace' },
-
   -- NO SE SI ESTO FUNCUINA BIEN
   -- { 'elianiva/telescope-npm.nvim' ,
   -- config =  function()

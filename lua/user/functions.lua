@@ -93,7 +93,7 @@ M.notify = function(text)
   vim.notify(text)
 end
 
-local function isempty(s)
+M.isempty = function(s)
   return s == nil or s == ''
 end
 
@@ -105,12 +105,12 @@ M.filename = function()
   local default_file_icon = ''
   local default_file_icon_color = ''
 
-  if not isempty(filename) then
+  if not M.isempty(filename) then
     extension = vim.fn.expand('%:e')
 
     local default = false
 
-    if isempty(extension) then
+    if M.isempty(extension) then
       extension = ''
       default = true
     end
@@ -162,10 +162,33 @@ M.winbarValue = function()
     gps_location = ''
   end
 
-  if not isempty(gps_location) then
+  if not M.isempty(gps_location) then
     return filename .. ' > ' .. gps_location
   else
     return filename
+  end
+end
+
+function M.get_buf_option(opt)
+  local status_ok, buf_option = pcall(vim.api.nvim_buf_get_option, 0, opt)
+  if not status_ok then
+    return nil
+  else
+    return buf_option
+  end
+end
+
+function M.toggleTabLine()
+  local status_ok, tab = pcall(vim.api.nvim_get_option, 'showtabline')
+  if not status_ok then
+    return
+  end
+
+  if tab == 0 then
+    vim.opt.showtabline = 2
+  end
+  if tab == 2 then
+    vim.opt.showtabline = 0
   end
 end
 

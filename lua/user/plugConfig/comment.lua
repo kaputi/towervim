@@ -51,18 +51,7 @@ if comment_ok then
 
     ---Pre-hook, called before commenting the line
     ---@type function|nil
-    pre_hook = function()
-      local context_comment_ok, context_comment = pcall(
-        require,
-        -- 'ts_context_commentstring'
-        'ts_context_commentstring.integrations.comment_nvim'
-      )
-      if not context_comment_ok then
-        return
-      end
-
-      return context_comment.create_pre_hook()
-    end,
+    pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 
     ---Post-hook, called after commenting is done
     ---@type function|nil

@@ -171,5 +171,8 @@ if ok then
         select = false,
       }),
     },
+    experimental = {
+      ghost_text = false,
+    }
   })
 end

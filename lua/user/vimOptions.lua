@@ -66,6 +66,7 @@ Settings.vim = {
       scrolloff = 8,
       sidescrolloff = 15,
       winhighlight = 'Normal:Normal,NormalNC:ColorColumn',
+      mousemoveevent = true,
     },
     -- this will be set with vim.opt.OPTION:append(...) = :set+=
     append = {
