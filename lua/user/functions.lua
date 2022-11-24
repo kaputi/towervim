@@ -193,9 +193,24 @@ function M.toggleTabLine()
 end
 
 function M.formatSelection()
-  local startPos = {vim.fn.line('.'), vim.fn.col('.')}
-  local endPos = {vim.fn.line('v'), vim.fn.col('v')}
-  vim.lsp.buf.format({range={startPos,endPos}})
+  -- line where cursor is
+  local cursorLineNr = vim.fn.line('.')
+  -- line where selection started
+  local selectionLineNr = vim.fn.line('v')
+
+  local startPos
+  local endPos
+
+  if cursorLineNr > selectionLineNr then -- started up and moved down
+    local lastCursorCol = vim.fn.col('$') + 1
+    startPos = { selectionLineNr, 0 }
+    endPos = { cursorLineNr, lastCursorCol }
+  else -- started down and moved up
+    local lastSelectionCol = vim.fn.strchars(vim.fn.getline(selectionLineNr)) + 1
+    startPos = { cursorLineNr, 0 }
+    endPos = { selectionLineNr, lastSelectionCol }
+  end
+  vim.lsp.buf.format({ range = { startPos, endPos } })
 end
 
 return M
