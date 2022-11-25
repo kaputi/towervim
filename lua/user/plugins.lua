@@ -143,28 +143,28 @@ return {
     'windwp/nvim-spectre',
     config = loadConfig('spectre'),
   },
-  {
-    'LunarVim/bigfile.nvim',
-    config = function()
-      require('bigfile').setup({
-        rules = {
-          {
-            size = 1,
-            features = {
-              'indent_blankline',
-              'illuminate',
-              -- 'lsp',
-              -- 'treesitter',
-              'syntax',
-              'matchparen',
-              'vimopts',
-            },
-          },
-          { size = 50, features = { 'filetype' } },
-        },
-      })
-    end,
-  },
+  -- {
+  --   'LunarVim/bigfile.nvim',
+  --   config = function()
+  --     require('bigfile').setup({
+  --       rules = {
+  --         {
+  --           size = 1,
+  --           features = {
+  --             'indent_blankline',
+  --             'illuminate',
+  --             -- 'lsp',
+  --             -- 'treesitter',
+  --             'syntax',
+  --             'matchparen',
+  --             'vimopts',
+  --           },
+  --         },
+  --         { size = 50, features = { 'filetype' } },
+  --       },
+  --     })
+  --   end,
+  -- },
   -- ============================================================
   -- UI
   -- ============================================================
@@ -172,12 +172,12 @@ return {
   { 'kyazdani42/nvim-web-devicons' },
   { 'ryanoasis/vim-devicons' },
   -- Tabbar, statusbar
-  {
-    'akinsho/bufferline.nvim',
-    branch = 'main',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = loadConfig('bufferline'),
-  },
+  -- {
+  --   'akinsho/bufferline.nvim',
+  --   branch = 'main',
+  --   requires = 'kyazdani42/nvim-web-devicons',
+  --   config = loadConfig('bufferline'),
+  -- },
   {
     'windwp/windline.nvim',
     config = loadConfig('windline'),
@@ -193,24 +193,25 @@ return {
   {
     'LunarVim/darkplus.nvim',
   },
+  { 'lunarvim/Onedarker.nvim' },
   {
     'lunarvim/synthwave84.nvim',
     config = function()
-      local synth_ok, synth = pcall(require, 'synthwave84')
-      if not synth_ok then
+      local status_ok, synth = pcall(require, 'synthwave84')
+      if not status_ok then
         return
       end
       synth.setup({
-        -- glow = {
-        --   error_msg = true,
-        --   type2 = true,
-        --   func = true,
-        --   keyword = true,
-        --   operator = false,
-        --   buffer_current_target = true,
-        --   buffer_visible_target = true,
-        --   buffer_inactive_target = true,
-        -- },
+        glow = {
+          error_msg = false,
+          type2 = false,
+          func = false,
+          keyword = false,
+          operator = false,
+          buffer_current_target = false,
+          buffer_visible_target = false,
+          buffer_inactive_target = false,
+        },
       })
     end,
   },
@@ -425,6 +426,29 @@ return {
   --     require('pluginConfigs.focus')
   --   end,
   -- },
+
+  -- {
+  --   'kaputi/telescope-notebooks',
+  --   config = function ()
+  --     local status_ok, notebooks = pcall(require, 'telescope-notebooks')
+  --     if not status_ok then
+  --       return
+  --     end
+  --     notebooks.setup({
+  --       notebooks_dir = '/home/eduardo/Documents/notes'
+  --     })
+  --   end
+  -- },
+  {
+    'kaputi/darktower.nvim',
+    config = function()
+      local status_ok, darktower = pcall(require, 'darktower')
+      if not status_ok then
+        return
+      end
+      darktower.setup({})
+    end,
+  },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: lazyloading

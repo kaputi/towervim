@@ -119,8 +119,8 @@ if ok then
       '<cmd>split | Telescope buffers initial_mode=normal<CR>',
       'Horizontal Split',
     },
-    ['n'] = { '<cmd>BufferLineCycleNext<CR>', 'next buffer' },
-    -- ['n'] = { '<cmd>bn<CR>', 'next buffer' },
+    -- ['n'] = { '<cmd>BufferLineCycleNext<CR>', 'next buffer' },
+    ['n'] = { '<cmd>bn<CR>', 'next buffer' },
     ['o'] = {
       '<cmd>call append(line("."),   repeat([""], v:count1))<CR>',
       'Line Below',
@@ -231,11 +231,11 @@ if ok then
         'Delete Other Buffers',
       }, -- %bd kills all, edit # opens last ,bd # kills last(after killing all there is a new empty buffer) '" goes to last place before close
       -- ['k'] = {'<cmd>BufferCloseAllButCurrent<CR>', 'Delete Other Buffers'},
-      ['n'] = { '<cmd>BufferLineCycleNext<CR>', 'Previous Buffer' },
-      -- ['n'] = { '<cmd>bn<CR>', 'Previous Buffer' },
+      -- ['n'] = { '<cmd>BufferLineCycleNext<CR>', 'Previous Buffer' },
+      ['n'] = { '<cmd>bn<CR>', 'Previous Buffer' },
       ['N'] = { '<cmd>enew<CR>', 'New Empty Buffer' },
-      ['p'] = { '<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer' },
-      -- ['p'] = { '<cmd>bp<CR>', 'Previous Buffer' },
+      -- ['p'] = { '<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer' },
+      ['p'] = { '<cmd>bp<CR>', 'Previous Buffer' },
     },
 
     -- Debug Layer

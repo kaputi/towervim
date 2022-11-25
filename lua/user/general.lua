@@ -1,10 +1,13 @@
 Settings.general = {
-   -- colorscheme = 'towervim',
+     colorscheme = 'towervim',
   -- colorscheme = 'tokyonight-storm',
   -- colorscheme = 'tokyonight-moon',
   -- colorscheme = 'darkplus',
-  colorscheme = 'horizon',
+  -- colorscheme = 'onedarker-italic',
+  -- colorscheme = 'onedarker',
+ -- colorscheme = 'horizon',
   -- colorscheme = 'synthwave84',
+  -- colorscheme = 'darktower',
   formatOnSave = false,
   trimWhitespace = false,
   lineDiagnostics = true

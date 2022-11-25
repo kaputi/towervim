@@ -1,5 +1,8 @@
+vim.api.nvim_create_augroup('_user',{})
+
 -- highlight yanked text
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
+  group = '_user',
   pattern = { '*' },
   callback = function()
     require('vim.highlight').on_yank()
@@ -8,6 +11,7 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
 
 -- on save
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  group = '_user',
   pattern = { '*' },
   callback = function()
     require('user.functions').preSave()
@@ -16,18 +20,21 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 
 -- json filetype
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = '_user',
   pattern = { '.eslintrc', '.babelrc', '.prettierrc' },
   command = 'set ft=json',
 })
 
 -- format options
 vim.api.nvim_create_autocmd({ 'FileType', 'BufRead', 'BufEnter' }, {
+  group = '_user',
   pattern = '*',
   command = 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o',
 })
 
 -- change dir to oppened file
 vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+  group = '_user',
   -- command = 'cd %:p:h',
   callback = function()
     vim.cmd('cd %:p:h')
@@ -40,6 +47,7 @@ vim.api.nvim_create_autocmd({ 'VimEnter' }, {
 
 -- glsl filetype
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = '_user',
   pattern = {
     '*.frag',
     '*.vert',
@@ -54,40 +62,3 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.bo.filetype = 'glsl'
   end,
 })
-
--- vim.api.nvim_create_autocmd({ 'CursorMoved', 'BufWinEnter', 'BufFilePost' }, {
---   callback = function()
---     local winbar_filetype_exclude = {
---       'help',
---       'startify',
---       'dashboard',
---       'packer',
---       'neogitstatus',
---       'NvimTree',
---       'Trouble',
---       'alpha',
---       'lir',
---       'Outline',
---       'spectre_panel',
---       'toggleterm',
---     }
-
---     if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
---       vim.opt_local.winbar = nil
---       return
---     end
-
---     local value = require('user.functions').winbarValue()
-
---     vim.opt_local.winbar = value
---   end,
--- })
-
--- vim.api.nvim_create_autocmd(
---     { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
---     {
-      -- callback = function()
-        -- require("user.winbar").get_winbar()
-      -- end,
-    -- }
-  -- )

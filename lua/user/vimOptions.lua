@@ -34,7 +34,7 @@ Settings.vim = {
       pumheight = 10,
       pumblend = 25,
       showmode = false,
-      showtabline = 2,
+      showtabline = 0,
       smartcase = true,
       smarttab = true,
       smartindent = true,
@@ -66,7 +66,7 @@ Settings.vim = {
       scrolloff = 8,
       sidescrolloff = 15,
       winhighlight = 'Normal:Normal,NormalNC:ColorColumn',
-      mousemoveevent = true,
+      -- mousemoveevent = true,
     },
     -- this will be set with vim.opt.OPTION:append(...) = :set+=
     append = {

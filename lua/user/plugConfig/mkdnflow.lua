@@ -94,4 +94,8 @@ mkdwnflow.setup({
   },
 })
 
-vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", command = "set awa"})
+vim.api.nvim_create_augroup('_mkdnflow', {})
+vim.api.nvim_create_autocmd(
+  'FileType',
+  { group = '_mkdnflow', pattern = 'markdown', command = 'set awa' }
+)

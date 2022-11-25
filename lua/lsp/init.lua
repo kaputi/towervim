@@ -19,7 +19,10 @@ vim.lsp.protocol.CompletionItemKind = Settings.gui.kind
 require('lsp.lspConfig')
 require('lsp.null_ls')
 
+
+vim.api.nvim_create_augroup('_lsp', {})
 vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+  group = '_lsp',
   callback = function()
     require('user.functions').lineDiagnostics()
   end,

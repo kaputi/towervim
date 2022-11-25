@@ -70,10 +70,10 @@ M.bindings = {
     -- Tab and s-tab to switch tabs
     -- ['<Tab>'] = ':BufferNext<CR>',
     -- ['<S-Tab>'] = ':BufferPrevious<CR>',
-    -- ['<Tab>'] = ':bn | f<CR>',
-    -- ['<S-Tab>'] = ':bp | f<CR>',
-    ['<Tab>'] = ':BufferLineCycleNext<CR>',
-    ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
+    ['<Tab>'] = ':bn | f<CR>',
+    ['<S-Tab>'] = ':bp | f<CR>',
+    -- ['<Tab>'] = ':BufferLineCycleNext<CR>',
+    -- ['<S-Tab>'] = ':BufferLineCyclePrev<CR>',
 
     -- Yank to end of line
     ['Y'] = 'y$',

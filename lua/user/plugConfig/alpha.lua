@@ -64,7 +64,8 @@ if ok then
     dashboard.button('e', '  New file', ':ene<CR>'),
     dashboard.button('f', ' Find file', ':Telescope find_files<CR>'),
     -- dashboard.button('w', ' Vimwiki', ':VimwikiUISelect<CR>'),
-    dashboard.button('w', ' Vimwiki', ':Telescope wikis<CR>'),
+    -- dashboard.button('w', ' Vimwiki', ':Telescope wikis<CR>'),
+    dashboard.button('n', ' Notes', ':ZkNotes<CR>'),
     dashboard.button('q', '  Quit', ':qa<CR>'),
   }
   -- local handle = io.popen('fortune')
@@ -75,11 +76,13 @@ if ok then
 
   alpha.setup(dashboard.opts)
 
+  vim.api.nvim_create_augroup('_alpha', {})
   local alphaBuf = nil
   vim.api.nvim_create_autocmd({ 'FileType' }, {
+    group = '_alpha',
     pattern = { 'alpha' },
     callback = function(cmd)
-      vim.opt.showtabline = 0
+      -- vim.opt.showtabline = 0
       vim.opt.laststatus = 0
       vim.opt.number = false
       alphaBuf = cmd.buf
@@ -88,7 +91,7 @@ if ok then
   vim.api.nvim_create_autocmd({ 'BufUnload' }, {
     buffer = alphaBuf,
     callback = function()
-      vim.opt.showtabline = 2
+      -- vim.opt.showtabline = 2
       vim.opt.laststatus = 3
       vim.opt.number = true
     end,

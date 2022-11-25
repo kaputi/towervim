@@ -39,7 +39,10 @@ end
 
 vim.g.vimwiki_list = wikis
 
+
+vim.api.nvim_create_augroup('_vimwiki', {})
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = '_vimwiki',
   pattern = '*.wiki',
   -- pattern = { '*.wiki', '*.md' },
   callback = function()
@@ -48,6 +51,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 })
 
 vim.api.nvim_create_autocmd({ 'FileType' }, {
+  group = '_vimwiki',
   pattern = 'vimwiki',
 
   callback = function()
