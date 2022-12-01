@@ -20,7 +20,7 @@ todoComments.setup({
     PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
     NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
     TEST = {
-      icon = '⏲ ',
+      icon = '',
       color = 'test',
       alt = { 'TESTING', 'PASSED', 'FAILED' },
     },

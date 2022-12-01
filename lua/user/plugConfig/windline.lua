@@ -94,8 +94,8 @@ if ok then
     text = function()
       return {
         { b_components.line_col_lua, 'text' },
-        -- { '|', 'text' },
-        -- { b_components.progress, 'text' },
+        { '|', 'text' },
+        { b_components.progress, 'text' },
         { sep.right_rounded, 'sep_after' },
       }
     end,
