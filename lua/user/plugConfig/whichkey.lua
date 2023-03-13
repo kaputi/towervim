@@ -278,7 +278,7 @@ if ok then
       ['R'] = { '<cmd>Gitsigns refresh<CR>', 'Gitsigns Refresh' },
       ['S'] = { '<cmd>Gitsigns stage_buffer<CR>', 'Stage Buffer' },
       ['s'] = { '<cmd>Gitsigns stage_hunk<CR>', 'Stage hunk' },
-      ['u'] = { '<cmd>Gitsigns undo_stage_hunk', 'Undo stage hunk' },
+      ['u'] = { '<cmd>Gitsigns undo_stage_hunk<CR>', 'Undo stage hunk' },
       ['v'] = { '<cmd>Gitsigns select_hunk<CR>', 'Select Hunk' },
       -- TODO:
     },
