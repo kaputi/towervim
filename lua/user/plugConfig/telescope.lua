@@ -65,6 +65,9 @@ telescope.setup({
     -- }
   },
   pickers = {
+    colorscheme = {
+      enable_preview = true,
+    },
     live_grep = {
       mappings = {
         n = {
@@ -98,6 +101,6 @@ vim.api.nvim_create_autocmd({
   pattern = 'TelescopePreviewerLoaded',
   group = '_telescope',
   callback = function()
-      vim.opt_local.number = true;
+    vim.opt_local.number = true
   end,
 })

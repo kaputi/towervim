@@ -1,6 +1,8 @@
 local ok, treesitter_configs = pcall(require, 'nvim-treesitter.configs')
 
 if ok then
+  vim.cmd('syntax off')
+
   treesitter_configs.setup({
     -- ensure_installed = 'all', -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -13,15 +15,15 @@ if ok then
       additional_vim_regex_highlighting = { 'markdown' },
     },
     playground = {
-      enable = true,
+      enable = false,
       disable = {},
       updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
       persist_queries = false, -- Whether the query persists across vim sessions
     },
-    rainbow = { enable = true },
+    rainbow = { enable = false },
     autotag = { enable = true },
     indent = {
-      enable = true,
+      enable = false,
     },
     incremental_selection = {
       enable = true,

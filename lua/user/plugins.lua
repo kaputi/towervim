@@ -10,10 +10,10 @@ return {
   -- -- -- -- -- -- -- -- -- -- -- -- - -- -- -- -- - --
   -- TODO:
   -- this is temporary until the isue with neovim cursorhold gets fixed
-  {
-    'antoinemadec/FixCursorHold.nvim',
-    config = 'vim.g.cursorhold_updatetime = 300',
-  },
+  -- {
+  --   'antoinemadec/FixCursorHold.nvim',
+  --   config = 'vim.g.cursorhold_updatetime = 300',
+  -- },
   -- -- -- -- -- -- -- -- -- -- -- -- - -- -- -- -- - --
 
   -- ============================================================
@@ -25,9 +25,17 @@ return {
   {
     'jose-elias-alvarez/null-ls.nvim',
   },
+  -- {
+  --   'williamboman/nvim-lsp-installer',
+  --   config = loadConfig('lspinstall'),
+  -- },
   {
-    'williamboman/nvim-lsp-installer',
-    config = loadConfig('lspinstall'),
+    "williamboman/mason.nvim",
+    config = loadConfig('mason')
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = loadConfig('mason-lspconfig')
   },
   {
     'ray-x/lsp_signature.nvim',
@@ -41,10 +49,10 @@ return {
     'rmagatti/goto-preview',
     config = loadConfig('goto-preview'),
   },
-  {
-    'lvimuser/lsp-inlayhints.nvim',
-    config = loadConfig('lsp-inlayhint'),
-  },
+  -- {
+  --   'lvimuser/lsp-inlayhints.nvim',
+  --   config = loadConfig('lsp-inlayhint'),
+  -- },
   -- ============================================================
   -- AUTOCOMPLETE / SNIPETTS
   -- ============================================================
@@ -69,10 +77,10 @@ return {
     'hrsh7th/vim-vsnip',
     config = loadConfig('vsnip'),
   },
-  {
-    'github/copilot.vim',
-    config = loadConfig('copilot'),
-  },
+  -- {
+  --   'github/copilot.vim',
+  --   config = loadConfig('copilot'),
+  -- },
   -- ============================================================
   -- TREESITTER
   -- ============================================================
@@ -81,7 +89,7 @@ return {
     -- run = ':TSUpdate',
     config = loadConfig('treesitter'),
   },
-  { 'nvim-treesitter/playground' },
+  -- { 'nvim-treesitter/playground' },
   -- ============================================================
   -- BETTER CODE
   -- ============================================================
@@ -117,10 +125,10 @@ return {
   },
   -- uses treesitter
   -- rainbow parentheses
-  {
-    'p00f/nvim-ts-rainbow',
-    commit = '',
-  },
+  -- {
+  --   'p00f/nvim-ts-rainbow',
+  --   commit = '',
+  -- },
   -- highlight color codes with its color
   {
     'norcalli/nvim-colorizer.lua',
@@ -441,13 +449,13 @@ return {
   -- },
   {
     'kaputi/darktower.nvim',
-    config = function()
-      local status_ok, darktower = pcall(require, 'darktower')
-      if not status_ok then
-        return
-      end
-      darktower.setup({})
-    end,
+    -- config = function()
+    --   local status_ok, darktower = pcall(require, 'darktower')
+    --   if not status_ok then
+    --     return
+    --   end
+    --   darktower.setup({})
+    -- end,
   },
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'

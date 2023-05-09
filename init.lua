@@ -27,3 +27,6 @@ require('core.plugins')
 require('user.autocmds')
 require('lsp')
 require('core.keybindings')
+
+print(Settings.general.colorscheme)
+vim.cmd('colorscheme ' .. Settings.general.colorscheme)

@@ -1,8 +1,8 @@
 Settings.general = {
-     colorscheme = 'towervim',
+     -- colorscheme = 'towervim',
   -- colorscheme = 'tokyonight-storm',
   -- colorscheme = 'tokyonight-moon',
-  -- colorscheme = 'darkplus',
+  colorscheme = 'darkplus',
   -- colorscheme = 'onedarker-italic',
   -- colorscheme = 'onedarker',
  -- colorscheme = 'horizon',

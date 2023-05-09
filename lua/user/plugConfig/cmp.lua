@@ -51,7 +51,7 @@ if ok then
       { name = 'nvim_lsp' },
       { name = 'buffer' },
       { name = 'path' },
-      { name = 'nvim_lua' },
+      -- { name = 'nvim_lua' },
       -- { name = 'calc' },
       -- { name = 'emoji' },
       -- { name = 'treesitter' },
@@ -173,6 +173,6 @@ if ok then
     },
     experimental = {
       ghost_text = false,
-    }
+    },
   })
 end

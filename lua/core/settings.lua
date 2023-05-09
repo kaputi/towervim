@@ -40,5 +40,3 @@ end
 -- === === === === === Custom And general options === === === === === === === === === === === ===
 require('user.general')
 require('lsp.settings')
-
-vim.cmd('colorscheme ' .. Settings.general.colorscheme)
