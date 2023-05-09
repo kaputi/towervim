@@ -31,6 +31,7 @@ return {
   -- },
   {
     "williamboman/mason.nvim",
+    run = ":MasonUpdate" ,
     config = loadConfig('mason')
   },
   {
