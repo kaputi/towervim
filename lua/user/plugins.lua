@@ -30,13 +30,13 @@ return {
   --   config = loadConfig('lspinstall'),
   -- },
   {
-    "williamboman/mason.nvim",
-    run = ":MasonUpdate" ,
-    config = loadConfig('mason')
+    'williamboman/mason.nvim',
+    run = ':MasonUpdate',
+    config = loadConfig('mason'),
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    config = loadConfig('mason-lspconfig')
+    'williamboman/mason-lspconfig.nvim',
+    config = loadConfig('mason-lspconfig'),
   },
   {
     'ray-x/lsp_signature.nvim',

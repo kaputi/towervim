@@ -173,7 +173,12 @@ if ok then
       if null_ok then
         local sources = null_ls.get_sources()
         for _, value in pairs(sources) do
-          if value.name == 'eslint_d' or value.name == 'prettierd' or value.name == 'prettier' then
+          if
+            value.name == 'eslint_d'
+            or value.name == 'eslint'
+            or value.name == 'prettierd'
+            or value.name == 'prettier'
+          then
             local sign = ' 﫠|'
             if value._disabled then
               sign = '  |'
