@@ -31,8 +31,15 @@ local actions = require('telescope.actions')
 --     :sync()
 -- end
 
--- telescope.load_extension('media_files')
 telescope.setup({
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      -- filetypes = {"png", "webp", "jpg", "jpeg"},
+      find_command = 'rg', -- find command (defaults to `fd`)
+    },
+  },
   defaults = {
     mappings = {
       i = {
@@ -55,14 +62,6 @@ telescope.setup({
       results = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
       preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     },
-  },
-  extensions = {
-    -- media_files = {
-    -- filetypes whitelist
-    -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-    -- filetypes = {"png", "webp", "jpg", "jpeg"},
-    -- find_command = 'rg', -- find command (defaults to `fd`)
-    -- }
   },
   pickers = {
     colorscheme = {
@@ -104,3 +103,5 @@ vim.api.nvim_create_autocmd({
     vim.opt_local.number = true
   end,
 })
+
+telescope.load_extension('media_files')

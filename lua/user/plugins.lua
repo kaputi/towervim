@@ -411,7 +411,7 @@ return {
   -- CHECK-----------------------------
   -- { 'andymass/vim-matchup' },
   -- FIX -------------------------------
-  -- { 'nvim-telescope/telescope-media-files.nvim' },
+  { 'nvim-telescope/telescope-media-files.nvim' },
   {
     'dsznajder/vscode-es7-javascript-react-snippets',
     run = 'yarn install --frozen-lockfile && yarn compile',

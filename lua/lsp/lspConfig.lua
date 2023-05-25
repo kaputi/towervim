@@ -82,35 +82,36 @@ lsp_installer.setup_handlers({
 --   on_attach = require('lsp.on_attach'),
 -- })
 
-local configs = require('lspconfig.configs')
-local util = require('lspconfig.util')
+-- local configs = require('lspconfig.configs')
+-- local util = require('lspconfig.util')
 
-if not configs.glsl then
-  configs.glsl = {
-    default_config = {
-      cmd = { 'glslls' }, -- GLSL lsp executable from (https://github.com/svenstaro/glsl-language-server)
-      filetypes = { 'glsl' },
+-- if not configs.glsl then
+--   configs.glsl = {
+--     default_config = {
+--       cmd = { 'glslls' }, -- GLSL lsp executable from (https://github.com/svenstaro/glsl-language-server)
+--       filetypes = { 'glsl' },
 
-      root_dir = function(fname)
-        return util.root_pattern('.git')(fname)
-      end,
-      single_file_support = true,
-      capabilities = {
-        textDocument = {
-          completion = {
-            editsNearCursor = true,
-          },
-        },
-        offsetEncoding = { 'utf-8', 'utf-16' },
-      },
-    },
-    commands = {},
-    docs = {
-      description = [[
-      Basic LSP support for GLSL using glslls --stdio
-    ]],
-    },
-  }
-end
+--       root_dir = function(fname)
+--         return util.root_pattern('.git')(fname)
+--       end,
+--       single_file_support = true,
+--       capabilities = {
+--         textDocument = {
+--           completion = {
+--             editsNearCursor = true,
+--           },
+--         },
+--         offsetEncoding = { 'utf-8', 'utf-16' },
+--       },
+--     },
+--     commands = {},
+--     docs = {
+--       description = [[
+--       Basic LSP support for GLSL using glslls --stdio
+--     ]],
+--     },
+--   }
+-- end
 
-lspconfig.glsl.setup(globalOpts)
+-- lspconfig.glsl.setup(globalOpts)
+-- require'lspconfig'.glslls.setup{}

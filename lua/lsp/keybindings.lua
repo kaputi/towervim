@@ -72,7 +72,8 @@ M.setup = function(bufnr)
       '<cmd>lua vim.lsp.buf.signature_help()<CR>',
       'show signature help',
     },
-    ['gvd'] = { '<cmd>vsplit | lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
+    -- TODO: this fucks up gv for go visual
+    -- ['gvd'] = { '<cmd>vsplit | lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
     -- ['gp'] =key {
     --   "<cmd>lua require'lsp.peek'.Peek('definition')<CR>",
     --   'Peek definition',
