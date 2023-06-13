@@ -101,7 +101,8 @@ if ok then
   }
 
   local nmappings = {
-    ['/'] = { '<cmd>CommentToggle<CR>', 'Comment Line' },
+    ['/'] = { 'viwy/<C-r>"<CR>', 'Find under cursor' },
+    -- ['/'] = { '<cmd>CommentToggle<CR>', 'Comment Line' },
     ['='] = { '<C-w>=', 'Balance Windows' },
     [','] = {
       '<cmd>Telescope buffers initial_mode=normal<CR>',

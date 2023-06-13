@@ -254,6 +254,7 @@ neoTree.setup({
       ['m'] = 'move', -- takes text input for destination, also accepts the config.show_path option
       ['q'] = 'close_window',
       ['?'] = 'show_help',
+      ['P'] = { 'toggle_preview', config = { use_float = true } },
     },
   },
   filesystem = {
