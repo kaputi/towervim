@@ -339,6 +339,7 @@ if ok then
       ['m'] = { '<cmd>Telescope marks<CR>', 'Marks' },
       ['M'] = { '<cmd>Telescope keymaps<CR>', 'Key Maps' },
       ['p'] = { '<cmd>Telescope tags<CR>', 'Project Tags' },
+      ['r'] = {'<cmd>Telescope resume<CR>', 'Resume last search'},
       -- ['s'] = {':CocList snippets'  , 'Snippets'},
       ['S'] = { '<cmd>Telescope colorscheme<CR>', 'Color Schemes' },
       ['t'] = { '<cmd>Telescope live_grep<CR>', 'Text Rg' },

@@ -10,6 +10,7 @@ local globalOpts = {
   on_attach = require('lsp.on_attach'),
   capabilities = require('lsp.capabilities'),
   -- handlers = require('lsp.handlers'),
+  root_dir = lspconfig.util.root_pattern("package.json", ".git")
 }
 
 -- now with mason

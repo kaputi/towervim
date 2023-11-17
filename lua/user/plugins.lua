@@ -238,6 +238,7 @@ return {
       -- fidget.setup({})
       require('fidget').setup({})
     end,
+    tag = 'legacy',
   },
   -- ============================================================
   -- TOOLS

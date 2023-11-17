@@ -39,11 +39,11 @@ gitsigns.setup({
   },
   numhl = false,
   linehl = false,
-  keymaps = {
-    -- Default keymap options
-    noremap = true,
-    buffer = true,
-  },
+  -- keymaps = {
+  --   -- Default keymap options
+  --   noremap = true,
+  --   buffer = true,
+  -- },
   current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
   current_line_blame_opts = {
     virt_text = true,
