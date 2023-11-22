@@ -1,38 +1,60 @@
--- vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 blend=nocombine]]
--- vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B blend=nocombine]]
--- vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 blend=nocombine]]
--- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 blend=nocombine]]
--- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF blend=nocombine]]
--- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD blend=nocombine]]
-
-local blankline_ok, blankline = pcall(require, 'indent_blankline')
+-- local blankline_ok, blankline = pcall(require, 'indent_blankline')
+local blankline_ok, blankline = pcall(require, 'ibl')
 if blankline_ok then
+  -- local highlight = {
+  --   'RainbowRed',
+  --   'RainbowYellow',
+  --   'RainbowBlue',
+  --   'RainbowOrange',
+  --   'RainbowGreen',
+  --   'RainbowViolet',
+  --   'RainbowCyan',
+  -- }
+  -- local hooks = require('ibl.hooks')
+  -- -- create the highlight groups in the highlight setup hook, so they are reset
+  -- -- every time the colorscheme changes
+  -- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+  --   vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
+  --   vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
+  --   vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
+  --   vim.api.nvim_set_hl(0, 'RainbowOrange', { fg = '#D19A66' })
+  --   vim.api.nvim_set_hl(0, 'RainbowGreen', { fg = '#98C379' })
+  --   vim.api.nvim_set_hl(0, 'RainbowViolet', { fg = '#C678DD' })
+  --   vim.api.nvim_set_hl(0, 'RainbowCyan', { fg = '#56B6C2' })
+  -- end)
+
+  -- vim.g.rainbow_delimiters = { highlight = highlight }
+
   blankline.setup({
-    char_list = { '|', '¦', '┆', '┊' },
-    buftype_exclude = { 'terminal' },
-    filetype_exclude = {
-      'startify',
-      'help',
-      'alpha',
-      'vimwiki',
-      'NvimTree',
-      'neo-tree',
+    enabled = true,
+
+    indent = { char = '|' },
+
+    scope = {
+      enabled = true,
+      show_start = true,
+      show_end = true,
+      --   highlight = highlight,
     },
-    use_treesitter = true,
-    space_char_blankline = ' ',
-    show_current_context = true,
-    show_first_indent_level = true,
-    -- python context_patterns = { '^def', '^if', '^elif', '^else', '^for', '^with', '^while', '^until', '^try', '^except', '^finally' }
-    context_patterns = {
-      'class',
-      'method',
-      'function',
-      '^if',
-      '^else',
-      '^for',
-      '^while',
-      '^try',
-      '^catch',
+
+    exclude = {
+      filetypes = {
+        'startify',
+        'help',
+        'alpha',
+        'vimwiki',
+        'NvimTree',
+        'neo-tree',
+      },
+      buftype = { 'terminal' },
     },
   })
+
+  -- hooks.register(
+  --   hooks.type.SCOPE_HIGHLIGHT,
+  --   hooks.builtin.scope_highlight_from_extmark
+  -- )
+
+  blankline.enabled()
+
 end
