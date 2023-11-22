@@ -39,8 +39,8 @@ if ok then
     --       enable = false
     --     }
     --  }
-    context_commentstring = {
-      enable = true,
-    },
+    -- context_commentstring = {
+    --   enable = true,
+    -- },
   })
 end

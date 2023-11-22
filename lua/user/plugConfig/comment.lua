@@ -1,4 +1,9 @@
 local comment_ok, comment = pcall(require, 'Comment')
+local commentStr_ok, commentStr = pcall(require, 'ts_context_commentstring')
+if commentStr_ok then
+  commentStr.setup()
+end
+
 if comment_ok then
   comment.setup({
     ---Add a space b/w comment and the line

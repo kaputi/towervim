@@ -25,36 +25,37 @@ if blankline_ok then
 
   -- vim.g.rainbow_delimiters = { highlight = highlight }
 
-  blankline.setup({
-    enabled = true,
+  -- blankline.setup({
+  --   enabled = true,
 
-    indent = { char = '|' },
+  --   indent = { char = '|' },
 
-    scope = {
-      enabled = true,
-      show_start = true,
-      show_end = true,
-      --   highlight = highlight,
-    },
+  --   scope = {
+  --     enabled = true,
+  --     show_start = true,
+  --     show_end = true,
+  --     --   highlight = highlight,
+  --   },
 
-    exclude = {
-      filetypes = {
-        'startify',
-        'help',
-        'alpha',
-        'vimwiki',
-        'NvimTree',
-        'neo-tree',
-      },
-      buftype = { 'terminal' },
-    },
-  })
+  --   exclude = {
+  --     filetypes = {
+  --       'startify',
+  --       'help',
+  --       'alpha',
+  --       'vimwiki',
+  --       'NvimTree',
+  --       'neo-tree',
+  --     },
+  --     buftype = { 'terminal' },
+  --   },
+  -- })
+
+  blankline.setup()
 
   -- hooks.register(
   --   hooks.type.SCOPE_HIGHLIGHT,
   --   hooks.builtin.scope_highlight_from_extmark
   -- )
 
-  blankline.enabled()
-
+  -- blankline.enabled()
 end
