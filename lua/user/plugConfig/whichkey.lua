@@ -112,6 +112,7 @@ if ok then
     -- ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
     -- ['d'] = { '<cmd>bdelete<CR>', 'Delete Buffer' },
     ['d'] = { '<cmd>Bdelete<CR>', 'Delete Buffer' },
+    ['D'] = {'<cmd>Neogen<CR>', 'Create Docs'},
     -- ['E'] = { '<cmd>NvimTreeToggle<CR>', 'File Explorer' },
     -- ['e'] = { '<cmd>NvimTreeFindFileToggle<CR>', 'File Explorer' },
     ['e'] = { '<cmd>Neotree reveal toggle<CR>', 'File Explorer' },
@@ -240,10 +241,10 @@ if ok then
     },
 
     -- Debug Layer
-    ['D'] = {
-      name = '>> Debug <<',
-      -- TODO:
-    },
+    -- ['D'] = {
+    --   name = '>> Debug <<',
+    --   -- TODO:
+    -- },
 
     -- File Layer
     ['f'] = {

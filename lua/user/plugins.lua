@@ -390,11 +390,11 @@ return {
     'lewis6991/impatient.nvim',
     config = loadConfig('impatient'),
   },
-  {
-    'anuvyklack/pretty-fold.nvim',
-    requires = 'anuvyklack/nvim-keymap-amend',
-    config = loadConfig('pretty-fold'),
-  },
+  -- {
+  --   'anuvyklack/pretty-fold.nvim',
+  --   requires = 'anuvyklack/nvim-keymap-amend',
+  --   config = loadConfig('pretty-fold'),
+  -- },
   {
     'SmiteshP/nvim-navic',
     requires = 'neovim/nvim-lspconfig',
@@ -462,4 +462,30 @@ return {
 
   -- TODO: try to do my own scrratch or -> 'mtth/scratch.vim'
   -- TODO: lazyloading
+  {
+    'danymat/neogen',
+    config = function()
+      require('neogen').setup({ snippet_engine = 'vsnip' })
+    end,
+    requires = 'nvim-treesitter/nvim-treesitter',
+    -- Uncomment next line if you want to follow only stable versions
+    tag = '*',
+  },
+  {
+    'dpayne/CodeGPT.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('codegpt.config')
+      vim.g.codegpt_openai_api_key =
+        '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'
+    end,
+  },
+  {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = loadConfig('ufo'),
+  },
 }
