@@ -477,11 +477,7 @@ return {
       'MunifTanjim/nui.nvim',
       'nvim-lua/plenary.nvim',
     },
-    config = function()
-      require('codegpt.config')
-      vim.g.codegpt_openai_api_key =
-        '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'
-    end,
+    config = loadConfig('chatGPT'),
   },
   {
     'kevinhwang91/nvim-ufo',
