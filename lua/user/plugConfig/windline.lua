@@ -223,6 +223,18 @@ if ok then
     end,
   }
 
+  -- basic.gpt = {
+  --   hl_colors = { text = { 'white', 'black' } },
+  --   text = function()
+  --     local CodeGPTModule = require('codegpt')
+  --     local string = CodeGPTModule.get_status()
+
+  --     -- string = string .. ' |'
+
+  --     return { { ' | GPT:' .. string, 'text' } }
+  --   end,
+  -- }
+
   -- basic.curretFunc = {
   --   hl_colors = { text = {'yellow','black'}},
   --   text = function()
@@ -264,6 +276,7 @@ if ok then
       basic.onSave,
       basic.formaterLinter,
       basic.lsp_provider,
+      -- basic.gpt,
       { ' ', hl_list.Black },
       { sep.left_rounded, { 'white_light', 'black' } },
       basic.filetype,

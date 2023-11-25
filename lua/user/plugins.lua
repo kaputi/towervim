@@ -471,17 +471,53 @@ return {
     -- Uncomment next line if you want to follow only stable versions
     tag = '*',
   },
-  {
-    'dpayne/CodeGPT.nvim',
-    requires = {
-      'MunifTanjim/nui.nvim',
-      'nvim-lua/plenary.nvim',
-    },
-    config = loadConfig('chatGPT'),
-  },
+  -- {
+  --   'dpayne/CodeGPT.nvim',
+  --   requires = {
+  --     'MunifTanjim/nui.nvim',
+  --     'nvim-lua/plenary.nvim',
+  --   },
+  --   config = loadConfig('chatGPT'),
+  -- },
   {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
     config = loadConfig('ufo'),
+  },
+  {
+    'jackMort/ChatGPT.nvim',
+    config = loadConfig('chatGPT'),
+    -- config = function()
+    --   require('chatgpt').setup({
+    --     -- TODO:
+    --     -- api_key_cmd = 'cat /home/eduardo/.config/towervim/lua/user/openai_key',
+    --     api_key_cmd = 'lua ' .. vim.loop.os_homedir() .. '/.config/towervim/lua/user/openai_api_key.lua',
+    --   })
+    -- end,
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+  },
+  {
+    'smoka7/multicursors.nvim',
+    requires = 'smoka7/hydra.nvim',
+    config = function()
+      require('multicursors').setup({
+        hint_config = {
+          border = 'rounded',
+          position = 'bottom-right',
+        },
+        generate_hints = {
+          normal = true,
+          insert = true,
+          extend = true,
+          config = {
+            column_count = 1,
+          },
+        },
+      })
+    end,
   },
 }

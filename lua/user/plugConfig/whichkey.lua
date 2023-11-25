@@ -98,6 +98,23 @@ if ok then
 
   local vmappings = {
     ['r'] = { '"_d"*p', 'Replace Selection with register' },
+
+    -- GPT layer
+    ['G'] = {
+      name = '>> ChatGPT <<',
+      ['c'] = { '<cmd>ChatGPTRun complete_code<CR>', 'Complete' },
+      ['d'] = { '<cmd>ChatGPTRun docstring<CR>', 'Docs' },
+      ['D'] = { '<cmd>ChatGPTRun fix_bugs<CR>', 'Debug' },
+      ['e'] = { '<cmd>ChatGPTRun explain_code<CR>', 'Explain' },
+      ['o'] = { '<cmd>ChatGPTRun optimize_code<CR>', 'Optimize' },
+      ['t'] = { '<cmd>ChatGPTRun add_tests<CR>', 'Unit Test' },
+      -- ['c'] = { '<cmd>Chat completion<CR>', 'Complete' },
+      -- ['d'] = { '<cmd>Chat doc<CR>', 'Docs' },
+      -- ['D'] = { '<cmd>Chat debug<CR>', 'Debug' },
+      -- ['e'] = { '<cmd>Chat explain<CR>', 'Explain' },
+      -- ['o'] = { '<cmd>Chat opt<CR>', 'Optimize' },
+      -- ['t'] = { '<cmd>Chat test<CR>', 'Unit Test' },
+    },
   }
 
   local nmappings = {
@@ -112,11 +129,12 @@ if ok then
     -- ['d'] = {'<cmd>BufferClose<CR>', 'Delete Buffer'},
     -- ['d'] = { '<cmd>bdelete<CR>', 'Delete Buffer' },
     ['d'] = { '<cmd>Bdelete<CR>', 'Delete Buffer' },
-    ['D'] = {'<cmd>Neogen<CR>', 'Create Docs'},
+    ['D'] = { '<cmd>Neogen<CR>', 'Create Docs' },
     -- ['E'] = { '<cmd>NvimTreeToggle<CR>', 'File Explorer' },
     -- ['e'] = { '<cmd>NvimTreeFindFileToggle<CR>', 'File Explorer' },
     ['e'] = { '<cmd>Neotree reveal toggle<CR>', 'File Explorer' },
     ['E'] = { '<cmd>Neotree toggle<CR>', 'File Explorer' },
+    ['G'] = {'<cmd>ChatGPT<CR>','Chat GPT'},
     ['h'] = {
       '<cmd>split | Telescope buffers initial_mode=normal<CR>',
       'Horizontal Split',
@@ -206,7 +224,10 @@ if ok then
       ['R'] = { '<cmd>syntax on<CR>', 'Reset Colors (syntax on)' },
       -- ['t'] = { '<cmd>Vista!!<CR>', 'Vista Tag Viewer' },
       ['t'] = { '<cmd>SymbolsOutline<CR>', 'Symbol explorer' },
-      ['T'] = { '<cmd>lua require"user.functions".toggleTabLine()<CR>', 'Show Hide tabs' },
+      ['T'] = {
+        '<cmd>lua require"user.functions".toggleTabLine()<CR>',
+        'Show Hide tabs',
+      },
       -- ['p'] = {'<cmd>RainbowToggle<CR>'                         , 'Color Parenthesis'},
       ['v'] = { '<cmd>SymbolsOutline<CR>', 'Symbol Explorer' },
       ['w'] = { '<cmd>setlocal wrap!<CR>', 'Wrap' },
@@ -301,9 +322,18 @@ if ok then
       name = '>> Replace <<',
       ['R'] = { ':%s/<C-r><C-w>/', 'Replace All' },
       ['r'] = { ':s/<C-r><C-w>/', 'Replace Under Cursor' },
-      ['s'] = { '<cmd>lua require("spectre").open_visual()<CR>', 'Spectre (project)'},
-      ['S'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', 'Spectre (project) word under cursor'},
-      ['b'] = { '<cmd>lua require("spectre").open_file_search()<CR>', 'Spectre (buffer)'},
+      ['s'] = {
+        '<cmd>lua require("spectre").open_visual()<CR>',
+        'Spectre (project)',
+      },
+      ['S'] = {
+        '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+        'Spectre (project) word under cursor',
+      },
+      ['b'] = {
+        '<cmd>lua require("spectre").open_file_search()<CR>',
+        'Spectre (buffer)',
+      },
       -- TODO: move to visual  and check if works ['s'] = {'"_d"*p','Replace Selection with register'},
       ['y'] = {
         ':s/<C-r><C-w>/<C-r>0<CR>',
@@ -340,7 +370,7 @@ if ok then
       ['m'] = { '<cmd>Telescope marks<CR>', 'Marks' },
       ['M'] = { '<cmd>Telescope keymaps<CR>', 'Key Maps' },
       ['p'] = { '<cmd>Telescope tags<CR>', 'Project Tags' },
-      ['r'] = {'<cmd>Telescope resume<CR>', 'Resume last search'},
+      ['r'] = { '<cmd>Telescope resume<CR>', 'Resume last search' },
       -- ['s'] = {':CocList snippets'  , 'Snippets'},
       ['S'] = { '<cmd>Telescope colorscheme<CR>', 'Color Schemes' },
       ['t'] = { '<cmd>Telescope live_grep<CR>', 'Text Rg' },
