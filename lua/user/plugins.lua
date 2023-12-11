@@ -471,6 +471,11 @@ return {
     -- Uncomment next line if you want to follow only stable versions
     tag = '*',
   },
+  {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = loadConfig('ufo'),
+  },
   -- {
   --   'dpayne/CodeGPT.nvim',
   --   requires = {
@@ -479,11 +484,6 @@ return {
   --   },
   --   config = loadConfig('chatGPT'),
   -- },
-  {
-    'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async',
-    config = loadConfig('ufo'),
-  },
   {
     'jackMort/ChatGPT.nvim',
     config = loadConfig('chatGPT'),
@@ -500,24 +500,14 @@ return {
       'nvim-telescope/telescope.nvim',
     },
   },
-  {
-    'smoka7/multicursors.nvim',
-    requires = 'smoka7/hydra.nvim',
-    config = function()
-      require('multicursors').setup({
-        hint_config = {
-          border = 'rounded',
-          position = 'bottom-right',
-        },
-        generate_hints = {
-          normal = true,
-          insert = true,
-          extend = true,
-          config = {
-            column_count = 1,
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   '/home/eduardo/code/gpt.nvim',
+  --   requires = {
+  --     'MunifTanjim/nui.nvim',
+  --     'nvim-lua/plenary.nvim',
+  --   },
+  --   config = function()
+  --     require('GPT').setup({})
+  --   end,
+  -- },
 }

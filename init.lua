@@ -30,3 +30,17 @@ require('core.keybindings')
 
 print(Settings.general.colorscheme)
 vim.cmd('colorscheme ' .. Settings.general.colorscheme)
+
+-- === === === === === PLUGIN DEV === === === === === === === === === === === ==
+P = function(variable)
+  print(vim.inspect(variable))
+end
+
+RELOAD = function(...)
+  return require('planery.reload').reload_module(...)
+end
+
+R = function(name)
+  RELOAD(name)
+  return require(name)
+end

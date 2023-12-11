@@ -16,4 +16,15 @@ chatgpt.setup({
   api_key_cmd = 'lua '
     .. vim.loop.os_homedir()
     .. '/.config/towervim/lua/user/openai_api_key.lua',
+
+  chat = {
+    question_sign = '', -- 🙂
+    answer_sign = 'ﮧ', -- 🤖
+  },
+  openai_params = {
+    max_tokens = 2000,
+  },
+  show_quickfixes_cmd = 'Trouble quickfix',
+  predefined_chat_gpt_prompts = 'https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv',
 })
+

@@ -135,6 +135,7 @@ if ok then
     ['e'] = { '<cmd>Neotree reveal toggle<CR>', 'File Explorer' },
     ['E'] = { '<cmd>Neotree toggle<CR>', 'File Explorer' },
     ['G'] = {'<cmd>ChatGPT<CR>','Chat GPT'},
+    -- ['G'] = {'<cmd>Chat<CR>','Chat GPT'},
     ['h'] = {
       '<cmd>split | Telescope buffers initial_mode=normal<CR>',
       'Horizontal Split',
