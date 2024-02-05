@@ -97,6 +97,37 @@ M.isempty = function(s)
   return s == nil or s == ''
 end
 
+M.selectedText = function()
+  -- local vstart = vim.fn.getpos("'<")
+
+  -- local vend = vim.fn.getpos("'>")
+
+  -- local line_start = vstart[2]
+  -- local line_end = vend[2]
+
+  -- -- or use api.nvim_buf_get_lines
+  -- local lines = vim.fn.getline(line_start, line_end)
+  -- -- local lines = vim.api.nvim_buf_get_lines(line_start, line_end)
+  -- P(lines)
+  local s_start = vim.fn.getpos("'<")
+  local s_end = vim.fn.getpos("'>")
+  local n_lines = math.abs(s_end[2] - s_start[2]) + 1
+  local lines = vim.api.nvim_buf_get_lines(0, s_start[2] - 1, s_end[2], false)
+  lines[1] = string.sub(lines[1], s_start[3], -1)
+  if n_lines == 1 then
+    lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3] - s_start[3] + 1)
+  else
+    lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3])
+  end
+  local a = table.concat(lines, '\n')
+  a = a:gsub("%/", "\\/")
+  P(a)
+
+  vim.cmd('/'.. a)
+
+  -- return table.concat(lines, '\n')
+end
+
 M.filename = function()
   local filename = vim.fn.expand('%:t')
   local extension = ''
@@ -206,7 +237,8 @@ function M.formatSelection()
     startPos = { selectionLineNr, 0 }
     endPos = { cursorLineNr, lastCursorCol }
   else -- started down and moved up
-    local lastSelectionCol = vim.fn.strchars(vim.fn.getline(selectionLineNr)) + 1
+    local lastSelectionCol = vim.fn.strchars(vim.fn.getline(selectionLineNr))
+      + 1
     startPos = { cursorLineNr, 0 }
     endPos = { selectionLineNr, lastSelectionCol }
   end

@@ -99,6 +99,10 @@ if ok then
   local vmappings = {
     ['r'] = { '"_d"*p', 'Replace Selection with register' },
 
+    -- ['/'] = {'y/V<C-R>=escape(@",'/')<CR><CR>', 'Find selection.'},
+    ['/'] = {'<escape><cmd>lua require"user.functions".selectedText()<CR>', 'Find selection.'},
+
+
     -- GPT layer
     ['G'] = {
       name = '>> ChatGPT <<',
