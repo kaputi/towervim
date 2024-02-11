@@ -59,9 +59,9 @@ if ok then
     text = function(bufnr)
       if lsp_comps.check_lsp(bufnr) then
         return {
-          { lsp_comps.lsp_error({ format = ' %s' }), 'red' },
-          { lsp_comps.lsp_warning({ format = ' %s' }), 'yellow' },
-          { lsp_comps.lsp_hint({ format = ' %s' }), 'blue' },
+          { lsp_comps.lsp_error({ format = '  %s' }), 'red' },
+          { lsp_comps.lsp_warning({ format = '  %s' }), 'yellow' },
+          { lsp_comps.lsp_hint({ format = '  %s' }), 'blue' },
         }
       end
       return ''
@@ -119,9 +119,9 @@ if ok then
       if git_comps.is_git(bufnr) then
         return {
           { ' ', '' },
-          { git_comps.diff_added({ format = '%s ' }), 'green' },
-          { git_comps.diff_removed({ format = '%s ' }), 'red' },
-          { git_comps.diff_changed({ format = '󱓻%s' }), 'blue' },
+          { git_comps.diff_added({ format = ' %s ' }), 'green' },
+          { git_comps.diff_removed({ format = ' %s ' }), 'red' },
+          { git_comps.diff_changed({ format = '󱓻 %s' }), 'blue' },
         }
       end
       return ''

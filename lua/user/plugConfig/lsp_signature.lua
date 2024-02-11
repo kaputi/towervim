@@ -12,7 +12,7 @@ local cfg = {
 
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   -- If you want to hook lspsaga or other signature handler, pls set to false
-  doc_lines = 10, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
+  doc_lines = 15, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
   -- set to 0 if you DO NOT want any API comments be shown
   -- This setting only take effect in insert mode, it does not affect signature help in normal
   -- mode, 10 by default
@@ -32,9 +32,9 @@ local cfg = {
   hint_prefix = "󰆚 ", -- Panda for parameter
   hint_scheme = 'String',
   hi_parameter = 'LspSignatureActiveParameter', -- how your parameter will be highlight
-  max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
+  max_height = 15, -- max height of signature floating_window, if content is more than max_height, you can scroll down
   -- to view the hiding contents
-  max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+  max_width = 100, -- max_width of signature floating_window, line will be wrapped if exceed max_width
   handler_opts = {
     border = 'rounded',   -- double, rounded, single, shadow, none
   },
@@ -45,7 +45,7 @@ local cfg = {
   extra_trigger_chars = {}, -- Array of extra characters that will trigger signature completion, e.g., {"(", ","}
   zindex = 200, -- by default it will be on top of all floating windows, set to <= 50 send it to bottom
 
-  padding = '', -- character to pad on left and right of signature can be ' ', or '|'  etc
+  padding = ' ', -- character to pad on left and right of signature can be ' ', or '|'  etc
 
   transparency = nil, -- disabled by default, allow floating win transparent value 1~100
   shadow_blend = 36, -- if you using shadow as border use this set the opacity
