@@ -88,7 +88,7 @@ Settings.formatter = {
 }
 
 Settings.linter = {
-  enabled = false,
+  enabled = true,
   linters = {
     -- eslint_d = {
     --   prefer_local = 'node_modules/.bin',

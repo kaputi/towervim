@@ -366,7 +366,13 @@ return {
   -- GIT
   -- ============================================================
   -- lazygit
-  { 'kdheepak/lazygit.nvim', branch = 'main' },
+  {
+    'kdheepak/lazygit.nvim',
+    config = function()
+      vim.g.lazygit_floating_window_scaling_factor = 0.9
+    end,
+    branch = 'main',
+  },
   -- git signs
   {
     'lewis6991/gitsigns.nvim',
