@@ -19,7 +19,8 @@ gitsigns.setup({
     },
     delete = {
       hl = 'GitSignsDelete',
-      text = '契',
+      -- text = '契',
+      text = '_',
       numhl = 'GitSignsDeleteNr',
       linehl = 'GitSignsDeleteLn',
     },

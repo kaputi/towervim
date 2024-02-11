@@ -66,10 +66,10 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lua',
+      -- 'hrsh7th/cmp-nvim-lua',
       -- 'hrsh7th/cmp-emoji',
       -- 'hrsh7th/cmp-calc',
-      'ray-x/cmp-treesitter',
+      -- 'ray-x/cmp-treesitter',
     },
     config = loadConfig('cmp'),
   },
@@ -303,10 +303,65 @@ return {
   --   'mickael-menu/zk-nvim',
   --   config = loadConfig('zk-nvim'),
   -- },
+  -- {
+  --   'jakewvincent/mkdnflow.nvim',
+  --   rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
+  --   config = loadConfig('mkdnflow'),
+  -- },
   {
-    'jakewvincent/mkdnflow.nvim',
-    rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
-    config = loadConfig('mkdnflow'),
+    'epwalsh/obsidian.nvim',
+    tag = '*', -- recommended, use latest release instead of latest commit
+    requires = {
+      -- Required.
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('obsidian').setup({
+        workspaces = {
+          {
+            name = 'alma',
+            path = '~/obsidian/alma',
+          },
+          {
+            name = 'personal',
+            path = '~/obsidian/personal',
+          },
+          {
+            name = 'game',
+            path = '~/obsidian/game',
+          },
+        },
+        notes_subdir = 'notes',
+        daily_notes = {
+          -- Optional, if you keep daily notes in a separate directory.
+          folder = 'notes/dailies',
+          -- Optional, if you want to change the date format for the ID of daily notes.
+          date_format = '%d-%m-%Y',
+          -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+          template = nil,
+        },
+        -- Optional, for templates (see below).
+        templates = {
+          subdir = 'templates',
+          date_format = '%d-%m-%Y',
+          time_format = '%H:%M',
+          -- A map for custom variables, the key should be the variable and the value a function
+          substitutions = {},
+        },
+        picker = {
+          -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
+          name = 'telescope.nvim',
+          -- Optional, configure key mappings for the picker. These are the defaults.
+          -- Not all pickers support all mappings.
+          -- mappings = {
+          --   -- Create a new note from your query.
+          --   new = '<C-x>',
+          --   -- Insert a link to the selected note.
+          --   insert_link = '<C-l>',
+          -- },
+        },
+      })
+    end,
   },
   -- VIMWIKI
   --   'vimwiki/vimwiki',
@@ -505,6 +560,16 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
     },
+  },
+  {
+    'Exafunction/codeium.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+    },
+    config = function()
+      require('codeium').setup({})
+    end,
   },
   -- {
   --   '/home/eduardo/code/gpt.nvim',

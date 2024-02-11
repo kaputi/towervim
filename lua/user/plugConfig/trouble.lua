@@ -36,11 +36,11 @@ if ok then
     auto_fold = false, -- automatically fold a file trouble list at creation
     signs = {
       -- icons / text used for a diagnostic
-      error = '',
-      warning = '',
-      hint = '',
+      error = '',
+      warning = '',
+      hint = '',
       information = '',
-      other = '﫠',
+      other = 'o',
     },
     use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
   })

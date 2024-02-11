@@ -61,7 +61,7 @@ if ok then
         return {
           { lsp_comps.lsp_error({ format = ' %s' }), 'red' },
           { lsp_comps.lsp_warning({ format = ' %s' }), 'yellow' },
-          { lsp_comps.lsp_hint({ format = ' %s' }), 'blue' },
+          { lsp_comps.lsp_hint({ format = ' %s' }), 'blue' },
         }
       end
       return ''
@@ -121,7 +121,7 @@ if ok then
           { ' ', '' },
           { git_comps.diff_added({ format = '%s ' }), 'green' },
           { git_comps.diff_removed({ format = '%s ' }), 'red' },
-          { git_comps.diff_changed({ format = '柳%s' }), 'blue' },
+          { git_comps.diff_changed({ format = '󱓻%s' }), 'blue' },
         }
       end
       return ''
@@ -179,9 +179,9 @@ if ok then
             or value.name == 'prettierd'
             or value.name == 'prettier'
           then
-            local sign = ' 﫠|'
+            local sign = '  |'
             if value._disabled then
-              sign = '  |'
+              sign = '  |'
             end
             table.insert(registered, { value.name .. sign, 'text' })
           end
@@ -260,7 +260,7 @@ if ok then
       { ' ', hl_list.Black },
       basic.vi_mode,
       {
-        git_comps.git_branch({ icon = '  ' }),
+        git_comps.git_branch({ icon = '  ' }),
         { 'white', 'black_light' },
         -- { 'yellow_light', 'black' },
         90,
@@ -296,7 +296,7 @@ if ok then
   local quickfix = {
     filetypes = { 'qf', 'Trouble' },
     active = {
-      { '🚦 Quickfix ', { 'white', 'black' } },
+      { '  Quickfix ', { 'white', 'black' } },
       { helper.separators.slant_right, { 'black', 'black_light' } },
       {
         function()
@@ -309,7 +309,7 @@ if ok then
       { ' ', { 'InactiveFg', 'InactiveBg' } },
       basic.divider,
       { helper.separators.slant_right, { 'InactiveBg', 'black' } },
-      { '🧛 ', { 'white', 'black' } },
+      -- { ' ', { 'white', 'black' } },
     },
     always_active = true,
     show_last_status = true,
@@ -330,7 +330,7 @@ if ok then
   local tag_view = {
     filetypes = { 'vista_kind', 'Outline' },
     active = {
-      { '  ', { 'white', 'black' } },
+      { '  ', { 'white', 'black' } },
       { helper.separators.slant_right, { 'black', 'black_light' } },
       { b_components.divider, '' },
       -- {b_components.file_name(''), {'white', 'black_light'}}

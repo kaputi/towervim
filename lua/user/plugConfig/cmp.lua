@@ -40,6 +40,7 @@ if ok then
           path = '[path]',
           vsnip = '[snippet]',
           buffer = '[buffer]',
+          codeium = '[codeium]',
         })[entry.source.name]
         vim_item.dup = ({ buffer = 1, path = 1, nvim_lsp = 0 })[entry.source.name]
           or 0
@@ -51,6 +52,7 @@ if ok then
       { name = 'nvim_lsp' },
       { name = 'buffer' },
       { name = 'path' },
+      { name = 'codeium' },
       -- { name = 'nvim_lua' },
       -- { name = 'calc' },
       -- { name = 'emoji' },
@@ -172,7 +174,7 @@ if ok then
       }),
     },
     experimental = {
-      ghost_text = false,
+      ghost_text = true,
     },
   })
 end
